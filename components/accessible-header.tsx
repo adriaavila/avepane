@@ -45,7 +45,7 @@ export function AccessibleHeader() {
               className="flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
             >
               <Image
-                src="/images/logo-avepane.jpg"
+                src="/images/avepane_vector_logo.svg"
                 alt="Logo AVEPANE - Asociación Venezolana de Padres y Amigos de Niños Excepcionales"
                 width={60}
                 height={60}

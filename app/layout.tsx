@@ -31,7 +31,12 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_VE",
   },
-    generator: 'v0.app'
+  icons: {
+    icon: "/images/avepane_vector_logo.svg",
+    shortcut: "/images/avepane_vector_logo.svg",
+    apple: "/images/avepane_vector_logo.svg",
+  },
+  generator: 'v0.app'
 }
 
 export const viewport: Viewport = {

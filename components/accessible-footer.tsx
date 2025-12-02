@@ -29,7 +29,7 @@ export function AccessibleFooter() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Logo and description */}
           <div className="space-y-4">
-            <Image src="/images/logo-avepane.jpg" alt="Logo AVEPANE" width={80} height={80} className="h-20 w-auto" />
+            <Image src="/images/avepane_vector_negativo2.svg" alt="Logo AVEPANE" width={80} height={80} className="h-20 w-auto" />
             <p className="text-sm leading-relaxed">Asociación Venezolana de Padres y Amigos de Niños Excepcionales</p>
             <div className="flex gap-4">
               <a
