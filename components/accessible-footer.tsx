@@ -19,7 +19,7 @@ export function AccessibleFooter() {
   const resources = [
     { name: "Aliados Estratégicos", href: "/aliados" },
     { name: "Voluntariado", href: "/nosotros#voluntariado" },
-    { name: "Bazar Virtual", href: "/#bazar-virtual" },
+    { name: "Vitrina virtual", href: "/#bazar-virtual" },
     { name: "Contacto", href: "/contacto" },
   ]
 

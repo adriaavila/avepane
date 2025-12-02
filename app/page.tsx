@@ -170,15 +170,15 @@ export default function HomePage() {
                 <ShoppingBag className="h-8 w-8" aria-hidden="true" />
               </div>
               <h2 id="bazaar-heading" className="font-heading text-3xl font-bold md:text-4xl text-balance">
-                Bazar Virtual AVEPANE
+                Vitrina virtual AVEPANE
               </h2>
               <p className="text-lg leading-relaxed text-pretty">
-                Te invitamos a formar parte del Bazar Virtual AVEPANE, dirigido a presentar una vitrina que funcione
+                Te invitamos a formar parte del Vitrina virtual AVEPANE, dirigido a presentar una vitrina que funcione
                 para dar a conocer a importantes emprendimientos en búsqueda de negocios sensibles a las obras de
                 carácter social y humanitario.
               </p>
               <p className="leading-relaxed text-pretty">
-                Con el Bazar Virtual AVEPANE tendremos la oportunidad de ayudarnos, tu mercado va a crecer y nosotros
+                Con el Vitrina virtual AVEPANE tendremos la oportunidad de ayudarnos, tu mercado va a crecer y nosotros
                 recibiremos un aporte. El Covid-19 ha cambiado todas las formas de recaudar fondos para continuar con
                 los planes que AVEPANE realiza desde hace 57 años.
               </p>
@@ -198,7 +198,7 @@ export default function HomePage() {
             <div className="relative h-96">
               <Image
                 src="/virtual-market-handmade-crafts-bazaar-products.jpg"
-                alt="Bazar Virtual - Productos artesanales y emprendimientos"
+                alt="Vitrina virtual - Productos artesanales y emprendimientos"
                 fill
                 className="object-cover rounded-xl shadow-2xl"
               />
