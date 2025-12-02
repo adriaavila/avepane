@@ -245,10 +245,18 @@ export default function ContactPage() {
             <p className="text-lg leading-relaxed text-pretty">Encuéntranos en Caracas, Venezuela</p>
           </div>
 
-          <div className="relative h-96 rounded-xl overflow-hidden shadow-xl bg-muted">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <p className="text-muted-foreground">[Mapa interactivo de Google Maps aquí]</p>
-            </div>
+          <div className="relative w-full rounded-xl overflow-hidden shadow-xl bg-muted">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7847.524085608428!2d-66.857136!3d10.440448000000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c2af632a17f00f3%3A0x77872c7eeb39fb10!2sInstituto%20Universitario%20Avepane!5e0!3m2!1ses-419!2sco!4v1764701844673!5m2!1ses-419!2sco"
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="w-full"
+              title="Ubicación de Instituto Universitario Avepane"
+            />
           </div>
 
           <div className="mt-8 text-center">
