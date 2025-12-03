@@ -29,41 +29,55 @@ export default function AlliesPage() {
     },
     {
       id: 3,
+      name: "CAMROD",
+      logo: "/placeholder.svg?height=120&width=200",
+      description: "Organización internacional de apoyo a personas con discapacidad",
+      website: "https://example.com",
+    },
+    {
+      id: 4,
+      name: "OEA",
+      logo: "/placeholder.svg?height=120&width=200",
+      description: "Organización de los Estados Americanos",
+      website: "https://www.oas.org",
+    },
+    {
+      id: 5,
       name: "ANDE",
       logo: "/placeholder.svg?height=120&width=200",
       description: "Asociación Nacional de Discapacidad Especial",
       website: "https://example.com",
     },
     {
-      id: 4,
+      id: 6,
       name: "Fundación Kennedy",
       logo: "/placeholder.svg?height=120&width=200",
       description: "Fundación dedicada a apoyar personas con discapacidad intelectual",
       website: "https://example.com",
     },
     {
-      id: 5,
+      id: 7,
       name: "VerySpecialArts",
       logo: "/placeholder.svg?height=120&width=200",
       description: "Organización de arte y educación para personas con discapacidad",
       website: "https://example.com",
     },
     {
-      id: 6,
+      id: 8,
       name: "Liga Internacional para el Retardo Mental",
       logo: "/placeholder.svg?height=120&width=200",
       description: "Red internacional de apoyo a personas con discapacidad intelectual",
       website: "https://example.com",
     },
     {
-      id: 7,
-      name: "Clipedim",
+      id: 9,
+      name: "CILPEDIM",
       logo: "/placeholder.svg?height=120&width=200",
       description: "Centro de apoyo y recursos para la educación especial",
       website: "https://example.com",
     },
     {
-      id: 8,
+      id: 10,
       name: "Real Patronato Español",
       logo: "/placeholder.svg?height=120&width=200",
       description: "Institución española de apoyo a personas con discapacidad",
@@ -96,12 +110,12 @@ export default function AlliesPage() {
           <div className="text-center space-y-6">
             <p className="text-lg leading-relaxed text-pretty">
               AVEPANE ha promovido acciones para lograr la cooperación con otros países en las relaciones de intercambio
-              inter-institucionales que han generado una gran riqueza en cuanto a nuestros programas y proyectos
+              inter-institucionales que han generado una gran riqueza en logros para nuestros programas y proyectos
               futuros.
             </p>
             <p className="text-lg leading-relaxed text-pretty">
-              Entre ellos destacan: UNESCO, GLARP, ANDE, VerySpecialArts, Liga Internacional para el Retardo Mental,
-              Clipedim, Real Patronato Español, Fundación Kennedy y otros.
+              Entre ellos destacan: UNESCO, GLARP, CAMROD, OEA, ANDE, VerySpecialArts, Liga Internacional para el Retardo Mental,
+              CILPEDIM, Real Patronato Español, Fundación Kennedy y otros.
             </p>
           </div>
         </div>

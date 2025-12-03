@@ -38,7 +38,7 @@ export default function HomePage() {
                 Construyendo Oportunidades para Todos
               </h1>
               <p className="text-lg leading-relaxed text-pretty md:text-xl">
-                Somos la <strong>Asociación Venezolana de Padres y Amigos de Niños Excepcionales</strong>, nuestra
+                Somos la <strong>Asociación Venezolana de Padres y Amigos de Niños Excepcionales (AVEPANE)</strong>, nuestra
                 misión es potenciar el desarrollo integral de niños, jóvenes y adultos con discapacidad intelectual
                 mediante programas especializados.
               </p>
@@ -173,14 +173,23 @@ export default function HomePage() {
                 Vitrina virtual AVEPANE
               </h2>
               <p className="text-lg leading-relaxed text-pretty">
-                Te invitamos a formar parte del Vitrina virtual AVEPANE, dirigido a presentar una vitrina que funcione
-                para dar a conocer a importantes emprendimientos en búsqueda de negocios sensibles a las obras de
+                Te invitamos a formar parte del <strong>Bazar Virtual Avepane 2020</strong>, dirigido a presentar una vitrina que funcione
+                para dar a conocer a importantes emprendimientos en la búsqueda de personas sensibles a las obras de
                 carácter social y humanitario.
               </p>
               <p className="leading-relaxed text-pretty">
-                Con el Vitrina virtual AVEPANE tendremos la oportunidad de ayudarnos, tu mercado va a crecer y nosotros
-                recibiremos un aporte. El Covid-19 ha cambiado todas las formas de recaudar fondos para continuar con
-                los planes que AVEPANE realiza desde hace 57 años.
+                Con el <strong>Bazar Virtual Avepane 2020</strong> tendremos la oportunidad de ayudarnos, tu mercado va a crecer y nosotros
+                recibiremos un aporte. El Covid-19 nos ha cambiado todas las formas de recaudar fondos para continuar con
+                los planes que AVEPANE realiza desde hace 57 años, pero no nos podemos detener, nuestros niños, jóvenes y adultos cuentan con nosotros.
+              </p>
+              <p className="leading-relaxed text-pretty">
+                Buscamos captar fondos para contribuir con los programas que lleva a cabo la institución en el presente año a través de actividades virtuales: torneos de golf, conciertos, bazar. En esta oportunidad empezaremos con el Bazar Virtual Avepane 2020, el cual capitalizará la empatía que existe en la comunidad hacia la institución. Tu marca formará parte de los grandes colaboradores para continuar con nuestros programas.
+              </p>
+              <p className="leading-relaxed text-pretty font-semibold">
+                ¡Contamos con tu apoyo, contamos contigo!
+              </p>
+              <p className="leading-relaxed text-pretty">
+                Escríbenos al email <a href="mailto:avepanebazar@gmail.com" className="underline hover:no-underline font-semibold">avepanebazar@gmail.com</a> para enviarte la información de cómo puedes apoyar y estar en nuestro Bazar Virtual Avepane 2020.
               </p>
               <Button
                 asChild
@@ -188,10 +197,10 @@ export default function HomePage() {
                 variant="secondary"
                 className="bg-background text-foreground hover:bg-background/90"
               >
-                <a href="mailto:avepanebazar@gmail.com">
+                <Link href="/vitrina">
                   <Gift className="mr-2 h-5 w-5" aria-hidden="true" />
-                  Contactar para participar
-                </a>
+                  Acceder a la vitrina
+                </Link>
               </Button>
             </div>
 

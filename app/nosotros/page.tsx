@@ -1,9 +1,7 @@
 import { MainLayout } from "@/components/main-layout"
 import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
 import Image from "next/image"
-import { History, Target, Users, Heart, ArrowRight } from "lucide-react"
+import { History, Target, Users, Heart } from "lucide-react"
 
 export const metadata = {
   title: "Nosotros - AVEPANE",
@@ -69,18 +67,14 @@ export default function AboutPage() {
               <div className="space-y-4 text-lg leading-relaxed text-pretty">
                 <p>
                   Somos la <strong>Asociación Venezolana de Padres y Amigos de Niños Excepcionales</strong>, una
-                  organización fundada hace más de 50 años con el propósito de potenciar el desarrollo integral de
+                  organización privada sin fines de lucro fundada el <strong>1º de Agosto de 1963</strong> con el propósito de potenciar el desarrollo integral de
                   niños, jóvenes y adultos con discapacidad intelectual.
                 </p>
                 <p>
-                  Nuestra misión es promover la formación y actualización de recursos humanos a nivel universitario en
-                  Educación Especial y carreras afines, desarrollando acciones en las áreas de Prevención, Diagnóstico e
-                  Investigación de los factores de alto riesgo que inciden en la discapacidad intelectual.
+                  Nos dedicamos a la Educación y atención integral de personas con discapacidad intelectual (DI), a la Prevención, Diagnóstico e Investigación de factores de alto riesgo de DI, y al desarrollo del conocimiento en el mismo campo, incluyendo la formación de docentes a nivel universitario.
                 </p>
                 <p>
-                  También promovemos la formación y actualización de recursos humanos a nivel universitario en Educación
-                  Especial y carreras afines, siendo un referente nacional en la inclusión y el desarrollo de programas
-                  laborales especializados.
+                  La <strong>Junta Directiva</strong> es el órgano rector de las políticas de la Asociación con el apoyo de la Comunidad Educativa, y los Comités Científico, de Relaciones Públicas e Interinstitucionales, Administrativo, y el Voluntariado, que trabajan por el cumplimiento de los objetivos para los cuales fue creada la Asociación.
                 </p>
               </div>
             </div>
@@ -113,9 +107,7 @@ export default function AboutPage() {
                 </div>
                 <h2 className="font-heading text-2xl font-bold text-balance">Visión</h2>
                 <p className="text-lg leading-relaxed text-pretty">
-                  Ser la organización líder en Venezuela en la promoción de la inclusión social y laboral de personas
-                  con discapacidad intelectual, reconocida por la excelencia de nuestros programas y el impacto
-                  transformador en la vida de nuestros beneficiarios y sus familias.
+                  Ser la asociación líder en servicios de educación especial en Venezuela que permita formar a niños y jóvenes con discapacidad intelectual en un ambiente de aprendizaje eficaz con miras a su incorporación al mercado de trabajo y a la vida adulta con el fin de mejorarle su calidad de vida y la de sus familias sin distingo de raza, credo y status económico contribuyendo al desarrollo social y económico del país.
                 </p>
               </CardContent>
             </Card>
@@ -150,52 +142,6 @@ export default function AboutPage() {
                 </Card>
               )
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* Volunteering Section */}
-      <section
-        id="voluntariado"
-        className="py-16 md:py-20 bg-primary text-primary-foreground"
-        aria-labelledby="volunteering-heading"
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-2 items-center">
-            <div className="space-y-6">
-              <h2 id="volunteering-heading" className="font-heading text-3xl font-bold md:text-4xl text-balance">
-                Únete como Voluntario
-              </h2>
-              <p className="text-lg leading-relaxed text-pretty">
-                En AVEPANE valoramos enormemente el apoyo de voluntarios comprometidos con nuestra causa. Tu tiempo y
-                dedicación pueden marcar una diferencia significativa en la vida de las personas con discapacidad
-                intelectual.
-              </p>
-              <p className="leading-relaxed text-pretty">
-                Como voluntario, podrás participar en actividades educativas, talleres, eventos especiales y programas
-                de acompañamiento. No se requiere experiencia previa, solo ganas de ayudar y aprender.
-              </p>
-              <Button
-                asChild
-                size="lg"
-                variant="secondary"
-                className="bg-background text-foreground hover:bg-background/90"
-              >
-                <Link href="/contacto">
-                  Quiero ser voluntario
-                  <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
-                </Link>
-              </Button>
-            </div>
-
-            <div className="relative h-96">
-              <Image
-                src="/volunteers-helping-people-disabilities-community-s.jpg"
-                alt="Voluntarios de AVEPANE trabajando con la comunidad"
-                fill
-                className="object-cover rounded-xl shadow-2xl"
-              />
-            </div>
           </div>
         </div>
       </section>

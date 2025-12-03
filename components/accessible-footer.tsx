@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react"
+import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, GraduationCap, ExternalLink } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export function AccessibleFooter() {
   const quickLinks = [
@@ -18,7 +19,7 @@ export function AccessibleFooter() {
 
   const resources = [
     { name: "Aliados Estratégicos", href: "/aliados" },
-    { name: "Voluntariado", href: "/nosotros#voluntariado" },
+    { name: "Voluntariado", href: "/nosotros/voluntarios" },
     { name: "Vitrina virtual", href: "/#bazar-virtual" },
     { name: "Contacto", href: "/contacto" },
   ]
@@ -106,12 +107,20 @@ export function AccessibleFooter() {
               </li>
               <li className="flex gap-2">
                 <Phone className="h-5 w-5 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <a
-                  href="tel:+582121234567"
-                  className="text-sm hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
-                >
-                  +58 212 123 4567
-                </a>
+                <div className="flex flex-col gap-1">
+                  <a
+                    href="tel:+582129453280"
+                    className="text-sm hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
+                  >
+                    (0212) 945.3280
+                  </a>
+                  <a
+                    href="tel:+582129432625"
+                    className="text-sm hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
+                  >
+                    (0212) 943.2625
+                  </a>
+                </div>
               </li>
               <li className="flex gap-2">
                 <Mail className="h-5 w-5 flex-shrink-0 mt-0.5" aria-hidden="true" />
@@ -126,8 +135,34 @@ export function AccessibleFooter() {
           </div>
         </div>
 
-        {/* Bottom section */}
+        {/* IU AVEPANE Section */}
         <div className="mt-12 border-t border-accent-foreground/20 pt-8">
+          <div className="flex flex-col items-center justify-center gap-4 mb-6">
+            <div className="text-center max-w-2xl space-y-3">
+              <div className="inline-flex items-center justify-center h-12 w-12 rounded-full bg-primary/20 mb-2">
+                <GraduationCap className="h-6 w-6 text-primary" aria-hidden="true" />
+              </div>
+              <h3 className="font-heading text-lg font-semibold">Instituto Universitario AVEPANE</h3>
+              <p className="text-sm leading-relaxed text-pretty">
+                Conoce nuestro instituto universitario dedicado a la formación de profesionales en Educación Especial y carreras afines.
+              </p>
+              <Button
+                asChild
+                variant="outline"
+                className="border-accent-foreground/30 text-black hover:bg-primary hover:text-primary-foreground hover:border-primary"
+              >
+                <a
+                  href="http://iua.edu.ve/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2"
+                >
+                  Visitar IU AVEPANE
+                  <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                </a>
+              </Button>
+            </div>
+          </div>
           <p className="text-center text-sm">© {new Date().getFullYear()} AVEPANE. Todos los derechos reservados.</p>
         </div>
       </div>

@@ -72,10 +72,17 @@ export default function ContactPage() {
                         <h3 className="font-heading text-lg font-semibold">Teléfono</h3>
                         <p className="text-muted-foreground">
                           <a
-                            href="tel:+582121234567"
+                            href="tel:+582129453280"
                             className="hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded transition-colors"
                           >
-                            +58 212 123 4567
+                            (0212) 945.3280
+                          </a>
+                          <br />
+                          <a
+                            href="tel:+582129432625"
+                            className="hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded transition-colors"
+                          >
+                            (0212) 943.2625
                           </a>
                         </p>
                       </div>
@@ -302,7 +309,7 @@ export default function ContactPage() {
               variant="outline"
               className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 bg-transparent"
             >
-              <a href="tel:+582121234567">Llamar para Donar</a>
+              <a href="tel:+582129453280">Llamar para Donar</a>
             </Button>
           </div>
         </div>
