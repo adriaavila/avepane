@@ -10,7 +10,6 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
@@ -95,14 +94,12 @@ export function AccessibleHeader() {
                           <ul className="grid w-[200px] gap-1 p-2">
                             {item.subItems.map((subItem) => (
                               <li key={subItem.name}>
-                                <NavigationMenuLink asChild>
-                                  <Link
-                                    href={subItem.href}
-                                    className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors text-foreground hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                                  >
-                                    {subItem.name}
-                                  </Link>
-                                </NavigationMenuLink>
+                                <Link
+                                  href={subItem.href}
+                                  className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors text-[#2C2C2C] hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                >
+                                  {subItem.name}
+                                </Link>
                               </li>
                             ))}
                           </ul>
