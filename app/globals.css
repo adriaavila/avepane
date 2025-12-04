@@ -164,25 +164,62 @@
     @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-primary focus:text-primary-foreground focus:px-6 focus:py-3 focus:rounded-lg;
   }
 
-  /* Force submenu text color to be visible */
+  /* Force submenu text color to be visible - target all possible selectors */
   [data-slot="navigation-menu-viewport"],
   [data-slot="navigation-menu-viewport"] *,
+  [data-slot="navigation-menu-viewport"] *::before,
+  [data-slot="navigation-menu-viewport"] *::after,
   [data-slot="navigation-menu-content"],
   [data-slot="navigation-menu-content"] *,
+  [data-slot="navigation-menu-content"] *::before,
+  [data-slot="navigation-menu-content"] *::after,
   [data-slot="navigation-menu-viewport"] a,
   [data-slot="navigation-menu-content"] a,
   [data-slot="navigation-menu-content"] ul,
   [data-slot="navigation-menu-content"] ul li,
-  [data-slot="navigation-menu-content"] ul li a {
+  [data-slot="navigation-menu-content"] ul li a,
+  div[data-slot="navigation-menu-viewport"],
+  div[data-slot="navigation-menu-viewport"] * {
     color: #2C2C2C !important;
   }
   
   /* Ensure text is visible and not transparent */
   [data-slot="navigation-menu-viewport"] a,
   [data-slot="navigation-menu-content"] a,
-  [data-slot="navigation-menu-content"] ul li a {
+  [data-slot="navigation-menu-content"] ul li a,
+  div[data-slot="navigation-menu-viewport"] a {
     opacity: 1 !important;
     visibility: visible !important;
     font-size: inherit !important;
+  }
+  
+  /* Force color on the viewport wrapper div itself - multiple selector strategies */
+  div.absolute.top-full.left-0.isolate.z-50.flex.justify-center {
+    color: #2C2C2C !important;
+  }
+  
+  div.absolute.top-full.left-0.isolate.z-50.flex.justify-center * {
+    color: #2C2C2C !important;
+  }
+  
+  /* Nuclear option: target any div that contains navigation menu content */
+  div[class*="navigation-menu"] *,
+  div[class*="navigation-menu"] {
+    color: #2C2C2C !important;
+  }
+  
+  /* Ensure all text nodes inside viewport have color */
+  [data-slot="navigation-menu-viewport"] {
+    color: #2C2C2C !important;
+  }
+  
+  [data-slot="navigation-menu-viewport"] * {
+    color: inherit !important;
+  }
+  
+  [data-slot="navigation-menu-viewport"] a,
+  [data-slot="navigation-menu-viewport"] li,
+  [data-slot="navigation-menu-viewport"] ul {
+    color: #2C2C2C !important;
   }
 }
