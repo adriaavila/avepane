@@ -165,9 +165,24 @@
   }
 
   /* Force submenu text color to be visible */
+  [data-slot="navigation-menu-viewport"],
+  [data-slot="navigation-menu-viewport"] *,
+  [data-slot="navigation-menu-content"],
+  [data-slot="navigation-menu-content"] *,
+  [data-slot="navigation-menu-viewport"] a,
+  [data-slot="navigation-menu-content"] a,
+  [data-slot="navigation-menu-content"] ul,
+  [data-slot="navigation-menu-content"] ul li,
+  [data-slot="navigation-menu-content"] ul li a {
+    color: #2C2C2C !important;
+  }
+  
+  /* Ensure text is visible and not transparent */
   [data-slot="navigation-menu-viewport"] a,
   [data-slot="navigation-menu-content"] a,
   [data-slot="navigation-menu-content"] ul li a {
-    color: #2C2C2C !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    font-size: inherit !important;
   }
 }
