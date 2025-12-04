@@ -91,12 +91,13 @@ export function AccessibleHeader() {
                           {item.name}
                         </NavigationMenuTrigger>
                         <NavigationMenuContent className="bg-popover">
-                          <ul className="grid w-[200px] gap-1 p-2">
+                          <ul className="grid w-[200px] gap-1 p-2" style={{ color: '#2C2C2C' }}>
                             {item.subItems.map((subItem) => (
                               <li key={subItem.name}>
                                 <Link
                                   href={subItem.href}
-                                  className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors text-[#2C2C2C] hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                  className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                  style={{ color: '#2C2C2C' }}
                                 >
                                   {subItem.name}
                                 </Link>

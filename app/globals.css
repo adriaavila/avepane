@@ -163,4 +163,11 @@
   .skip-to-main {
     @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:bg-primary focus:text-primary-foreground focus:px-6 focus:py-3 focus:rounded-lg;
   }
+
+  /* Force submenu text color to be visible */
+  [data-slot="navigation-menu-viewport"] a,
+  [data-slot="navigation-menu-content"] a,
+  [data-slot="navigation-menu-content"] ul li a {
+    color: #2C2C2C !important;
+  }
 }
