@@ -62,9 +62,9 @@ export function AccessibleHeader() {
                 className="h-10 w-auto sm:h-14 flex-shrink-0"
                 priority
               />
-              <div className="flex flex-col font-heading font-semibold text-foreground text-xs sm:text-sm md:text-base lg:text-lg leading-tight max-w-[140px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-none">
-                <span className="whitespace-nowrap">Asociación Venezolana de Padres y Amigos</span>
-                <span className="whitespace-nowrap">de Niños Excepcionales</span>
+              <div className="flex flex-col font-heading font-bold text-foreground text-xs sm:text-sm md:text-base lg:text-lg leading-tight max-w-[140px] sm:max-w-[200px] md:max-w-[240px] lg:max-w-none">
+                <span className="whitespace-nowrap">Asociación Venezolana de Padres y</span>
+                <span className="whitespace-nowrap">Amigos de Niños Excepcionales</span>
               </div>
               <span className="sr-only">Asociación Venezolana de Padres y Amigos de Niños Excepcionales</span>
             </Link>
