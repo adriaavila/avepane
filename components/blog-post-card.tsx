@@ -4,11 +4,13 @@ import { useState } from "react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
-import { Calendar, ChevronDown, ChevronUp } from "lucide-react"
+import Link from "next/link"
+import { Calendar, ChevronDown, ChevronUp, ArrowRight } from "lucide-react"
 import { TextToSpeech } from "@/components/text-to-speech"
 
 interface BlogPost {
   id: number
+  slug: string
   title: string
   date: string
   category: string
@@ -30,7 +32,26 @@ export function BlogPostCard({ event }: BlogPostCardProps) {
 
   return (
     <Card className="border-border hover:shadow-lg transition-shadow bg-background overflow-hidden flex flex-col">
-      <div className="relative h-48">
+      {/* Image - clickable on desktop */}
+      <Link
+        href={`/actualidad/${event.slug}`}
+        className="relative h-48 hidden lg:block"
+        aria-label={`Leer artículo completo: ${event.title}`}
+      >
+        <Image
+          src={event.image || "/placeholder.svg"}
+          alt={`${event.title} - ${event.description}`}
+          fill
+          className="object-cover"
+        />
+        <div className="absolute top-4 left-4">
+          <span className="inline-flex items-center rounded-full bg-primary px-3 py-1 text-sm font-medium text-primary-foreground">
+            {event.category}
+          </span>
+        </div>
+      </Link>
+      {/* Image - not clickable on mobile */}
+      <div className="relative h-48 lg:hidden">
         <Image
           src={event.image || "/placeholder.svg"}
           alt={`${event.title} - ${event.description}`}
@@ -50,7 +71,17 @@ export function BlogPostCard({ event }: BlogPostCardProps) {
           <time dateTime={event.date}>{event.date}</time>
         </div>
 
-        <h3 className="font-heading text-xl font-semibold text-balance">{event.title}</h3>
+        {/* Title - clickable on desktop */}
+        <h3 className="font-heading text-xl font-semibold text-balance">
+          <Link
+            href={`/actualidad/${event.slug}`}
+            className="hidden lg:block hover:text-primary transition-colors"
+            aria-label={`Leer artículo completo: ${event.title}`}
+          >
+            {event.title}
+          </Link>
+          <span className="lg:hidden">{event.title}</span>
+        </h3>
 
         <p className="text-muted-foreground leading-relaxed text-pretty">{event.description}</p>
 
@@ -65,7 +96,8 @@ export function BlogPostCard({ event }: BlogPostCardProps) {
               />
             </div>
 
-            <div className="mt-auto">
+            {/* Mobile: Dropdown button (below lg breakpoint) */}
+            <div className="mt-auto lg:hidden">
               <Button
                 variant="outline"
                 onClick={togglePost}
@@ -89,10 +121,26 @@ export function BlogPostCard({ event }: BlogPostCardProps) {
               </Button>
             </div>
 
+            {/* Desktop: Link to individual page (lg and above) */}
+            <div className="mt-auto hidden lg:block">
+              <Button
+                variant="outline"
+                asChild
+                className="w-full flex items-center justify-center gap-2"
+              >
+                <Link href={`/actualidad/${event.slug}`}>
+                  <span>Leer artículo completo</span>
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                  <span className="sr-only">Leer artículo completo: {event.title}</span>
+                </Link>
+              </Button>
+            </div>
+
+            {/* Mobile: Expanded content */}
             {isExpanded && (
               <article
                 id={`post-content-${event.id}`}
-                className="mt-4 pt-4 border-t border-border space-y-4"
+                className="mt-4 pt-4 border-t border-border space-y-4 lg:hidden"
                 aria-label={`Contenido completo: ${event.title}`}
               >
                 <div className="prose prose-sm max-w-none">

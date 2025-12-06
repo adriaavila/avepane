@@ -280,17 +280,16 @@ export function TextToSpeech({ text, title, className, ariaLabel }: TextToSpeech
         {isPlaying && !isPaused ? (
           <>
             <Pause className="h-4 w-4" aria-hidden="true" />
-            <span className="sr-only">Pausar</span>
+            <span>Pausar</span>
+            <span className="sr-only">Pausar lectura</span>
           </>
         ) : (
           <>
             <Play className="h-4 w-4" aria-hidden="true" />
-            <span className="sr-only">Reproducir</span>
+            <span>Escuchar</span>
+            <span className="sr-only">Iniciar lectura en voz alta</span>
           </>
         )}
-        <span className="hidden sm:inline">
-          {isPlaying && !isPaused ? "Pausar" : "Escuchar"}
-        </span>
       </Button>
 
       {isPlaying && (
@@ -302,7 +301,7 @@ export function TextToSpeech({ text, title, className, ariaLabel }: TextToSpeech
           className="flex items-center gap-2"
         >
           <VolumeX className="h-4 w-4" aria-hidden="true" />
-          <span className="hidden sm:inline">Detener</span>
+          <span>Detener</span>
           <span className="sr-only">Detener lectura</span>
         </Button>
       )}
