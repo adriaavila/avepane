@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { MapPin, Phone, Mail, Clock, Heart } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, Heart, Navigation } from "lucide-react"
 
 export const metadata = {
   title: "Contacto - AVEPANE",
@@ -50,13 +50,24 @@ export default function ContactPage() {
                       <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                         <MapPin className="h-6 w-6 text-primary" aria-hidden="true" />
                       </div>
-                      <div className="space-y-1">
-                        <h3 className="font-heading text-lg font-semibold">Dirección</h3>
-                        <p className="text-muted-foreground leading-relaxed">
-                          Caracas, Venezuela
-                          <br />
-                          Avenida Principal, Edificio AVEPANE
-                        </p>
+                      <div className="space-y-3 flex-1">
+                        <div>
+                          <h3 className="font-heading text-lg font-semibold">Dirección</h3>
+                          <p className="text-muted-foreground leading-relaxed">
+                            Avenida La Guairita, Benzecri de Benmergui, Calle Reyna, Caracas 1050, Miranda, Venezuela
+                          </p>
+                        </div>
+                        <Button
+                          asChild
+                          variant="outline"
+                          size="sm"
+                          className="w-full sm:w-auto"
+                        >
+                          <a href="#como-llegar" className="flex items-center gap-2">
+                            <Navigation className="h-4 w-4" aria-hidden="true" />
+                            Cómo Llegar
+                          </a>
+                        </Button>
                       </div>
                     </div>
                   </CardContent>
@@ -243,7 +254,7 @@ export default function ContactPage() {
       </section>
 
       {/* Map Section */}
-      <section className="py-16 md:py-20 bg-secondary/20" aria-labelledby="map-heading">
+      <section id="como-llegar" className="py-16 md:py-20 bg-secondary/20" aria-labelledby="map-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 id="map-heading" className="font-heading text-3xl font-bold mb-4 md:text-4xl text-balance">
