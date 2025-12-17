@@ -21,11 +21,12 @@ export function AccessibleHeader() {
   const navigation = [
     { name: "Inicio", href: "/" },
     {
-      name: "Nosotros",
-      href: "/nosotros",
+      name: "AVEPANE",
+      href: "/avepane",
       subItems: [
-        { name: "Voluntarios", href: "/nosotros/voluntarios" },
-        { name: "Vitrina", href: "/vitrina" },
+        { name: "Nosotros", href: "/avepane/nosotros" },
+        { name: "Voluntarios", href: "/avepane/voluntarios" },
+        { name: "Vitrina", href: "/avepane/vitrina" },
       ],
     },
     {

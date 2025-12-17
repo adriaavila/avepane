@@ -43,7 +43,7 @@ export function AccessibleFooter() {
                 <Facebook className="h-5 w-5" aria-hidden="true" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/avepane/?hl=es"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"

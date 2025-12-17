@@ -5,6 +5,7 @@ import Image from "next/image"
 import { ArrowRight, ImageIcon } from "lucide-react"
 import { BlogPostCard } from "@/components/blog-post-card"
 import { getAllPosts, parseSpanishDate } from "@/lib/blog-posts"
+import { InstagramFeedSection } from "@/components/instagram-feed-section"
 
 export const metadata = {
   title: "Actualidad - AVEPANE",
@@ -13,7 +14,15 @@ export const metadata = {
 }
 
 export default function NewsPage() {
-  const events = getAllPosts()
+  const allEvents = getAllPosts()
+  // Sort by date (most recent first) and take only the 3 most recent
+  const recentEvents = [...allEvents]
+    .sort((a, b) => {
+      const dateA = parseSpanishDate(a.date)
+      const dateB = parseSpanishDate(b.date)
+      return new Date(dateB).getTime() - new Date(dateA).getTime()
+    })
+    .slice(0, 3)
 
   const galleryImages = [
     "/avepane-activities-workshop-group-1.jpg",
@@ -53,10 +62,27 @@ export default function NewsPage() {
           </div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {events.map((event) => (
+            {recentEvents.map((event) => (
               <BlogPostCard key={event.id} event={event} />
             ))}
           </div>
+
+          {/* See All Events Button */}
+          {allEvents.length > 3 && (
+            <div className="mt-12 text-center">
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
+              >
+                <Link href="/actualidad/todos">
+                  Ver todos los eventos
+                  <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+                </Link>
+              </Button>
+            </div>
+          )}
 
           {/* Structured Data for Blog Listing (SEO) */}
           <script
@@ -68,7 +94,7 @@ export default function NewsPage() {
                 name: "Actualidad AVEPANE",
                 description: "Eventos, noticias y actividades recientes de AVEPANE",
                 url: "https://avepane.org/actualidad",
-                blogPost: events.map((event) => ({
+                blogPost: allEvents.map((event) => ({
                   "@type": "BlogPosting",
                   headline: event.title,
                   description: event.description,
@@ -81,6 +107,9 @@ export default function NewsPage() {
           />
         </div>
       </section>
+
+      {/* Instagram Feed Section */}
+      <InstagramFeedSection />
 
       {/* Photo Gallery */}
       <section className="py-16 md:py-20 bg-secondary/20" aria-labelledby="gallery-heading">
