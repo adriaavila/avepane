@@ -192,3 +192,4 @@ export default function AvepanePage() {
     </MainLayout>
   )
 }
+

@@ -127,7 +127,7 @@ export function AccessibleHeader() {
           {/* Donate button - visible only on large screens */}
           <div className="hidden lg:flex items-center flex-shrink-0">
             <Button asChild className="ml-2 xl:ml-4 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold whitespace-nowrap text-sm xl:text-base">
-              <Link href="/contacto#donar">Donar</Link>
+              <Link href="/donar">Donar</Link>
             </Button>
           </div>
 
@@ -152,7 +152,10 @@ export function AccessibleHeader() {
 
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-border" id="mobile-menu">
+          <div 
+            className="lg:hidden border-t border-border max-h-[calc(100vh-4rem)] sm:max-h-[calc(100vh-5rem)] overflow-y-auto" 
+            id="mobile-menu"
+          >
             <div className="space-y-1 px-2 pb-3 pt-2">
               {navigation.map((item) => (
                 <div key={item.name}>
@@ -180,7 +183,7 @@ export function AccessibleHeader() {
                 </div>
               ))}
               <Button asChild className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground">
-                <Link href="/contacto#donar" onClick={() => setMobileMenuOpen(false)}>
+                <Link href="/donar" onClick={() => setMobileMenuOpen(false)}>
                   Donar
                 </Link>
               </Button>
