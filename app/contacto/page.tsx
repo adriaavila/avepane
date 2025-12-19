@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { MapPin, Phone, Mail, Clock, Heart, Navigation } from "lucide-react"
+import Link from "next/link"
 
 export const metadata = {
   title: "Contacto - AVEPANE",
@@ -312,15 +313,7 @@ export default function ContactPage() {
               variant="secondary"
               className="bg-background text-foreground hover:bg-background/90"
             >
-              <a href="mailto:info@avepane.org?subject=Información sobre donaciones">Información sobre Donaciones</a>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 bg-transparent"
-            >
-              <a href="tel:+582129453280">Llamar para Donar</a>
+              <Link href="/donar">Información sobre Donaciones</Link>
             </Button>
           </div>
         </div>
