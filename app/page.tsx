@@ -48,7 +48,7 @@ export default function HomePage() {
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
                 >
-                  <Link href="/nosotros">
+                  <Link href="/avepane/nosotros">
                     Conócenos
                     <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
                   </Link>
@@ -197,7 +197,7 @@ export default function HomePage() {
                 variant="secondary"
                 className="bg-background text-foreground hover:bg-background/90"
               >
-                <Link href="/vitrina">
+                <Link href="/avepane/vitrina">
                   <Gift className="mr-2 h-5 w-5" aria-hidden="true" />
                   Acceder a la vitrina
                 </Link>

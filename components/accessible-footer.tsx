@@ -1,12 +1,12 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, GraduationCap, ExternalLink } from "lucide-react"
+import { Facebook, Instagram, Mail, Phone, MapPin, GraduationCap, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function AccessibleFooter() {
   const quickLinks = [
     { name: "Inicio", href: "/" },
-    { name: "Nosotros", href: "/nosotros" },
+    { name: "Nosotros", href: "/avepane/nosotros" },
     { name: "Programas", href: "/programas" },
     { name: "Actualidad", href: "/actualidad" },
   ]
@@ -19,7 +19,7 @@ export function AccessibleFooter() {
 
   const resources = [
     { name: "Aliados Estratégicos", href: "/aliados" },
-    { name: "Voluntariado", href: "/nosotros/voluntarios" },
+    { name: "Voluntariado", href: "/avepane/voluntarios" },
     { name: "Vitrina virtual", href: "/#bazar-virtual" },
     { name: "Contacto", href: "/contacto" },
   ]
@@ -34,7 +34,7 @@ export function AccessibleFooter() {
             <p className="text-sm leading-relaxed">Asociación Venezolana de Padres y Amigos de Niños Excepcionales</p>
             <div className="flex gap-4">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/AvepaneRedes/?locale=es_LA"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
@@ -50,15 +50,6 @@ export function AccessibleFooter() {
                 aria-label="Visitar Instagram de AVEPANE"
               >
                 <Instagram className="h-5 w-5" aria-hidden="true" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
-                aria-label="Visitar Twitter de AVEPANE"
-              >
-                <Twitter className="h-5 w-5" aria-hidden="true" />
               </a>
             </div>
           </div>
