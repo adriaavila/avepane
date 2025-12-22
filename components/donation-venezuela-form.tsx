@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -42,6 +42,9 @@ export function DonationVenezuelaForm({ onDonate }: DonationVenezuelaFormProps) 
   const [selectedAmount, setSelectedAmount] = useState<number | null>(null)
   const [customAmount, setCustomAmount] = useState("")
   const [copiedField, setCopiedField] = useState<string | null>(null)
+  const [exchangeRate, setExchangeRate] = useState<number | null>(null)
+  const [exchangeRateLoading, setExchangeRateLoading] = useState(true)
+  const [exchangeRateError, setExchangeRateError] = useState<string | null>(null)
 
   const {
     register,
@@ -54,6 +57,50 @@ export function DonationVenezuelaForm({ onDonate }: DonationVenezuelaFormProps) 
   })
 
   const watchedAmount = watch("amount")
+
+  // Fetch BCV exchange rate on component mount
+  useEffect(() => {
+    const fetchExchangeRate = async () => {
+      try {
+        setExchangeRateLoading(true)
+        setExchangeRateError(null)
+        const response = await fetch("/api/bcv-exchange-rate")
+        
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}))
+          console.error("BCV API error response:", errorData)
+          setExchangeRateError(errorData.message || "No se pudo obtener la tasa de cambio")
+          return
+        }
+        
+        const data = await response.json()
+        console.log("BCV API response:", data)
+
+        if (data.success && data.rate) {
+          setExchangeRate(data.rate)
+        } else {
+          setExchangeRateError(data.message || data.error || "No se pudo obtener la tasa de cambio")
+        }
+      } catch (error) {
+        console.error("Error fetching exchange rate:", error)
+        setExchangeRateError("Error al obtener la tasa de cambio. Por favor, intenta recargar la página.")
+      } finally {
+        setExchangeRateLoading(false)
+      }
+    }
+
+    fetchExchangeRate()
+  }, [])
+
+  // Calculate Bolivares amount
+  const calculateBolivaresAmount = (usdAmount: number | null | undefined): number | null => {
+    if (!usdAmount || usdAmount <= 0 || !exchangeRate) {
+      return null
+    }
+    return usdAmount * exchangeRate
+  }
+
+  const bolivaresAmount = calculateBolivaresAmount(watchedAmount)
 
   const handleAmountSelect = (amount: number) => {
     setSelectedAmount(amount)
@@ -129,6 +176,39 @@ export function DonationVenezuelaForm({ onDonate }: DonationVenezuelaFormProps) 
         </div>
         {errors.amount && (
           <p className="mt-1 text-sm text-destructive">{errors.amount.message}</p>
+        )}
+        {/* Bolivares amount display */}
+        {(watchedAmount && watchedAmount > 0) && (
+          <div className="mt-3 p-3 rounded-lg bg-muted/50 border border-border">
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-muted-foreground">Equivalente en Bolívares (BCV):</span>
+              {exchangeRateLoading ? (
+                <div className="flex items-center gap-2">
+                  <Loader2 className="h-4 w-4 animate-spin text-muted-foreground" />
+                  <span className="text-sm text-muted-foreground">Obteniendo tasa...</span>
+                </div>
+              ) : exchangeRateError ? (
+                <span className="text-sm text-muted-foreground">{exchangeRateError}</span>
+              ) : bolivaresAmount !== null ? (
+                <span className="text-base font-semibold text-foreground">
+                  {bolivaresAmount.toLocaleString("es-VE", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}{" "}
+                  Bs.
+                </span>
+              ) : null}
+            </div>
+            {exchangeRate && !exchangeRateError && (
+              <p className="text-xs text-muted-foreground mt-1">
+                Tasa BCV: 1 USD = {exchangeRate.toLocaleString("es-VE", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}{" "}
+                Bs.
+              </p>
+            )}
+          </div>
         )}
       </div>
 
