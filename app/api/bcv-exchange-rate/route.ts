@@ -3,15 +3,40 @@ import { NextResponse } from "next/server"
 // BCV API endpoint for exchange rates
 const BCV_API_URL = "https://bcv-api.rafnixg.dev/rates/"
 
+// Configure route - allow dynamic fetching (no caching on Vercel edge)
+export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs' // Use Node.js runtime for better fetch compatibility
+
 async function fetchBCVRate(url: string): Promise<number | null> {
   try {
-    const response = await fetch(url, {
-      next: { revalidate: 3600 }, // Cache for 1 hour
+    // Create timeout controller for better compatibility
+    let controller: AbortController | null = null
+    let timeoutId: NodeJS.Timeout | null = null
+    
+    try {
+      controller = new AbortController()
+      timeoutId = setTimeout(() => controller!.abort(), 10000) // 10 second timeout
+    } catch (controllerError) {
+      console.warn('AbortController not available, proceeding without timeout')
+    }
+
+    const fetchOptions: RequestInit = {
       headers: {
         "Accept": "application/json",
+        "User-Agent": "AVEPANE-Donation-App",
       },
-      signal: AbortSignal.timeout(8000), // 8 second timeout
-    })
+      cache: 'no-store', // Don't cache in the fetch itself
+    }
+
+    if (controller) {
+      fetchOptions.signal = controller.signal
+    }
+
+    const response = await fetch(url, fetchOptions)
+
+    if (timeoutId) {
+      clearTimeout(timeoutId)
+    }
 
     if (!response.ok) {
       console.error(`BCV API returned status ${response.status}`)
@@ -19,13 +44,29 @@ async function fetchBCVRate(url: string): Promise<number | null> {
     }
 
     const contentType = response.headers.get("content-type")
-    if (!contentType || !contentType.includes("application/json")) {
-      console.error(`BCV API returned content-type: ${contentType}`)
+    let data
+    
+    try {
+      // Try to parse as JSON regardless of content-type header
+      const text = await response.text()
+      
+      if (!contentType || !contentType.includes("application/json")) {
+        console.error(`BCV API returned content-type: ${contentType}`)
+        console.error(`BCV API response text:`, text.substring(0, 500))
+      }
+      
+      try {
+        data = JSON.parse(text)
+        console.log(`BCV API response from ${url}:`, JSON.stringify(data, null, 2))
+      } catch (jsonError) {
+        console.error(`Failed to parse JSON response:`, jsonError)
+        console.error(`Response text:`, text.substring(0, 500))
+        return null
+      }
+    } catch (readError) {
+      console.error(`Failed to read response:`, readError)
       return null
     }
-
-    const data = await response.json()
-    console.log(`BCV API response from ${url}:`, JSON.stringify(data, null, 2))
 
     // Extract USD to VES rate from the response
     // The API structure may vary, so we'll handle different possible formats
@@ -78,8 +119,12 @@ async function fetchBCVRate(url: string): Promise<number | null> {
     }
 
     return usdToVes
-  } catch (error) {
+  } catch (error: any) {
     console.error(`Error fetching from ${url}:`, error)
+    // Check if it's an abort error (timeout)
+    if (error.name === 'AbortError') {
+      console.error('Request timed out')
+    }
     return null
   }
 }
@@ -102,23 +147,27 @@ export async function GET() {
       )
     }
 
-    // If primary endpoint fails, return error
+    // If primary endpoint fails, log the issue and return a more helpful error
+    console.error("Failed to fetch BCV rate - rate was:", rate)
     return NextResponse.json(
       {
         success: false,
         error: "No se pudo obtener la tasa de cambio del BCV",
-        message: "La API del BCV no respondió correctamente",
+        message: "La API del BCV no respondió correctamente. Por favor, intenta más tarde.",
       },
       { status: 500 }
     )
   } catch (error: any) {
     console.error("Error fetching BCV exchange rate:", error)
+    console.error("Error stack:", error.stack)
+    console.error("Error name:", error.name)
+    console.error("Error message:", error.message)
     
     return NextResponse.json(
       {
         success: false,
         error: "No se pudo obtener la tasa de cambio del BCV",
-        message: error.message || "Error desconocido",
+        message: error.message || "Error desconocido al conectar con la API del BCV",
       },
       { status: 500 }
     )
