@@ -181,10 +181,18 @@ export default function DonatePage() {
           >
             <TabsList className="grid w-full grid-cols-2 mb-8 h-auto min-h-[3.5rem]">
               <TabsTrigger value="international" className="text-base py-3.5 px-4 h-full">
-                🌍 Donación internacional
+                <span className="block text-center">
+                  <span className="block md:inline">🌍 Donación</span>
+                  <span className="hidden md:inline"> </span>
+                  <span className="block md:inline">internacional</span>
+                </span>
               </TabsTrigger>
               <TabsTrigger value="venezuela" className="text-base py-3.5 px-4 h-full">
-                🇻🇪 Donación desde Venezuela
+                <span className="block text-center">
+                  <span className="block md:inline">🇻🇪 Donación desde</span>
+                  <span className="hidden md:inline"> </span>
+                  <span className="block md:inline">Venezuela</span>
+                </span>
               </TabsTrigger>
             </TabsList>
 

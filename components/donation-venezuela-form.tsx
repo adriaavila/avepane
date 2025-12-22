@@ -67,9 +67,26 @@ export function DonationVenezuelaForm({ onDonate }: DonationVenezuelaFormProps) 
         const response = await fetch("/api/bcv-exchange-rate")
         
         if (!response.ok) {
-          const errorData = await response.json().catch(() => ({}))
+          let errorData: any = {}
+          const contentType = response.headers.get("content-type")
+          
+          try {
+            if (contentType && contentType.includes("application/json")) {
+              errorData = await response.json()
+            } else {
+              const text = await response.text()
+              console.error("BCV API returned non-JSON error:", text.substring(0, 200))
+              errorData = { message: `Error ${response.status}: ${response.statusText}` }
+            }
+          } catch (parseError) {
+            console.error("Failed to parse error response:", parseError)
+            errorData = { 
+              message: `Error ${response.status}: No se pudo obtener la tasa de cambio` 
+            }
+          }
+          
           console.error("BCV API error response:", errorData)
-          setExchangeRateError(errorData.message || "No se pudo obtener la tasa de cambio")
+          setExchangeRateError(errorData.message || errorData.error || "No se pudo obtener la tasa de cambio")
           return
         }
         

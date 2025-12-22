@@ -155,7 +155,12 @@ export async function GET() {
         error: "No se pudo obtener la tasa de cambio del BCV",
         message: "La API del BCV no respondió correctamente. Por favor, intenta más tarde.",
       },
-      { status: 500 }
+      { 
+        status: 500,
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      }
     )
   } catch (error: any) {
     console.error("Error fetching BCV exchange rate:", error)
@@ -169,7 +174,12 @@ export async function GET() {
         error: "No se pudo obtener la tasa de cambio del BCV",
         message: error.message || "Error desconocido al conectar con la API del BCV",
       },
-      { status: 500 }
+      { 
+        status: 500,
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      }
     )
   }
 }
