@@ -4,7 +4,13 @@ import Link from "next/link"
 import { Calendar, ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { TextToSpeech } from "@/components/text-to-speech"
-import { getPostBySlug, getAllPosts, parseSpanishDate } from "@/lib/blog-posts"
+import {
+  getPostBySlugWithHtml,
+  getPostBySlug,
+  getAllPosts,
+  parseSpanishDate,
+} from "@/lib/blog-posts"
+import { MarkdownContentServer } from "@/components/markdown-content-server"
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 
@@ -64,7 +70,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const { slug } = await params
-  const post = getPostBySlug(slug)
+  const post = await getPostBySlugWithHtml(slug)
 
   if (!post) {
     notFound()
@@ -161,18 +167,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
 
           {/* Article Content */}
-          <div className="prose prose-lg max-w-none">
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed text-pretty">
+          <div className="space-y-8">
+            <p className="text-xl text-muted-foreground leading-relaxed text-pretty">
               {post.description}
             </p>
 
-            <div className="space-y-6 text-foreground leading-relaxed text-pretty whitespace-pre-line">
-              {post.fullContent.split("\n\n").map((paragraph, index) => (
-                <p key={index} className="text-base md:text-lg">
-                  {paragraph}
-                </p>
-              ))}
-            </div>
+            {/* Markdown Content */}
+            <MarkdownContentServer content={post.fullContent} />
           </div>
 
           {/* Text-to-Speech at Bottom */}

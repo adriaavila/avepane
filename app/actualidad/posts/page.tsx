@@ -6,9 +6,9 @@ import { BlogPostCard } from "@/components/blog-post-card"
 import { getAllPosts, parseSpanishDate } from "@/lib/blog-posts"
 
 export const metadata = {
-  title: "Todos los Eventos - Actualidad AVEPANE",
+  title: "Todos los Posts - Actualidad AVEPANE",
   description:
-    "Todos los eventos, noticias y actividades de AVEPANE. Mantente informado sobre nuestras acciones y logros.",
+    "Todos los posts, noticias y actividades de AVEPANE. Mantente informado sobre nuestras acciones y logros.",
 }
 
 export default function AllEventsPage() {
@@ -38,7 +38,7 @@ export default function AllEventsPage() {
               </Button>
             </div>
             <h1 className="font-heading text-4xl font-bold leading-tight tracking-tight text-balance md:text-5xl lg:text-6xl">
-              Todos los Eventos y Noticias
+              Todos los Posts y Noticias
             </h1>
             <p className="text-lg leading-relaxed text-pretty md:text-xl">
               Explora todas nuestras actividades, eventos y noticias más recientes
@@ -72,9 +72,9 @@ export default function AllEventsPage() {
               __html: JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "Blog",
-                name: "Todos los Eventos - Actualidad AVEPANE",
-                description: "Todos los eventos, noticias y actividades de AVEPANE",
-                url: "https://avepane.org/actualidad/todos",
+                name: "Todos los Posts - Actualidad AVEPANE",
+                description: "Todos los posts, noticias y actividades de AVEPANE",
+                url: "https://avepane.org/actualidad/posts",
                 blogPost: allEvents.map((event) => ({
                   "@type": "BlogPosting",
                   headline: event.title,
@@ -91,3 +91,4 @@ export default function AllEventsPage() {
     </MainLayout>
   )
 }
+

@@ -76,8 +76,8 @@ export default function NewsPage() {
                 variant="outline"
                 className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
               >
-                <Link href="/actualidad/todos">
-                  Ver todos los eventos
+                <Link href="/actualidad/posts">
+                  Ver todas las noticias
                   <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
                 </Link>
               </Button>
