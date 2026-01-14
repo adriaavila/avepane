@@ -8,6 +8,9 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { DonationInternationalForm } from "@/components/donation-international-form"
 import { DonationVenezuelaForm } from "@/components/donation-venezuela-form"
 import { Heart, Brain, GraduationCap, Users, CheckCircle } from "lucide-react"
+import { PageSummary } from "@/components/page-summary"
+
+const PAGE_SUMMARY = "Tu donación transforma vidas. En AVEPANE trabajamos para que personas con autismo y discapacidad intelectual tengan acceso a educación y oportunidades. Aceptamos donaciones internacionales y nacionales. Tu aporte financia terapias, formación y apoyo a familias."
 
 type DonationType = "international" | "venezuela"
 
@@ -151,6 +154,7 @@ export default function DonatePage() {
                 En AVEPANE trabajamos cada día para que las personas con autismo y sus familias tengan acceso a atención, educación y oportunidades reales.
                 Tu aporte —grande o pequeño— tiene un impacto directo y medible.
               </p>
+              <PageSummary text={PAGE_SUMMARY} />
               <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground pt-2">
                 <span>Donaciones seguras</span>
                 <span>•</span>

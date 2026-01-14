@@ -2,6 +2,14 @@ import { MainLayout } from "@/components/main-layout"
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
 import { History, Target, Users, Heart } from "lucide-react"
+import { PageSummary } from "@/components/page-summary"
+
+// Short summary for TTS (max 120 words)
+const PAGE_SUMMARY = `AVEPANE es la Asociación Venezolana de Padres y Amigos de Niños Excepcionales, 
+fundada en 1963. Nuestra misión es potenciar el desarrollo integral de niños, jóvenes y adultos 
+con discapacidad intelectual. Contamos con más de 50 años de experiencia en educación especial, 
+inserción laboral y apoyo a familias. Trabajamos con un equipo multidisciplinario de psicólogos, 
+educadores especiales y terapeutas ocupacionales comprometidos con la inclusión.`
 
 export const metadata = {
   title: "Nosotros - AVEPANE",
@@ -40,6 +48,7 @@ export default function AboutPage() {
             <p className="text-lg leading-relaxed text-pretty md:text-xl">
               Más de cinco décadas construyendo oportunidades y transformando vidas
             </p>
+            <PageSummary text={PAGE_SUMMARY} />
           </div>
         </div>
       </section>

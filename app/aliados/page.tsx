@@ -234,7 +234,7 @@ export default function AlliesPage() {
             variant="secondary"
             className="bg-background text-foreground hover:bg-background/90"
           >
-            <Link href="/contacto">
+            <Link href="https://forms.gle/LL5K7iqYU5Tjv1wB9" target="_blank" rel="noopener noreferrer">
               Contactar para alianza
               <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
             </Link>

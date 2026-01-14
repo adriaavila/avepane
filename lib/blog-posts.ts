@@ -76,36 +76,25 @@ function getPostByFile(fileName: string): BlogPost | null {
 // Function to render Markdown to HTML with accessibility optimizations
 async function renderMarkdownToHtml(markdown: string): Promise<string> {
   try {
+    // Dynamic imports for ESM modules
+    const { default: remarkRehype } = await import("remark-rehype")
+    const { default: rehypeStringify } = await import("rehype-stringify")
+
     const result = await remark()
-      .use(remarkHtml, { sanitize: false })
+      .use(remarkRehype, { allowDangerousHtml: true })
       .use(rehypeRaw)
       .use(rehypeSanitize, {
         tagNames: [
-          "p",
-          "br",
-          "strong",
-          "em",
-          "u",
-          "h1",
-          "h2",
-          "h3",
-          "h4",
-          "h5",
-          "h6",
-          "ul",
-          "ol",
-          "li",
-          "blockquote",
-          "a",
-          "img",
-          "code",
-          "pre",
+          "p", "br", "strong", "em", "u", "h1", "h2", "h3", "h4", "h5", "h6",
+          "ul", "ol", "li", "blockquote", "a", "img", "code", "pre", "div", "span"
         ],
         attributes: {
-          a: ["href", "title", "aria-label"],
-          img: ["src", "alt", "width", "height", "loading"],
+          a: ["href", "title", "aria-label", "target", "rel"],
+          img: ["src", "alt", "width", "height", "loading", "title"],
+          "*": ["className", "id", "role", "aria-label", "aria-hidden"],
         },
       })
+      .use(rehypeStringify)
       .process(markdown)
 
     return result.toString()

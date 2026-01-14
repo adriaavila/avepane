@@ -4,6 +4,9 @@ import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
 import Image from "next/image"
 import { Heart, Users, Briefcase, ArrowRight, Gift, ShoppingBag } from "lucide-react"
+import { PageSummary } from "@/components/page-summary"
+
+const PAGE_SUMMARY = "Bienvenidos a AVEPANE. Desde hace más de 50 años construimos oportunidades para personas con discapacidad intelectual en Venezuela. Ofrecemos programas de inserción laboral, empleo protegido y educación especial. Conoce nuestra misión, nuestros programas y cómo puedes formar parte de esta labor."
 
 export default function HomePage() {
   const programs = [
@@ -42,6 +45,7 @@ export default function HomePage() {
                 misión es potenciar el desarrollo integral de niños, jóvenes y adultos con discapacidad intelectual
                 mediante programas especializados.
               </p>
+              <PageSummary text={PAGE_SUMMARY} />
               <div className="flex flex-col gap-4 sm:flex-row">
                 <Button
                   asChild

@@ -8,10 +8,11 @@ interface TextToSpeechProps {
   text: string
   title?: string
   className?: string
+  compact?: boolean
   ariaLabel?: string
 }
 
-export function TextToSpeech({ text, title, className, ariaLabel }: TextToSpeechProps) {
+export function TextToSpeech({ text, title, className, ariaLabel, compact = false }: TextToSpeechProps) {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isPaused, setIsPaused] = useState(false)
   const [isSupported, setIsSupported] = useState(false)
@@ -22,6 +23,7 @@ export function TextToSpeech({ text, title, className, ariaLabel }: TextToSpeech
 
   // Function to find the best Spanish voice (prefer Venezuelan)
   const findBestSpanishVoice = (): SpeechSynthesisVoice | null => {
+    // ... (same as before)
     const voices = voicesRef.current
 
     if (!voices || voices.length === 0) return null
@@ -82,6 +84,15 @@ export function TextToSpeech({ text, title, className, ariaLabel }: TextToSpeech
     }
   }, [])
 
+  // Stop playback if text changes (important for context-based switching)
+  useEffect(() => {
+    if (synthRef.current && isPlaying) {
+      synthRef.current.cancel() // Stop simply, state update happens in onend/cancel events or manual reset
+      setIsPlaying(false)
+      setIsPaused(false)
+    }
+  }, [text])
+
   const handlePlay = () => {
     if (!synthRef.current || !isSupported) return
 
@@ -141,85 +152,19 @@ export function TextToSpeech({ text, title, className, ariaLabel }: TextToSpeech
 
     utterance.onerror = (event) => {
       // Safely extract error information
-      // Some browsers fire error events with empty objects, so we need to be defensive
       let errorType: string | undefined
-      
       try {
         errorType = (event as SpeechSynthesisErrorEvent)?.error
       } catch {
-        // If we can't access the error property, treat as unknown
         errorType = undefined
       }
-      
-      // Only log if we have a meaningful error type
-      // Ignore empty error objects or events without error codes
-      if (errorType) {
-        const errorInfo: Record<string, unknown> = { error: errorType }
-        
-        try {
-          if (event?.type) errorInfo.type = event.type
-          if (typeof (event as SpeechSynthesisErrorEvent)?.charIndex === "number") {
-            errorInfo.charIndex = (event as SpeechSynthesisErrorEvent).charIndex
-          }
-          if ((event as SpeechSynthesisErrorEvent)?.char) {
-            errorInfo.char = (event as SpeechSynthesisErrorEvent).char
-          }
-          if (typeof (event as SpeechSynthesisErrorEvent)?.elapsedTime === "number") {
-            errorInfo.elapsed = (event as SpeechSynthesisErrorEvent).elapsedTime
-          }
-        } catch {
-          // If accessing properties fails, just use the error type
-        }
-        
-        // Only log critical errors, not warnings or normal interruptions
-        if (errorType === "network" || errorType === "synthesis" || errorType === "synthesis-unavailable" || errorType === "audio-busy" || errorType === "not-allowed") {
-          console.error("Speech synthesis error:", errorInfo)
-        } else if (errorType !== "interrupted" && errorType !== "canceled") {
-          // Log other errors but not interruptions/cancellations (these are normal)
-          console.warn("Speech synthesis warning:", errorInfo)
-        }
+
+      if (errorType && errorType !== "interrupted" && errorType !== "canceled") {
+        console.warn("Speech synthesis error:", errorType)
       }
-      // If errorType is undefined or empty, silently handle it (might be a false positive)
 
       setIsPlaying(false)
       setIsPaused(false)
-
-      // If it's a network error or not-allowed, try again with a simpler approach
-      if (errorType && (errorType === "network" || errorType === "not-allowed" || errorType === "synthesis-unavailable")) {
-        // Retry once with default settings
-        setTimeout(() => {
-          if (synthRef.current && !synthRef.current.speaking) {
-            const retryUtterance = new SpeechSynthesisUtterance(fullText)
-            retryUtterance.lang = "es"
-            retryUtterance.rate = 1.0
-            retryUtterance.pitch = 1.0
-            retryUtterance.volume = 1.0
-
-            retryUtterance.onstart = () => {
-              setIsPlaying(true)
-              setIsPaused(false)
-            }
-
-            retryUtterance.onend = () => {
-              setIsPlaying(false)
-              setIsPaused(false)
-            }
-
-            retryUtterance.onerror = () => {
-              setIsPlaying(false)
-              setIsPaused(false)
-            }
-
-            try {
-              synthRef.current.speak(retryUtterance)
-            } catch (retryError) {
-              console.error("Error in retry speech synthesis:", retryError)
-              setIsPlaying(false)
-              setIsPaused(false)
-            }
-          }
-        }, 500)
-      }
     }
 
     utteranceRef.current = utterance
@@ -254,6 +199,7 @@ export function TextToSpeech({ text, title, className, ariaLabel }: TextToSpeech
   }
 
   if (!isSupported) {
+    if (compact) return null // Hide in compact mode if not supported
     return (
       <div className={className} role="status" aria-live="polite">
         <p className="text-sm text-muted-foreground">
@@ -271,22 +217,22 @@ export function TextToSpeech({ text, title, className, ariaLabel }: TextToSpeech
     >
       <Button
         variant="outline"
-        size="sm"
+        size={compact ? "icon" : "sm"}
         onClick={isPlaying && !isPaused ? handlePause : handlePlay}
         aria-label={isPlaying && !isPaused ? "Pausar lectura" : "Iniciar lectura en voz alta"}
-        className="flex items-center gap-2"
+        className={compact ? "h-10 w-10" : "flex items-center gap-2"}
         disabled={!text}
       >
         {isPlaying && !isPaused ? (
           <>
             <Pause className="h-4 w-4" aria-hidden="true" />
-            <span>Pausar</span>
+            {!compact && <span>Pausar</span>}
             <span className="sr-only">Pausar lectura</span>
           </>
         ) : (
           <>
             <Play className="h-4 w-4" aria-hidden="true" />
-            <span>Escuchar</span>
+            {!compact && <span>Escuchar</span>}
             <span className="sr-only">Iniciar lectura en voz alta</span>
           </>
         )}
@@ -295,18 +241,18 @@ export function TextToSpeech({ text, title, className, ariaLabel }: TextToSpeech
       {isPlaying && (
         <Button
           variant="outline"
-          size="sm"
+          size={compact ? "icon" : "sm"}
           onClick={handleStop}
           aria-label="Detener lectura"
-          className="flex items-center gap-2"
+          className={compact ? "h-10 w-10" : "flex items-center gap-2"}
         >
           <VolumeX className="h-4 w-4" aria-hidden="true" />
-          <span>Detener</span>
+          {!compact && <span>Detener</span>}
           <span className="sr-only">Detener lectura</span>
         </Button>
       )}
 
-      {isPlaying && (
+      {isPlaying && !compact && (
         <span className="text-sm text-muted-foreground" aria-live="polite" aria-atomic="true">
           <span className="sr-only">Estado: </span>
           {isPaused ? "Pausado" : "Leyendo..."}

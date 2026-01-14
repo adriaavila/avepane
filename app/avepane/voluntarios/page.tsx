@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
 import { Heart, ArrowRight, Users, Calendar, HandHeart } from "lucide-react"
+import { PageSummary } from "@/components/page-summary"
+
+const PAGE_SUMMARY = "El Voluntariado de AVEPANE es un grupo comprometido que colabora altruistamente en todas nuestras actividades. Tu tiempo y dedicación en eventos, talleres y acompañamiento pueden transformar vidas. Únete a nosotros para generar cambios positivos y apoyar la inclusión de personas con discapacidad intelectual."
 
 export const metadata = {
   title: "Voluntarios - AVEPANE",
@@ -45,6 +48,7 @@ export default function VolunteersPage() {
             <p className="text-base leading-relaxed text-pretty md:text-lg">
               Tu tiempo y dedicación pueden marcar una diferencia significativa en la vida de las personas con discapacidad intelectual
             </p>
+            <PageSummary text={PAGE_SUMMARY} />
           </div>
         </div>
       </section>
@@ -81,7 +85,7 @@ export default function VolunteersPage() {
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground mt-6"
               >
-                <Link href="/contacto">
+                <Link href="https://forms.gle/VzpCSaugW89CDnqG7" target="_blank" rel="noopener noreferrer">
                   Quiero ser voluntario
                   <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
                 </Link>
@@ -166,7 +170,7 @@ export default function VolunteersPage() {
                 size="lg"
                 className="bg-primary hover:bg-primary/90 text-primary-foreground"
               >
-                <Link href="/contacto">
+                <Link href="https://forms.gle/VzpCSaugW89CDnqG7" target="_blank" rel="noopener noreferrer">
                   Contactar ahora
                   <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
                 </Link>

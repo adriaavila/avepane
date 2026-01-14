@@ -6,6 +6,9 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { MapPin, Phone, Mail, Clock, Heart, Navigation } from "lucide-react"
 import Link from "next/link"
+import { PageSummary } from "@/components/page-summary"
+
+const PAGE_SUMMARY = "Estamos aquí para ayudarte. Contáctanos por teléfono, email o visítanos en nuestra sede en Caracas. Nuestro horario es de lunes a viernes de 8 AM a 5 PM. Si tienes preguntas sobre programas, voluntariado o donaciones, envíanos un mensaje a través de nuestro formulario."
 
 export const metadata = {
   title: "Contacto - AVEPANE",
@@ -26,6 +29,7 @@ export default function ContactPage() {
             <p className="text-lg leading-relaxed text-pretty md:text-xl">
               Estamos aquí para responder tus preguntas y ayudarte en lo que necesites
             </p>
+            <PageSummary text={PAGE_SUMMARY} />
           </div>
         </div>
       </section>

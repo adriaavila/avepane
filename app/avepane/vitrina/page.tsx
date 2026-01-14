@@ -4,6 +4,9 @@ import Image from "next/image"
 import { ShoppingBag, Heart, Sparkles, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { PageSummary } from "@/components/page-summary"
+
+const PAGE_SUMMARY = "La Vitrina Virtual AVEPANE exhibe los increíbles trabajos realizados por nuestros Niños Excepcionales. Descubre artesanías, pinturas y manualidades únicas. Cada compra apoya directamente nuestros programas de formación y desarrollo, promoviendo el talento y la inclusión."
 
 export const metadata = {
   title: "Vitrina Virtual - AVEPANE",
@@ -82,6 +85,7 @@ export default function VitrinaPage() {
               Descubre los increíbles trabajos y creaciones realizadas por nuestros Niños Excepcionales. Cada pieza es
               única y refleja el talento, dedicación y creatividad de nuestros artistas.
             </p>
+            <PageSummary text={PAGE_SUMMARY} />
           </div>
         </div>
       </section>

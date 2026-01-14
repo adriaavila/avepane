@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
 import { Users, Heart, ShoppingBag, ArrowRight, History, Target } from "lucide-react"
+import { PageSummary } from "@/components/page-summary"
+
+const PAGE_SUMMARY = "AVEPANE (Asociación Venezolana de Padres y Amigos de Niños Excepcionales) trabaja desde hace más de 50 años por la inclusión. Nuestra misión es potenciar el desarrollo integral de personas con discapacidad intelectual mediante programas de prevención, educación y formación laboral."
 
 export const metadata = {
   title: "AVEPANE - Asociación Venezolana de Padres y Amigos de Niños Excepcionales",
@@ -51,6 +54,7 @@ export default function AvepanePage() {
             <p className="text-lg leading-relaxed text-pretty md:text-xl">
               Asociación Venezolana de Padres y Amigos de Niños Excepcionales
             </p>
+            <PageSummary text={PAGE_SUMMARY} />
             <p className="text-base leading-relaxed text-pretty">
               Más de cinco décadas construyendo oportunidades y transformando vidas. Conoce nuestra organización, únete como voluntario o descubre los trabajos de nuestros Niños Excepcionales.
             </p>

@@ -3,6 +3,14 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import Image from "next/image"
 import { Briefcase, Users, HandHeart, CheckCircle, ArrowRight } from "lucide-react"
+import { PageSummary } from "@/components/page-summary"
+
+// Short summary for TTS (max 120 words)
+const PAGE_SUMMARY = `AVEPANE ofrece tres programas especializados para la inclusión laboral de personas 
+con discapacidad intelectual. El programa de Inserción Laboral prepara a las personas para el mercado 
+laboral competitivo. El Empleo Protegido brinda un entorno adaptado y supervisado para desarrollar 
+habilidades. El Empleo con Apoyo proporciona acompañamiento continuo para garantizar la integración 
+exitosa en empresas. Con más de 50 años de experiencia, hemos beneficiado a más de 500 personas.`
 
 export const metadata = {
   title: "Nuestros Programas - AVEPANE",
@@ -72,6 +80,7 @@ export default function ProgramsPage() {
               Ofrecemos programas especializados diseñados para promover la inclusión laboral y el desarrollo de
               habilidades de personas con discapacidad intelectual
             </p>
+            <PageSummary text={PAGE_SUMMARY} />
           </div>
         </div>
       </section>

@@ -1,5 +1,4 @@
 import { remark } from "remark"
-import remarkHtml from "remark-html"
 import rehypeSanitize from "rehype-sanitize"
 import rehypeRaw from "rehype-raw"
 
@@ -20,8 +19,11 @@ export async function MarkdownContentServer({
   let htmlContent: string
 
   try {
+    const { default: remarkRehype } = await import("remark-rehype")
+    const { default: rehypeStringify } = await import("rehype-stringify")
+
     const result = await remark()
-      .use(remarkHtml, { sanitize: false })
+      .use(remarkRehype, { allowDangerousHtml: true })
       .use(rehypeRaw)
       .use(rehypeSanitize, {
         tagNames: [
@@ -44,12 +46,18 @@ export async function MarkdownContentServer({
           "img",
           "code",
           "pre",
+          "div",
+          "span",
+          "iframe",
         ],
         attributes: {
-          a: ["href", "title", "aria-label"],
-          img: ["src", "alt", "width", "height", "loading"],
+          a: ["href", "title", "aria-label", "target", "rel"],
+          img: ["src", "alt", "width", "height", "loading", "title"],
+          "*": ["className", "id", "role", "aria-label", "aria-hidden"],
+          iframe: ["src", "width", "height", "title", "allow", "allowFullScreen"],
         },
       })
+      .use(rehypeStringify)
       .process(content)
 
     htmlContent = result.toString()
