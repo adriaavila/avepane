@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -10,13 +10,19 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
+  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 
 export function AccessibleHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const router = useRouter()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const navigation = [
     { name: "Inicio", href: "/" },
@@ -70,58 +76,61 @@ export function AccessibleHeader() {
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - deferred until mount to avoid Radix useId hydration mismatch (React 19.2) */}
           <div className="hidden lg:flex lg:items-center lg:gap-1 xl:gap-2 flex-shrink min-w-0">
-            {navigation.map((item) => {
-              if (item.subItems) {
-                return (
-                  <NavigationMenu key={item.name} viewport={false}>
-                    <NavigationMenuList>
-                      <NavigationMenuItem>
-                        <NavigationMenuTrigger 
-                          className="bg-transparent hover:bg-secondary/50 text-foreground font-sans text-sm xl:text-base px-2 xl:px-4"
-                          onClick={(e) => {
-                            // Navigate to page on click
-                            router.push(item.href)
-                            // Scroll to top after navigation
-                            setTimeout(() => {
-                              window.scrollTo({ top: 0, behavior: 'smooth' })
-                            }, 100)
-                          }}
-                        >
-                          {item.name}
-                        </NavigationMenuTrigger>
-                        <NavigationMenuContent className="bg-popover text-[#2C2C2C]">
-                          <ul className="grid w-[200px] gap-1 p-2" style={{ color: '#2C2C2C' }}>
-                            {item.subItems.map((subItem) => (
-                              <li key={subItem.name}>
-                                <Link
-                                  href={subItem.href}
-                                  className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors text-[#2C2C2C] hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                                  style={{ color: '#2C2C2C' }}
-                                >
-                                  {subItem.name}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </NavigationMenuContent>
-                      </NavigationMenuItem>
-                    </NavigationMenuList>
-                  </NavigationMenu>
-                )
-              }
+            {mounted ? (
+              <NavigationMenu viewport={false}>
+                <NavigationMenuList className="gap-1">
+                  {navigation.map((item) => {
+                    if (item.subItems) {
+                      return (
+                        <NavigationMenuItem key={item.name}>
+                          <NavigationMenuTrigger
+                            className="bg-transparent hover:bg-secondary/50 text-foreground font-sans text-sm xl:text-base px-2 xl:px-4"
+                            onClick={() => {
+                              router.push(item.href)
+                              setTimeout(() => {
+                                window.scrollTo({ top: 0, behavior: "smooth" })
+                              }, 100)
+                            }}
+                          >
+                            {item.name}
+                          </NavigationMenuTrigger>
+                          <NavigationMenuContent className="bg-popover text-[#2C2C2C]">
+                            <ul className="grid w-[200px] gap-1 p-2" style={{ color: "#2C2C2C" }}>
+                              {item.subItems.map((subItem) => (
+                                <li key={subItem.name}>
+                                  <Link
+                                    href={subItem.href}
+                                    className="block select-none rounded-md p-3 leading-none no-underline outline-none transition-colors text-[#2C2C2C] hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                    style={{ color: "#2C2C2C" }}
+                                  >
+                                    {subItem.name}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </NavigationMenuContent>
+                        </NavigationMenuItem>
+                      )
+                    }
 
-              return (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="rounded-md px-2 xl:px-4 py-2 text-sm xl:text-base font-medium text-foreground hover:bg-secondary/50 hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors whitespace-nowrap"
-                >
-                  {item.name}
-                </Link>
-              )
-            })}
+                    return (
+                      <NavigationMenuItem key={item.name}>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            href={item.href}
+                            className="rounded-md px-2 xl:px-4 py-2 text-sm xl:text-base font-medium text-foreground hover:bg-secondary/50 hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-primary transition-colors whitespace-nowrap"
+                          >
+                            {item.name}
+                          </Link>
+                        </NavigationMenuLink>
+                      </NavigationMenuItem>
+                    )
+                  })}
+                </NavigationMenuList>
+              </NavigationMenu>
+            ) : null}
           </div>
 
           {/* Donate button - visible only on large screens */}
