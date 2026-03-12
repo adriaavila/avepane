@@ -1,30 +1,55 @@
-# AVEPANE website redesign
+# AVEPANE
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+Sitio web institucional para **AVEPANE**, una organización con más de 50 años de trabajo en inclusión, formación y oportunidades para personas con discapacidad intelectual en Venezuela.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/adr24s-projects/v0-avepane-website-redesign)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/iRZuUe3yHNy)
+## Qué es este proyecto
 
-## Overview
+Este proyecto traduce una misión social compleja en una experiencia web clara, humana y navegable. La plataforma presenta la organización, sus programas, su impacto y los distintos caminos para conectar con la causa.
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+## El reto
 
-## Deployment
+El reto principal no era solo “hacer una web bonita”. Era **comunicar una labor social profunda sin caer en una presentación fría, confusa o demasiado corporativa**.
 
-Your project is live at:
+Había que encontrar equilibrio entre:
 
-**[https://vercel.com/adr24s-projects/v0-avepane-website-redesign](https://vercel.com/adr24s-projects/v0-avepane-website-redesign)**
+- transmitir confianza institucional
+- mostrar cercanía humana
+- organizar información sensible de forma accesible
+- dar visibilidad a programas, contacto y participación sin sobrecargar la experiencia
 
-## Build your app
+## Cómo lo resolví
 
-Continue building your app on:
+- Diseñé una landing con narrativa clara desde el primer bloque.
+- Organicé los programas como piezas entendibles y accionables.
+- Usé una interfaz visual limpia para reforzar inclusión, credibilidad y legibilidad.
+- Estructuré el contenido para que la organización pueda presentarse mejor ante familias, aliados y posibles colaboradores.
 
-**[https://v0.app/chat/iRZuUe3yHNy](https://v0.app/chat/iRZuUe3yHNy)**
+## Stack
 
-## How It Works
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- v0
+- Vercel
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+## Lo que hace valioso este proyecto
+
+Más allá de lo técnico, este proyecto demuestra la capacidad de **traducir impacto social en producto digital**. No se trata solo de front-end: se trata de representar una causa real con sensibilidad, estructura y criterio.
+
+## Aprendizajes
+
+- Diseñar para organizaciones con impacto social exige claridad antes que ornamentación.
+- La arquitectura de contenido es tan importante como la interfaz.
+- Una buena web institucional debe inspirar confianza sin perder humanidad.
+
+## Desarrollo local
+
+```bash
+npm install
+npm run dev
+```
+
+## Enlace del proyecto
+
+- Repositorio: https://github.com/adriaavila/avepane
