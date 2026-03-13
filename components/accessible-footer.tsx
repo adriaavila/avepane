@@ -56,7 +56,7 @@ export function AccessibleFooter() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-heading text-lg font-semibold mb-4">Enlaces Rápidos</h3>
+            <h3 className="font-heading text-lg font-semibold mb-4">Enlaces rápidos</h3>
             <ul className="space-y-2" role="list">
               {quickLinks.map((link) => (
                 <li key={link.name}>
@@ -73,7 +73,7 @@ export function AccessibleFooter() {
 
           {/* Programs */}
           <div>
-            <h3 className="font-heading text-lg font-semibold mb-4">Nuestros Programas</h3>
+            <h3 className="font-heading text-lg font-semibold mb-4">Nuestros programas</h3>
             <ul className="space-y-2" role="list">
               {programs.map((program) => (
                 <li key={program.name}>

@@ -23,7 +23,7 @@ export default function ProgramsPage() {
     {
       id: "insercion-laboral",
       icon: Briefcase,
-      title: "Inserción Laboral",
+      title: "Inserción laboral",
       description:
         "Programa integral que prepara a personas con discapacidad intelectual para su incorporación exitosa al mercado laboral competitivo.",
       features: [
@@ -38,7 +38,7 @@ export default function ProgramsPage() {
     {
       id: "empleo-protegido",
       icon: Users,
-      title: "Empleo Protegido",
+      title: "Empleo protegido",
       description:
         "Entorno laboral adaptado y supervisado que permite el desarrollo de habilidades en un ambiente seguro y estructurado.",
       features: [

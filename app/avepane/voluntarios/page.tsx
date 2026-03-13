@@ -67,13 +67,13 @@ export default function VolunteersPage() {
                 </p>
                 <div className="space-y-3">
                   <div>
-                    <h3 className="font-heading text-xl font-semibold mb-2">MISIÓN</h3>
+                    <h3 className="font-heading text-xl font-semibold mb-2">Misión</h3>
                     <p>
                       Generar agentes de cambio, apoyar e intervenir en todas las actividades, eventos y jornadas que se realicen dentro de la Institución a favor de las personas con discapacidad (DI), luchar y apoyar el derecho de oportunidades para todos y contribuir con la calidad de vida y justicia social de las personas con necesidades especiales. Colaborar y participar con los eventos para la recaudación de fondos requeridos para consolidar y ampliar los programas y servicios de la Institución.
                     </p>
                   </div>
                   <div>
-                    <h3 className="font-heading text-xl font-semibold mb-2">VISIÓN</h3>
+                    <h3 className="font-heading text-xl font-semibold mb-2">Visión</h3>
                     <p>
                       Ser un grupo de mucha acción, consolidado, con presencia y expresión de ciudadanía activa organizada. "Mientras más grande es nuestra riqueza interior, más frutos producirá nuestro trabajo".
                     </p>

@@ -41,7 +41,7 @@ export default function ContactPage() {
             {/* Contact Information */}
             <div className="space-y-8">
               <div>
-                <h2 className="font-heading text-3xl font-bold mb-6 text-balance">Información de Contacto</h2>
+                <h2 className="font-heading text-3xl font-bold mb-6 text-balance">Información de contacto</h2>
                 <p className="text-lg leading-relaxed text-pretty text-muted-foreground">
                   Puedes comunicarte con nosotros a través de cualquiera de estos medios. Estaremos encantados de
                   atenderte.
@@ -134,7 +134,7 @@ export default function ContactPage() {
                         <Clock className="h-6 w-6 text-primary" aria-hidden="true" />
                       </div>
                       <div className="space-y-1">
-                        <h3 className="font-heading text-lg font-semibold">Horario de Atención</h3>
+                        <h3 className="font-heading text-lg font-semibold">Horario de atención</h3>
                         <p className="text-muted-foreground leading-relaxed">
                           Lunes a Viernes: 8:00 AM - 5:00 PM
                           <br />
@@ -151,7 +151,7 @@ export default function ContactPage() {
             <div>
               <Card className="border-border bg-background">
                 <CardContent className="p-8">
-                  <h2 className="font-heading text-2xl font-bold mb-6 text-balance">Envíanos un Mensaje</h2>
+                  <h2 className="font-heading text-2xl font-bold mb-6 text-balance">Envíanos un mensaje</h2>
 
                   <form className="space-y-6" aria-label="Formulario de contacto">
                     <div className="space-y-2">

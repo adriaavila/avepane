@@ -184,7 +184,7 @@ export default function AlliesPage() {
           <div className="grid gap-6 md:grid-cols-2">
             <Card className="border-border bg-background">
               <CardContent className="p-6 space-y-3">
-                <h3 className="font-heading text-xl font-semibold text-balance">Responsabilidad Social</h3>
+                <h3 className="font-heading text-xl font-semibold text-balance">Responsabilidad social</h3>
                 <p className="text-muted-foreground leading-relaxed text-pretty">
                   Demuestra el compromiso de tu empresa con la inclusión y la responsabilidad social corporativa
                 </p>
@@ -193,7 +193,7 @@ export default function AlliesPage() {
 
             <Card className="border-border bg-background">
               <CardContent className="p-6 space-y-3">
-                <h3 className="font-heading text-xl font-semibold text-balance">Talento Diverso</h3>
+                <h3 className="font-heading text-xl font-semibold text-balance">Talento diverso</h3>
                 <p className="text-muted-foreground leading-relaxed text-pretty">
                   Accede a un pool de talento motivado, capacitado y con habilidades comprobadas
                 </p>
@@ -202,7 +202,7 @@ export default function AlliesPage() {
 
             <Card className="border-border bg-background">
               <CardContent className="p-6 space-y-3">
-                <h3 className="font-heading text-xl font-semibold text-balance">Acompañamiento Continuo</h3>
+                <h3 className="font-heading text-xl font-semibold text-balance">Acompañamiento continuo</h3>
                 <p className="text-muted-foreground leading-relaxed text-pretty">
                   Nuestro equipo brinda apoyo constante para garantizar una integración exitosa
                 </p>
@@ -211,7 +211,7 @@ export default function AlliesPage() {
 
             <Card className="border-border bg-background">
               <CardContent className="p-6 space-y-3">
-                <h3 className="font-heading text-xl font-semibold text-balance">Impacto Social</h3>
+                <h3 className="font-heading text-xl font-semibold text-balance">Impacto social</h3>
                 <p className="text-muted-foreground leading-relaxed text-pretty">
                   Contribuye directamente a transformar vidas y construir una sociedad más inclusiva
                 </p>

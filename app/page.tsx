@@ -12,13 +12,13 @@ export default function HomePage() {
   const programs = [
     {
       icon: Briefcase,
-      title: "Inserción Laboral",
+      title: "Inserción laboral",
       description: "Facilitamos la incorporación de personas con discapacidad intelectual al mercado laboral.",
       href: "/programas#insercion-laboral",
     },
     {
       icon: Users,
-      title: "Empleo Protegido",
+      title: "Empleo protegido",
       description: "Entorno laboral adaptado que permite el desarrollo de habilidades en un ambiente seguro.",
       href: "/programas#empleo-protegido",
     },
