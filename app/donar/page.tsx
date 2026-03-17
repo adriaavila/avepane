@@ -15,16 +15,16 @@ const PAGE_SUMMARY = "Tu donación transforma vidas. En AVEPANE trabajamos para 
 type DonationType = "international" | "venezuela"
 
 export default function DonatePage() {
-  const [donationType, setDonationType] = useState<DonationType>("international")
+  const [donationType, setDonationType] = useState<DonationType>("venezuela")
   const [showThankYou, setShowThankYou] = useState(false)
 
   // Simple country detection (can be enhanced)
-  useEffect(() => {
-    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
-    if (timezone.includes("Caracas") || timezone.includes("America/Caracas")) {
-      setDonationType("venezuela")
-    }
-  }, [])
+  // useEffect(() => {
+  //   const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
+  //   if (timezone.includes("Caracas") || timezone.includes("America/Caracas")) {
+  //     setDonationType("venezuela")
+  //   }
+  // }, [])
 
   const handleInternationalDonation = async (amount: number, isRecurring: boolean) => {
     try {
@@ -184,13 +184,6 @@ export default function DonatePage() {
             className="w-full"
           >
             <TabsList className="grid w-full grid-cols-2 mb-8 h-auto min-h-[3.5rem]">
-              <TabsTrigger value="international" className="text-base py-3.5 px-4 h-full">
-                <span className="block text-center">
-                  <span className="block md:inline">🌍 Donación</span>
-                  <span className="hidden md:inline"> </span>
-                  <span className="block md:inline">internacional</span>
-                </span>
-              </TabsTrigger>
               <TabsTrigger value="venezuela" className="text-base py-3.5 px-4 h-full">
                 <span className="block text-center">
                   <span className="block md:inline">🇻🇪 Donación desde</span>
@@ -198,20 +191,34 @@ export default function DonatePage() {
                   <span className="block md:inline">Venezuela</span>
                 </span>
               </TabsTrigger>
+              <TabsTrigger value="international" className="text-base py-3.5 px-4 h-full">
+                <span className="block text-center">
+                  <span className="block md:inline">🌍 Donación</span>
+                  <span className="hidden md:inline"> </span>
+                  <span className="block md:inline">internacional</span>
+                </span>
+              </TabsTrigger>
             </TabsList>
-
-            <TabsContent value="international" className="mt-0">
-              <Card className="border-2">
-                <CardContent className="p-6 md:p-8">
-                  <DonationInternationalForm onDonate={handleInternationalDonation} />
-                </CardContent>
-              </Card>
-            </TabsContent>
 
             <TabsContent value="venezuela" className="mt-0">
               <Card className="border-2">
                 <CardContent className="p-6 md:p-8">
                   <DonationVenezuelaForm onDonate={handleVenezuelaDonation} />
+                </CardContent>
+              </Card>
+            </TabsContent>
+
+            <TabsContent value="international" className="mt-0">
+              <Card className="border-2">
+                <CardContent className="p-6 md:p-12 text-center space-y-4">
+                  <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-secondary mb-2">
+                    <span className="text-3xl">🌍</span>
+                  </div>
+                  <h3 className="font-heading text-2xl font-bold text-balance">Donaciones internacionales</h3>
+                  <p className="text-lg text-muted-foreground text-pretty max-w-sm mx-auto">
+                    Por el momento solo aceptamos donaciones en Venezuela.
+                  </p>
+                  {/* <DonationInternationalForm onDonate={handleInternationalDonation} /> */}
                 </CardContent>
               </Card>
             </TabsContent>

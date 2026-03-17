@@ -75,7 +75,7 @@ export async function POST(request: NextRequest) {
       })
 
       const existingPrice = prices.data.find(
-        (p) => p.unit_amount === amount && p.recurring?.interval === "month"
+        (p: any) => p.unit_amount === amount && p.recurring?.interval === "month"
       )
 
       if (existingPrice) {

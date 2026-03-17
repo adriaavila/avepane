@@ -66,30 +66,32 @@ export default function AboutPage() {
               />
             </div>
 
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-primary/10">
-                  <History className="h-6 w-6 text-primary" aria-hidden="true" />
-                </div>
-                <h2 id="history-heading" className="font-heading text-3xl font-bold md:text-4xl text-balance">
-                  Nuestra historia
-                </h2>
-                <div className="space-y-4 text-lg leading-relaxed text-pretty">
-                  <p>
-                    <strong>AVEPANE</strong> fue fundada en <strong>1963</strong> como una organización sin fines de lucro por un grupo de padres, familiares y profesionales comprometidos con mejorar la calidad de vida de niños con discapacidad intelectual y sus familias.
-                  </p>
-                  <p>
-                    La institución nació originalmente como <strong>Asociación de Padres y Amigos de Niños Excepcionales</strong>, impulsada por la necesidad de crear espacios de apoyo, educación y atención especializada para niños con necesidades especiales en Venezuela. Desde sus inicios, sus fundadores asumieron el reto de abordar esta realidad desde una perspectiva social, promoviendo iniciativas educativas, científicas y comunitarias en colaboración con la sociedad y el Estado.
-                  </p>
-                  <p>
-                    Con el paso del tiempo, AVEPANE consolidó programas orientados a la formación, la investigación y la atención integral, siempre con el objetivo de promover la inclusión y el desarrollo de los niños y sus familias.
-                  </p>
-                </div>
+            <div className="space-y-6">
+              <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-primary/10">
+                <History className="h-6 w-6 text-primary" aria-hidden="true" />
               </div>
+              <h2 id="history-heading" className="font-heading text-3xl font-bold md:text-4xl text-balance">
+                Nuestra historia
+              </h2>
+              <div className="space-y-4 text-lg leading-relaxed text-pretty">
+                <p>
+                  <strong>AVEPANE</strong> fue fundada en <strong>1963</strong> como una organización sin fines de lucro por un grupo de padres, familiares y profesionales comprometidos con mejorar la calidad de vida de niños con discapacidad intelectual y sus familias.
+                </p>
+                <p>
+                  La institución nació originalmente como <strong>Asociación de Padres y Amigos de Niños Excepcionales</strong>, impulsada por la necesidad de crear espacios de apoyo, educación y atención especializada para niños con necesidades especiales en Venezuela. Desde sus inicios, sus fundadores asumieron el reto de abordar esta realidad desde una perspectiva social, promoviendo iniciativas educativas, científicas y comunitarias en colaboración con la sociedad y el Estado.
+                </p>
+                <p>
+                  Con el paso del tiempo, AVEPANE consolidó programas orientados a la formación, la investigación y la atención integral, siempre con el objetivo de promover la inclusión y el desarrollo de los niños y sus familias.
+                </p>
+              </div>
+            </div>
+          </div>
 
-              <Card className="border-border bg-secondary/20">
-                <CardContent className="p-6 md:p-8 space-y-4">
-                  <h3 className="font-heading text-2xl font-bold text-balance">Primera junta directiva</h3>
+          <Card className="border-border bg-secondary/20 mt-12 md:mt-16">
+            <CardContent className="p-6 md:p-10">
+              <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+                <div className="space-y-6">
+                  <h3 className="font-heading text-2xl md:text-3xl font-bold text-balance">Primera junta directiva</h3>
                   <div className="space-y-4 text-base md:text-lg leading-relaxed text-pretty">
                     <p>
                       En el año <strong>1963</strong>, tras la fundación de la institución, se conformó el primer Consejo Directivo de AVEPANE, integrado por destacados padres, profesionales y colaboradores comprometidos con la causa.
@@ -97,26 +99,44 @@ export default function AboutPage() {
                     <p>
                       El consejo estuvo conformado por <strong>Carlos Beracasa</strong>, <strong>Carlos Tronconi</strong>, <strong>Jacques Benergui</strong>, <strong>Reyna de Benergui</strong>, <strong>Gustavo Leal</strong>, <strong>Bernardo Meléndez</strong> y <strong>Pedro Berrueta</strong>.
                     </p>
-                    <div className="space-y-2">
-                      <p className="font-semibold text-foreground">Cargos directivos iniciales</p>
-                      <ul className="space-y-2 text-muted-foreground">
-                        <li><strong className="text-foreground">Presidente:</strong> Carlos Beracasa</li>
-                        <li><strong className="text-foreground">Vicepresidenta:</strong> Reyna de Benergui</li>
-                        <li><strong className="text-foreground">Secretario General:</strong> Jacques Benergui</li>
-                        <li><strong className="text-foreground">Secretario de Relaciones Públicas:</strong> Pedro Berrueta</li>
-                      </ul>
-                    </div>
-                    <p>
-                      Adicionalmente, de acuerdo con lo establecido en los estatutos de la institución, fueron designados Presidentes Honorarios <strong>Alegría de Beracasa</strong> y <strong>Dr. Luis Teófilo Núñez</strong>, en reconocimiento a su apoyo y compromiso con la misión de la organización.
-                    </p>
                     <p>
                       Este primer equipo directivo sentó las bases institucionales de AVEPANE, estableciendo su estructura organizativa y orientando las primeras iniciativas destinadas a mejorar la atención, educación y calidad de vida de los niños con discapacidad intelectual en Venezuela.
                     </p>
                   </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
+                </div>
+
+                <div className="space-y-6">
+                  <div className="rounded-xl bg-background p-6 border border-border shadow-sm space-y-4">
+                    <p className="font-heading text-xl font-semibold text-foreground">Cargos directivos iniciales</p>
+                    <ul className="space-y-3 text-muted-foreground text-base md:text-lg">
+                      <li className="flex items-start gap-3">
+                        <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
+                        <span><strong className="text-foreground">Presidente:</strong> Carlos Beracasa</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
+                        <span><strong className="text-foreground">Vicepresidenta:</strong> Reyna de Benergui</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
+                        <span><strong className="text-foreground">Secretario General:</strong> Jacques Benergui</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
+                        <span><strong className="text-foreground">Secretario de Relaciones Públicas:</strong> Pedro Berrueta</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="space-y-4 text-base md:text-lg leading-relaxed text-pretty">
+                    <p>
+                      Adicionalmente, de acuerdo con lo establecido en los estatutos de la institución, fueron designados Presidentes Honorarios <strong>Alegría de Beracasa</strong> y <strong>Dr. Luis Teófilo Núñez</strong>, en reconocimiento a su apoyo y compromiso con la misión de la organización.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
