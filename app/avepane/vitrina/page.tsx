@@ -6,12 +6,12 @@ import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { PageSummary } from "@/components/page-summary"
 
-const PAGE_SUMMARY = "La Vitrina Virtual AVEPANE exhibe los increíbles trabajos realizados por nuestros Niños Excepcionales. Descubre artesanías, pinturas y manualidades únicas. Cada compra apoya directamente nuestros programas de formación y desarrollo, promoviendo el talento y la inclusión."
+const PAGE_SUMMARY = "La Vitrina Virtual AVEPANE exhibe los increíbles trabajos realizados por nuestros jóvenes y adultos. Descubre artesanías, pinturas y manualidades únicas. Cada compra apoya directamente nuestros programas de formación y desarrollo, promoviendo el talento y la inclusión."
 
 export const metadata = {
   title: "Vitrina Virtual - AVEPANE",
   description:
-    "Descubre los trabajos y creaciones realizadas por los Niños Excepcionales de AVEPANE. Productos artesanales y emprendimientos únicos.",
+    "Descubre los trabajos y creaciones realizadas por los jóvenes y adultos de AVEPANE. Productos artesanales y emprendimientos únicos.",
 }
 
 export default function VitrinaPage() {
@@ -82,7 +82,7 @@ export default function VitrinaPage() {
               Vitrina Virtual AVEPANE
             </h1>
             <p className="text-lg leading-relaxed text-pretty md:text-xl">
-              Descubre los increíbles trabajos y creaciones realizadas por nuestros Niños Excepcionales. Cada pieza es
+              Descubre los increíbles trabajos y creaciones realizadas por nuestros jóvenes y adultos. Cada pieza es
               única y refleja el talento, dedicación y creatividad de nuestros artistas.
             </p>
             <PageSummary text={PAGE_SUMMARY} />
@@ -102,12 +102,12 @@ export default function VitrinaPage() {
                 Apoya a nuestros artistas
               </h2>
               <p className="text-lg leading-relaxed text-pretty">
-                Cada compra o donación nos ayuda a continuar con nuestros programas de formación y desarrollo. Al
+                Cada compra nos ayuda a continuar con nuestros programas de formación y desarrollo. Al
                 adquirir estos productos, estás contribuyendo directamente al crecimiento personal y profesional de
-                nuestros Niños Excepcionales.
+                nuestros jóvenes y adultos.
               </p>
               <p className="leading-relaxed text-pretty">
-                El Vitrina virtual AVEPANE es una iniciativa que busca dar a conocer los emprendimientos y trabajos
+                La vitrina virtual AVEPANE es una iniciativa que busca dar a conocer los emprendimientos y trabajos
                 realizados por nuestra comunidad, creando oportunidades de crecimiento tanto para los artistas como
                 para la organización.
               </p>
@@ -130,6 +130,52 @@ export default function VitrinaPage() {
         </div>
       </section>
 
+      {/* Payment Process Section */}
+      <section className="py-12 md:py-16 bg-secondary/10 border-y border-border" aria-labelledby="process-heading">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 id="process-heading" className="font-heading text-2xl font-bold md:text-3xl text-balance">
+              ¿Cómo adquirir nuestros productos?
+            </h2>
+            <p className="text-muted-foreground mt-2">Un proceso sencillo y seguro para apoyar nuestro talento</p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 relative">
+            <div className="hidden md:block absolute top-1/2 left-1/6 right-1/6 h-0.5 bg-border -z-10 transform -translate-y-1/2"></div>
+            
+            <Card className="border-border bg-background relative z-10 shadow-sm">
+              <CardContent className="p-6 text-center space-y-4">
+                <div className="h-12 w-12 mx-auto rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xl ring-12 ring-secondary/50">
+                  1
+                </div>
+                <h3 className="font-heading text-lg font-semibold">Elige tu favorito</h3>
+                <p className="text-sm text-muted-foreground">Explora nuestra galería de trabajos y selecciona la pieza que más te guste.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border bg-background relative z-10 shadow-sm">
+              <CardContent className="p-6 text-center space-y-4">
+                <div className="h-12 w-12 mx-auto rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xl ring-12 ring-secondary/50">
+                  2
+                </div>
+                <h3 className="font-heading text-lg font-semibold">Contáctanos</h3>
+                <p className="text-sm text-muted-foreground">Comunícate con nuestro equipo para verificar disponibilidad y detalles de entrega.</p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border bg-background relative z-10 shadow-sm">
+              <CardContent className="p-6 text-center space-y-4">
+                <div className="h-12 w-12 mx-auto rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xl ring-12 ring-secondary/50">
+                  3
+                </div>
+                <h3 className="font-heading text-lg font-semibold">Pago Seguro</h3>
+                <p className="text-sm text-muted-foreground">Realiza tu aporte de forma rápida y segura, ya sea a nivel nacional o internacional.</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Works Gallery */}
       <section className="py-16 md:py-20 bg-secondary/20" aria-labelledby="works-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -138,7 +184,7 @@ export default function VitrinaPage() {
               <Sparkles className="h-6 w-6 text-primary" aria-hidden="true" />
             </div>
             <h2 id="works-heading" className="font-heading text-3xl font-bold mb-4 md:text-4xl text-balance">
-              Trabajos de nuestros Niños Excepcionales
+              Trabajos de nuestros jóvenes y adultos
             </h2>
             <p className="text-lg leading-relaxed max-w-2xl mx-auto text-pretty">
               Explora la creatividad y el talento de nuestros artistas a través de sus creaciones únicas
@@ -173,31 +219,6 @@ export default function VitrinaPage() {
               </Card>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <h2 className="font-heading text-3xl font-bold md:text-4xl text-balance">
-            ¿Tienes un emprendimiento y quieres participar?
-          </h2>
-          <p className="text-lg leading-relaxed text-pretty">
-            Si tienes un negocio sensible a las obras de carácter social y humanitario, te invitamos a formar parte del
-            Vitrina virtual AVEPANE. Tu mercado crecerá y nosotros recibiremos un aporte para continuar con nuestros
-            programas.
-          </p>
-          <Button
-            asChild
-            size="lg"
-            variant="secondary"
-            className="bg-background text-foreground hover:bg-background/90"
-          >
-            <Link href="/contacto">
-              Contactar para participar
-              <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
-            </Link>
-          </Button>
         </div>
       </section>
     </MainLayout>

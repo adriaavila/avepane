@@ -1,7 +1,7 @@
 import { MainLayout } from "@/components/main-layout"
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
-import { History, Target, Users, Heart, Briefcase, CheckCircle2 } from "lucide-react"
+import { History, Target, Users, Heart, Briefcase, CheckCircle2, Handshake, Lightbulb, ShieldCheck } from "lucide-react"
 import { PageSummary } from "@/components/page-summary"
 
 const PAGE_SUMMARY = `AVEPANE fue fundada en 1963 como una organización sin fines de lucro por padres, familiares y profesionales comprometidos con la calidad de vida de personas con discapacidad intelectual y sus familias. Su misión está orientada a la educación integral, la formación para el trabajo y el desarrollo de habilidades que promuevan inclusión, empleabilidad e independencia.`
@@ -15,19 +15,29 @@ export const metadata = {
 export default function AboutPage() {
   const values = [
     {
-      icon: Heart,
-      title: "Compromiso",
-      description: "Trabajamos con dedicación y sensibilidad para acompañar a cada participante y a sus familias.",
-    },
-    {
       icon: Users,
-      title: "Inclusión",
-      description: "Promovemos oportunidades reales de participación, formación y desarrollo dentro de la sociedad.",
+      title: "Inclusión y respeto",
+      description: "Reconocemos el valor inherente de cada persona y nos comprometemos a tratar a todos con dignidad. Promovemos activamente la participación plena en la sociedad de las personas con discapacidad intelectual, eliminando barreras y creando un ambiente donde sus voces son valoradas y escuchadas. Se trata de darles las herramientas para que tomen el control de sus propias vidas y alcancen su máximo potencial.",
     },
     {
-      icon: Target,
-      title: "Formación",
-      description: "Impulsamos procesos educativos y laborales orientados a fortalecer habilidades y autonomía.",
+      icon: Handshake,
+      title: "Cooperación",
+      description: "Fomentamos la colaboración activa y la sinergia entre familias, profesionales, voluntarios, aliados y donantes. Creemos firmemente que los logros más significativos se alcanzan cuando unimos esfuerzos y recursos para lograr nuestros objetivos comunes.",
+    },
+    {
+      icon: Heart,
+      title: "Solidaridad",
+      description: "Promovemos un espíritu de colaboración y apoyo genuino hacia las personas con discapacidad intelectual y sus familias. Actuamos con empatía para acompañarlas en su camino, sabiendo que el progreso verdadero se logra cuando la comunidad se articula con convicción.",
+    },
+    {
+      icon: Lightbulb,
+      title: "Innovación",
+      description: "A través de la investigación constante y la organización de congresos científicos, nos mantenemos a la vanguardia en el campo de la discapacidad intelectual. Este compromiso nos permite desarrollar y aplicar métodos de atención y educación de vanguardia, adaptándonos a las nuevas necesidades y evolucionando para liderar el sector.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Responsabilidad",
+      description: "Nos comprometemos a actuar con integridad y transparencia en cada una de nuestras acciones. Asumimos la responsabilidad de la confianza depositada por las familias, donantes y la comunidad. Esto se traduce en una gestión ética de nuestros recursos y una dedicación constante para cumplir con nuestra misión.",
     },
   ]
 
@@ -78,7 +88,7 @@ export default function AboutPage() {
                   <strong>AVEPANE</strong> fue fundada en <strong>1963</strong> como una organización sin fines de lucro por un grupo de padres, familiares y profesionales comprometidos con mejorar la calidad de vida de niños con discapacidad intelectual y sus familias.
                 </p>
                 <p>
-                  La institución nació originalmente como <strong>Asociación de Padres y Amigos de Niños Excepcionales</strong>, impulsada por la necesidad de crear espacios de apoyo, educación y atención especializada para niños con necesidades especiales en Venezuela. Desde sus inicios, sus fundadores asumieron el reto de abordar esta realidad desde una perspectiva social, promoviendo iniciativas educativas, científicas y comunitarias en colaboración con la sociedad y el Estado.
+                  La institución nació como <strong>Asociación de Padres y Amigos de Niños Excepcionales</strong>, impulsada por la necesidad de crear espacios de apoyo, educación y atención especializada para niños con necesidades especiales en Venezuela. Desde sus inicios, sus fundadores asumieron el reto de abordar esta realidad desde una perspectiva social, promoviendo iniciativas educativas, científicas y comunitarias en colaboración con la sociedad y el Estado.
                 </p>
                 <p>
                   Con el paso del tiempo, AVEPANE consolidó programas orientados a la formación, la investigación y la atención integral, siempre con el objetivo de promover la inclusión y el desarrollo de los niños y sus familias.
@@ -207,7 +217,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {values.map((value) => {
               const IconComponent = value.icon
               return (

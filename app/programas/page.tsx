@@ -1,5 +1,6 @@
 import { MainLayout } from "@/components/main-layout"
 import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
 import Image from "next/image"
 import { Briefcase, Users, HandHeart, CheckCircle, ArrowRight } from "lucide-react"
@@ -25,7 +26,7 @@ export default function ProgramsPage() {
       icon: Briefcase,
       title: "Inserción laboral",
       description:
-        "Programa integral que prepara a personas con discapacidad intelectual para su incorporación exitosa al mercado laboral competitivo.",
+        "Programa integral que prepara a personas con discapacidad intelectual para su incorporación exitosa a empleos productivos.",
       features: [
         "Evaluación de habilidades y competencias laborales",
         "Formación en competencias técnicas específicas",
@@ -81,6 +82,70 @@ export default function ProgramsPage() {
               habilidades de personas con discapacidad intelectual
             </p>
             <PageSummary text={PAGE_SUMMARY} />
+          </div>
+        </div>
+      </section>
+
+      {/* Areas Ocupacionales Section */}
+      <section className="py-16 md:py-20 bg-background" aria-labelledby="areas-heading">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 id="areas-heading" className="font-heading text-3xl font-bold mb-4 md:text-4xl text-balance">
+              Nuestras Áreas Ocupacionales
+            </h2>
+            <p className="text-lg leading-relaxed max-w-3xl mx-auto text-pretty text-muted-foreground">
+              Desarrollamos habilidades prácticas y productivas en diferentes talleres especializados, diseñados para potenciar el talento de cada participante.
+            </p>
+          </div>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <Card className="border-border bg-secondary/10 hover:bg-secondary/20 transition-colors">
+              <CardContent className="p-6 text-center space-y-4">
+                <div className="h-12 w-12 mx-auto rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Briefcase className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="font-heading text-xl font-bold">Artesanía y Manualidades</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Fomentamos la creatividad, la motricidad fina y la atención al detalle a través de la creación de piezas únicas.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border bg-secondary/10 hover:bg-secondary/20 transition-colors">
+              <CardContent className="p-6 text-center space-y-4">
+                <div className="h-12 w-12 mx-auto rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Briefcase className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="font-heading text-xl font-bold">Encuadernación</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Desarrollamos disciplina, organización y destrezas manuales estructuradas mediante procesos técnicos.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border bg-secondary/10 hover:bg-secondary/20 transition-colors">
+              <CardContent className="p-6 text-center space-y-4">
+                <div className="h-12 w-12 mx-auto rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Briefcase className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="font-heading text-xl font-bold">Gastronomía Básica</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Promovemos la autonomía, el cumplimiento de normas de higiene y secuencias lógicas de preparación.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border bg-secondary/10 hover:bg-secondary/20 transition-colors">
+              <CardContent className="p-6 text-center space-y-4">
+                <div className="h-12 w-12 mx-auto rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Briefcase className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="font-heading text-xl font-bold">Labores de Oficina</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Preparamos para entornos profesionales desarrollando competencias en manejo de archivos, asistencia y habilidades ofimáticas.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -143,36 +208,6 @@ export default function ProgramsPage() {
           </section>
         )
       })}
-
-      {/* Impact Section */}
-      <section className="py-16 md:py-20 bg-accent text-accent-foreground" aria-labelledby="impact-heading">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-8">
-            <h2 id="impact-heading" className="font-heading text-3xl font-bold md:text-4xl text-balance">
-              Nuestro Impacto
-            </h2>
-
-            <div className="grid gap-8 md:grid-cols-3 max-w-4xl mx-auto">
-              <div className="space-y-2">
-                <p className="font-heading text-5xl font-bold text-primary">57+</p>
-                <p className="text-lg">Años de experiencia</p>
-              </div>
-              <div className="space-y-2">
-                <p className="font-heading text-5xl font-bold text-primary">500+</p>
-                <p className="text-lg">Personas beneficiadas</p>
-              </div>
-              <div className="space-y-2">
-                <p className="font-heading text-5xl font-bold text-primary">100+</p>
-                <p className="text-lg">Empresas aliadas</p>
-              </div>
-            </div>
-
-            <p className="text-lg leading-relaxed max-w-2xl mx-auto text-pretty">
-              Más de cinco décadas transformando vidas y construyendo un Venezuela más inclusivo
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-16 md:py-20 bg-primary text-primary-foreground">
