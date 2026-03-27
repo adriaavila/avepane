@@ -1,58 +1,17 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { MainLayout } from "@/components/main-layout"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
-import { DonationInternationalForm } from "@/components/donation-international-form"
 import { DonationVenezuelaForm } from "@/components/donation-venezuela-form"
 import { Heart, Brain, GraduationCap, Users, CheckCircle } from "lucide-react"
 import { PageSummary } from "@/components/page-summary"
 
-const PAGE_SUMMARY = "Tu donación transforma vidas. En AVEPANE trabajamos para que personas con autismo y discapacidad intelectual tengan acceso a educación y oportunidades. Aceptamos donaciones internacionales y nacionales. Tu aporte financia terapias, formación y apoyo a familias."
-
-type DonationType = "international" | "venezuela"
+const PAGE_SUMMARY = "Tu donación transforma vidas. En AVEPANE trabajamos para que personas con autismo y discapacidad intelectual tengan acceso a educación y oportunidades. Actualmente recibimos donaciones en Venezuela. Tu aporte financia terapias, formación y apoyo a familias."
 
 export default function DonatePage() {
-  const [donationType, setDonationType] = useState<DonationType>("venezuela")
   const [showThankYou, setShowThankYou] = useState(false)
-
-  // Simple country detection (can be enhanced)
-  // useEffect(() => {
-  //   const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
-  //   if (timezone.includes("Caracas") || timezone.includes("America/Caracas")) {
-  //     setDonationType("venezuela")
-  //   }
-  // }, [])
-
-  const handleInternationalDonation = async (amount: number, isRecurring: boolean) => {
-    try {
-      const response = await fetch("/api/stripe/checkout", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          amount: amount * 100, // Convert to cents
-          isRecurring,
-        }),
-      })
-
-      if (!response.ok) {
-        const error = await response.json()
-        throw new Error(error.message || "Error al procesar la donación")
-      }
-
-      const { url } = await response.json()
-      if (url) {
-        window.location.href = url
-      }
-    } catch (error) {
-      console.error("Error:", error)
-      alert("Hubo un error al procesar tu donación. Por favor, intenta nuevamente.")
-    }
-  }
 
   const handleVenezuelaDonation = async (data: any) => {
     try {
@@ -156,7 +115,7 @@ export default function DonatePage() {
               </p>
               <PageSummary text={PAGE_SUMMARY} />
               <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground pt-2">
-                <span>Donaciones seguras</span>
+                <span>Transferencias verificables</span>
                 <span>•</span>
                 <span>Transparencia</span>
                 <span>•</span>
@@ -178,51 +137,23 @@ export default function DonatePage() {
       {/* Donation Type Selector */}
       <section className="py-12 md:py-16 bg-background">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <Tabs
-            value={donationType}
-            onValueChange={(value) => setDonationType(value as DonationType)}
-            className="w-full"
-          >
-            <TabsList className="grid w-full grid-cols-2 mb-8 h-auto min-h-[3.5rem]">
-              <TabsTrigger value="venezuela" className="text-base py-3.5 px-4 h-full">
-                <span className="block text-center">
-                  <span className="block md:inline">🇻🇪 Donación desde</span>
-                  <span className="hidden md:inline"> </span>
-                  <span className="block md:inline">Venezuela</span>
-                </span>
-              </TabsTrigger>
-              <TabsTrigger value="international" className="text-base py-3.5 px-4 h-full">
-                <span className="block text-center">
-                  <span className="block md:inline">🌍 Donación</span>
-                  <span className="hidden md:inline"> </span>
-                  <span className="block md:inline">internacional</span>
-                </span>
-              </TabsTrigger>
-            </TabsList>
+          <div className="mb-8 rounded-2xl border border-primary/20 bg-primary/5 p-6 text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+              Donaciones activas
+            </p>
+            <h2 className="mt-3 font-heading text-2xl font-bold text-balance md:text-3xl">
+              Actualmente recibimos aportes desde Venezuela
+            </h2>
+            <p className="mt-3 text-muted-foreground text-pretty">
+              Completa el formulario y sigue los datos bancarios indicados para registrar tu donación.
+            </p>
+          </div>
 
-            <TabsContent value="venezuela" className="mt-0">
-              <Card className="border-2">
-                <CardContent className="p-6 md:p-8">
-                  <DonationVenezuelaForm onDonate={handleVenezuelaDonation} />
-                </CardContent>
-              </Card>
-            </TabsContent>
-
-            <TabsContent value="international" className="mt-0">
-              <Card className="border-2">
-                <CardContent className="p-6 md:p-12 text-center space-y-4">
-                  <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-secondary mb-2">
-                    <span className="text-3xl">🌍</span>
-                  </div>
-                  <h3 className="font-heading text-2xl font-bold text-balance">Donaciones internacionales</h3>
-                  <p className="text-lg text-muted-foreground text-pretty max-w-sm mx-auto">
-                    Por el momento solo aceptamos donaciones en Venezuela.
-                  </p>
-                  {/* <DonationInternationalForm onDonate={handleInternationalDonation} /> */}
-                </CardContent>
-              </Card>
-            </TabsContent>
-          </Tabs>
+          <Card className="border-2">
+            <CardContent className="p-6 md:p-8">
+              <DonationVenezuelaForm onDonate={handleVenezuelaDonation} />
+            </CardContent>
+          </Card>
         </div>
       </section>
 

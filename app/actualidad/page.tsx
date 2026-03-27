@@ -13,6 +13,8 @@ export const metadata = {
     "Eventos, noticias y actividades recientes de AVEPANE. Mantente informado sobre nuestras acciones y logros.",
 }
 
+export const revalidate = 3600
+
 export default function NewsPage() {
   const allEvents = getAllPosts()
   // Sort by date (most recent first) and take only the 3 most recent

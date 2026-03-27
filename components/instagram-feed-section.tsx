@@ -1,44 +1,11 @@
-"use client"
-
-import { useEffect, useState } from "react"
-import { InstagramPost } from "@/app/api/instagram/route"
 import { InstagramPostCard } from "@/components/instagram-post-card"
-import { InstagramSkeletonGrid } from "@/components/instagram-skeleton-grid"
 import { Instagram as InstagramIcon, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { getInstagramFeedData } from "@/lib/instagram-feed"
+import { INSTAGRAM_PROFILE_URL } from "@/lib/social-links"
 
-export function InstagramFeedSection() {
-  const [posts, setPosts] = useState<InstagramPost[]>([])
-  const [loading, setLoading] = useState(true)
-  const [message, setMessage] = useState<string | null>(null)
-
-  useEffect(() => {
-    async function fetchPosts() {
-      try {
-        const response = await fetch("/api/instagram")
-        
-        // Always try to parse the response, even if status is not ok
-        const data = await response.json()
-        
-        // Set posts (will be empty array if API failed)
-        setPosts(data.posts || [])
-        
-        // Set informational message if provided (for missing credentials or errors)
-        if (data.message) {
-          setMessage(data.message)
-        }
-      } catch (err) {
-        console.error("Error fetching Instagram posts:", err)
-        // Don't set error state, just show empty state
-        setPosts([])
-        setMessage("No se pudieron cargar las publicaciones de Instagram")
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchPosts()
-  }, [])
+export async function InstagramFeedSection() {
+  const { posts, message } = await getInstagramFeedData()
 
   return (
     <section
@@ -62,11 +29,8 @@ export function InstagramFeedSection() {
           </p>
         </div>
 
-        {/* Loading State */}
-        {loading && <InstagramSkeletonGrid />}
-
         {/* Posts Grid */}
-        {!loading && posts.length > 0 && (
+        {posts.length > 0 && (
           <>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {posts.map((post) => (
@@ -82,7 +46,7 @@ export function InstagramFeedSection() {
                 className="bg-[#F37B24] text-white hover:bg-[#F37B24]/90 focus-visible:ring-2 focus-visible:ring-[#F37B24] focus-visible:ring-offset-2"
               >
                 <a
-                  href="https://www.instagram.com/avepane/?hl=es"
+                  href={INSTAGRAM_PROFILE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2"
@@ -96,7 +60,7 @@ export function InstagramFeedSection() {
         )}
 
         {/* Empty State with Message - Always show grid structure */}
-        {!loading && posts.length === 0 && (
+        {posts.length === 0 && (
           <>
             {/* Show skeleton grid structure even when empty */}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -136,7 +100,7 @@ export function InstagramFeedSection() {
                     className="bg-[#F37B24] text-white hover:bg-[#F37B24]/90 focus-visible:ring-2 focus-visible:ring-[#F37B24] focus-visible:ring-offset-2"
                   >
                     <a
-                      href="https://www.instagram.com/avepane/?hl=es"
+                      href={INSTAGRAM_PROFILE_URL}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2"

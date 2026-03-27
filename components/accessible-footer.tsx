@@ -2,6 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Facebook, Instagram, Mail, Phone, MapPin, GraduationCap, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { INSTAGRAM_PROFILE_URL } from "@/lib/social-links"
 
 export function AccessibleFooter() {
   const quickLinks = [
@@ -43,7 +44,7 @@ export function AccessibleFooter() {
                 <Facebook className="h-5 w-5" aria-hidden="true" />
               </a>
               <a
-                href="https://www.instagram.com/avepane/?hl=es"
+                href={INSTAGRAM_PROFILE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"

@@ -222,4 +222,13 @@
   [data-slot="navigation-menu-viewport"] ul {
     color: #2C2C2C !important;
   }
+
+  .instagram-carousel-track {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .instagram-carousel-track::-webkit-scrollbar {
+    display: none;
+  }
 }
