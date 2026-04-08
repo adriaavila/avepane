@@ -1,0 +1,27 @@
+<svg width="900" height="900" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="900" fill="#050505"/>
+  <g stroke="#C89A35" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M246 252L332 178L394 248"/>
+    <path d="M654 252L568 178L506 248"/>
+    <path d="M450 186L406 252L450 294L494 252L450 186Z"/>
+    <path d="M356 294L450 370L544 294"/>
+    <path d="M302 332L356 294L390 378L336 414L302 332Z"/>
+    <path d="M598 332L544 294L510 378L564 414L598 332Z"/>
+    <path d="M390 378L450 446L510 378"/>
+    <path d="M364 440L450 544L536 440"/>
+    <path d="M392 540L450 618L508 540"/>
+    <path d="M332 468L282 540L340 606L414 596"/>
+    <path d="M568 468L618 540L560 606L486 596"/>
+    <path d="M248 470C262 422 302 404 338 418L314 484C290 492 266 490 248 470Z"/>
+    <path d="M652 470C638 422 598 404 562 418L586 484C610 492 634 490 652 470Z"/>
+    <path d="M372 650C402 626 430 614 450 614C470 614 498 626 528 650"/>
+    <path d="M316 252C352 220 394 206 450 206C506 206 548 220 584 252"/>
+    <path d="M406 312L370 334"/>
+    <path d="M494 312L530 334"/>
+    <path d="M414 496L450 518L486 496"/>
+  </g>
+  <g fill="#C89A35" font-family="Georgia, 'Times New Roman', serif" text-anchor="middle">
+    <text x="450" y="734" font-size="122" font-weight="700" letter-spacing="10">JABALÍ</text>
+    <text x="450" y="806" font-size="54" letter-spacing="6">COFFEE CLUB</text>
+  </g>
+</svg>

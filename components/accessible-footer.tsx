@@ -1,8 +1,17 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Facebook, Instagram, Mail, Phone, MapPin, GraduationCap, ExternalLink } from "lucide-react"
+import { Facebook, Instagram, Mail, Phone, MapPin, GraduationCap, ExternalLink, Youtube } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { INSTAGRAM_PROFILE_URL } from "@/lib/social-links"
+import {
+  CONTACT_EMAIL,
+  FACEBOOK_PAGE_URL,
+  INSTAGRAM_PROFILE_URL,
+  PRIMARY_PHONE_HREF,
+  PRIMARY_PHONE_LABEL,
+  SECONDARY_PHONE_HREF,
+  SECONDARY_PHONE_LABEL,
+  YOUTUBE_CHANNEL_URL,
+} from "@/lib/social-links"
 
 export function AccessibleFooter() {
   const quickLinks = [
@@ -35,7 +44,7 @@ export function AccessibleFooter() {
             <p className="text-sm leading-relaxed">Asociación Venezolana de Padres y Amigos de Niños Excepcionales</p>
             <div className="flex gap-4">
               <a
-                href="https://www.facebook.com/AvepaneRedes/?locale=es_LA"
+                href={FACEBOOK_PAGE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
@@ -51,6 +60,15 @@ export function AccessibleFooter() {
                 aria-label="Visitar Instagram de AVEPANE"
               >
                 <Instagram className="h-5 w-5" aria-hidden="true" />
+              </a>
+              <a
+                href={YOUTUBE_CHANNEL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
+                aria-label="Visitar YouTube de AVEPANE"
+              >
+                <Youtube className="h-5 w-5" aria-hidden="true" />
               </a>
             </div>
           </div>
@@ -101,26 +119,26 @@ export function AccessibleFooter() {
                 <Phone className="h-5 w-5 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <div className="flex flex-col gap-1">
                   <a
-                    href="tel:+582129453280"
+                    href={PRIMARY_PHONE_HREF}
                     className="text-sm hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
                   >
-                    (0212) 945.3280
+                    {PRIMARY_PHONE_LABEL}
                   </a>
                   <a
-                    href="tel:+582129432625"
+                    href={SECONDARY_PHONE_HREF}
                     className="text-sm hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
                   >
-                    (0212) 943.2625
+                    {SECONDARY_PHONE_LABEL}
                   </a>
                 </div>
               </li>
               <li className="flex gap-2">
                 <Mail className="h-5 w-5 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <a
-                  href="mailto:info@avepane.org"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className="text-sm hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
                 >
-                  info@avepane.org
+                  {CONTACT_EMAIL}
                 </a>
               </li>
             </ul>

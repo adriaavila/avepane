@@ -4,11 +4,65 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import { MapPin, Phone, Mail, Clock, Heart, Navigation } from "lucide-react"
+import {
+  Clock,
+  ExternalLink,
+  Facebook,
+  Globe2,
+  Heart,
+  Instagram,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Navigation,
+  Phone,
+  Youtube,
+} from "lucide-react"
 import Link from "next/link"
 import { PageSummary } from "@/components/page-summary"
+import {
+  CONTACT_EMAIL,
+  FACEBOOK_PAGE_URL,
+  INSTAGRAM_PROFILE_URL,
+  OFFICIAL_LINKS_HUB_URL,
+  PRIMARY_PHONE_HREF,
+  PRIMARY_PHONE_LABEL,
+  SECONDARY_PHONE_HREF,
+  SECONDARY_PHONE_LABEL,
+  WEBSITE_URL,
+  WHATSAPP_URL,
+  YOUTUBE_CHANNEL_URL,
+} from "@/lib/social-links"
 
-const PAGE_SUMMARY = "Estamos aquí para ayudarte. Contáctanos por teléfono, email o visítanos en nuestra sede en Caracas. Nuestro horario es de lunes a viernes de 8 AM a 5 PM. Si tienes preguntas sobre programas, voluntariado o donaciones, envíanos un mensaje a través de nuestro formulario."
+const PAGE_SUMMARY =
+  "Estamos aquí para ayudarte. Contáctanos por teléfono, WhatsApp, email o visítanos en nuestra sede en Caracas. También puedes acceder a nuestros canales oficiales para seguir actividades, publicaciones y vías de atención activas."
+
+const OFFICIAL_CHANNELS = [
+  {
+    name: "Instagram",
+    description: "Actividades, talleres y logros",
+    href: INSTAGRAM_PROFILE_URL,
+    icon: Instagram,
+  },
+  {
+    name: "Facebook",
+    description: "Noticias y comunidad",
+    href: FACEBOOK_PAGE_URL,
+    icon: Facebook,
+  },
+  {
+    name: "YouTube",
+    description: "Videos y contenidos",
+    href: YOUTUBE_CHANNEL_URL,
+    icon: Youtube,
+  },
+  {
+    name: "Página web",
+    description: "Información institucional",
+    href: WEBSITE_URL,
+    icon: Globe2,
+  },
+]
 
 export const metadata = {
   title: "Contacto - AVEPANE",
@@ -88,19 +142,49 @@ export default function ContactPage() {
                         <h3 className="font-heading text-lg font-semibold">Teléfono</h3>
                         <p className="text-muted-foreground">
                           <a
-                            href="tel:+582129453280"
+                            href={PRIMARY_PHONE_HREF}
                             className="hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded transition-colors"
                           >
-                            (0212) 945.3280
+                            {PRIMARY_PHONE_LABEL}
                           </a>
                           <br />
                           <a
-                            href="tel:+582129432625"
+                            href={SECONDARY_PHONE_HREF}
                             className="hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded transition-colors"
                           >
-                            (0212) 943.2625
+                            {SECONDARY_PHONE_LABEL}
                           </a>
                         </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-border bg-background">
+                  <CardContent className="p-6">
+                    <div className="flex gap-4">
+                      <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <MessageCircle className="h-6 w-6 text-primary" aria-hidden="true" />
+                      </div>
+                      <div className="space-y-3 flex-1">
+                        <div>
+                          <h3 className="font-heading text-lg font-semibold">WhatsApp</h3>
+                          <p className="text-muted-foreground leading-relaxed">
+                            Escríbenos directamente para orientarte sobre programas, voluntariado, donaciones o
+                            alianzas.
+                          </p>
+                        </div>
+                        <Button asChild size="sm" className="w-full sm:w-auto">
+                          <a
+                            href={WHATSAPP_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2"
+                          >
+                            <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                            Abrir WhatsApp
+                          </a>
+                        </Button>
                       </div>
                     </div>
                   </CardContent>
@@ -116,10 +200,10 @@ export default function ContactPage() {
                         <h3 className="font-heading text-lg font-semibold">Email</h3>
                         <p className="text-muted-foreground">
                           <a
-                            href="mailto:info@avepane.org"
+                            href={`mailto:${CONTACT_EMAIL}`}
                             className="hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded transition-colors"
                           >
-                            info@avepane.org
+                            {CONTACT_EMAIL}
                           </a>
                         </p>
                       </div>
@@ -144,11 +228,62 @@ export default function ContactPage() {
                     </div>
                   </CardContent>
                 </Card>
+
               </div>
             </div>
 
             {/* Contact Form */}
-            <div>
+            <div className="space-y-6">
+              <Card className="border-border bg-secondary/20">
+                <CardContent className="p-6 space-y-5">
+                  <div className="space-y-2">
+                    <h3 className="font-heading text-lg font-semibold">Canales oficiales</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      Si prefieres seguirnos o escribirnos por otros medios, aquí tienes accesos directos a nuestros
+                      canales verificados.
+                    </p>
+                  </div>
+
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    {OFFICIAL_CHANNELS.map((channel) => {
+                      const IconComponent = channel.icon
+
+                      return (
+                        <a
+                          key={channel.name}
+                          href={channel.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="rounded-xl border border-border bg-background px-4 py-3 transition-all hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                        >
+                          <div className="flex items-start gap-3">
+                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                              <IconComponent className="h-5 w-5 text-primary" aria-hidden="true" />
+                            </div>
+                            <div>
+                              <p className="font-medium text-foreground">{channel.name}</p>
+                              <p className="text-sm leading-relaxed text-muted-foreground">{channel.description}</p>
+                            </div>
+                          </div>
+                        </a>
+                      )
+                    })}
+                  </div>
+
+                  <Button asChild variant="outline" className="w-full sm:w-auto">
+                    <a
+                      href={OFFICIAL_LINKS_HUB_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2"
+                    >
+                      Ver todos los canales oficiales
+                      <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                    </a>
+                  </Button>
+                </CardContent>
+              </Card>
+
               <Card className="border-border bg-background">
                 <CardContent className="p-8">
                   <h2 className="font-heading text-2xl font-bold mb-6 text-balance">Envíanos un mensaje</h2>
@@ -322,6 +457,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
     </MainLayout>
   )
 }
