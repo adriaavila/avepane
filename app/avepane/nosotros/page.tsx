@@ -9,7 +9,7 @@ const PAGE_SUMMARY = `AVEPANE fue fundada en 1963 como una organización sin fin
 export const metadata = {
   title: "Nosotros - AVEPANE",
   description:
-    "Conoce la historia, misión, visión, objetivos y estructura institucional de AVEPANE. Más de seis décadas trabajando por la inclusión de personas con discapacidad intelectual.",
+    "Conoce la historia, misión, visión, objetivos y estructura institucional de AVEPANE, institución fundada en 1963 para promover la inclusión de personas con discapacidad intelectual.",
 }
 
 export default function AboutPage() {
@@ -57,7 +57,7 @@ export default function AboutPage() {
               Sobre AVEPANE
             </h1>
             <p className="text-lg leading-relaxed text-pretty md:text-xl">
-              Más de seis décadas dedicadas a la formación, la inclusión y el acompañamiento de personas con discapacidad intelectual y sus familias.
+              Fundada en 1963, AVEPANE ha dedicado su trayectoria a la formación, la inclusión y el acompañamiento de personas con discapacidad intelectual y sus familias.
             </p>
             <PageSummary text={PAGE_SUMMARY} />
           </div>

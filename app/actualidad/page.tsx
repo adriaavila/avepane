@@ -10,7 +10,7 @@ import { InstagramFeedSection } from "@/components/instagram-feed-section"
 export const metadata = {
   title: "Actualidad - AVEPANE",
   description:
-    "Eventos, noticias y actividades recientes de AVEPANE. Mantente informado sobre nuestras acciones y logros.",
+    "Sigue la actualidad de AVEPANE en Instagram y consulta noticias, actividades y publicaciones destacadas de la organización.",
 }
 
 export const revalidate = 3600
@@ -45,11 +45,14 @@ export default function NewsPage() {
               Actualidad AVEPANE
             </h1>
             <p className="text-lg leading-relaxed text-pretty md:text-xl">
-              Mantente informado sobre nuestros eventos, actividades y noticias más recientes
+              Síguenos en Instagram y consulta aquí una selección de noticias, actividades y publicaciones destacadas.
             </p>
           </div>
         </div>
       </section>
+
+      {/* Instagram Feed Section */}
+      <InstagramFeedSection />
 
       {/* Events Section */}
       <section className="py-16 md:py-20 bg-background" aria-labelledby="events-heading">
@@ -59,7 +62,7 @@ export default function NewsPage() {
               Eventos y Noticias
             </h2>
             <p className="text-lg leading-relaxed text-pretty">
-              Nuestras actividades más destacadas y próximos eventos
+              Una selección de noticias, actividades y publicaciones destacadas de AVEPANE.
             </p>
           </div>
 
@@ -109,9 +112,6 @@ export default function NewsPage() {
           />
         </div>
       </section>
-
-      {/* Instagram Feed Section */}
-      <InstagramFeedSection />
 
       {/* Photo Gallery */}
       <section className="py-16 md:py-20 bg-secondary/20" aria-labelledby="gallery-heading">

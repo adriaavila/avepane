@@ -7,19 +7,94 @@ import { Briefcase, Users, HandHeart, CheckCircle, ArrowRight } from "lucide-rea
 import { PageSummary } from "@/components/page-summary"
 
 // Short summary for TTS (max 120 words)
-const PAGE_SUMMARY = `AVEPANE ofrece tres programas especializados para la inclusión laboral de personas 
-con discapacidad intelectual. El programa de Inserción Laboral prepara a las personas para el mercado 
-laboral competitivo. El Empleo Protegido brinda un entorno adaptado y supervisado para desarrollar 
-habilidades. El Empleo con Apoyo proporciona acompañamiento continuo para garantizar la integración 
-exitosa en empresas. Con más de 50 años de experiencia, hemos beneficiado a más de 500 personas.`
+const PAGE_SUMMARY = `En AVEPANE trabajamos para desarrollar habilidades prácticas y productivas en 
+personas con discapacidad intelectual. Lo hacemos a través de programas especializados y áreas de 
+formación que acompañan su proceso de aprendizaje. El resultado que buscamos es fortalecer su inclusión 
+laboral y su participación activa en la comunidad.`
 
 export const metadata = {
   title: "Nuestros Programas - AVEPANE",
   description:
-    "Conoce los programas de AVEPANE: Inserción Laboral, Empleo Protegido y Empleo con Apoyo para personas con discapacidad intelectual.",
+    "Conoce cómo AVEPANE desarrolla habilidades prácticas y productivas mediante programas especializados que favorecen la inclusión laboral.",
+}
+
+function ProgramsCTA({ compact = false }: { compact?: boolean }) {
+  if (compact) {
+    return (
+      <section className="py-8 md:py-10 bg-background" aria-labelledby="programs-cta-top-heading">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <Card className="border-primary/20 bg-primary/5">
+            <CardContent className="p-6 md:p-8">
+              <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+                <div className="space-y-2">
+                  <h2 id="programs-cta-top-heading" className="font-heading text-2xl font-bold text-balance md:text-3xl">
+                    ¿Quieres participar en nuestros programas?
+                  </h2>
+                  <p className="max-w-2xl text-base leading-relaxed text-pretty text-muted-foreground md:text-lg">
+                    Contáctanos para orientarte sobre cómo formar parte de AVEPANE como beneficiario, aliado o voluntario.
+                  </p>
+                </div>
+                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                  <Link href="/contacto">
+                    Contactar ahora
+                    <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+                  </Link>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+    )
+  }
+
+  return (
+    <section className="py-16 md:py-20 bg-primary text-primary-foreground">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-6">
+        <h2 className="font-heading text-3xl font-bold md:text-4xl text-balance">
+          ¿Quieres participar en nuestros programas?
+        </h2>
+        <p className="text-lg leading-relaxed text-pretty">
+          Contáctanos para conocer cómo puedes formar parte de AVEPANE como beneficiario, empresa aliada o voluntario
+        </p>
+        <Button
+          asChild
+          size="lg"
+          variant="secondary"
+          className="bg-background text-foreground hover:bg-background/90"
+        >
+          <Link href="/contacto">
+            Contactar ahora
+            <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+          </Link>
+        </Button>
+      </div>
+    </section>
+  )
 }
 
 export default function ProgramsPage() {
+  const approach = [
+    {
+      label: "Fin",
+      title: "Desarrollar habilidades prácticas y productivas",
+      description:
+        "Fortalecemos capacidades que ayudan a cada participante a desenvolverse con mayor autonomía en distintos entornos.",
+    },
+    {
+      label: "Medio",
+      title: "Programas especializados y áreas de formación",
+      description:
+        "Acompañamos ese proceso a través de programas y talleres diseñados según las necesidades y posibilidades de cada persona.",
+    },
+    {
+      label: "Resultado",
+      title: "Favorecer la inclusión laboral",
+      description:
+        "Buscamos que ese aprendizaje se traduzca en oportunidades reales de participación, formación para el trabajo e integración laboral.",
+    },
+  ]
+
   const programs = [
     {
       id: "insercion-laboral",
@@ -78,10 +153,38 @@ export default function ProgramsPage() {
               Nuestros Programas
             </h1>
             <p className="text-lg leading-relaxed text-pretty md:text-xl">
-              Ofrecemos programas especializados diseñados para promover la inclusión laboral y el desarrollo de
-              habilidades de personas con discapacidad intelectual
+              Desarrollamos habilidades prácticas y productivas en personas con discapacidad intelectual a través de
+              programas especializados que favorecen su inclusión laboral.
             </p>
             <PageSummary text={PAGE_SUMMARY} />
+          </div>
+        </div>
+      </section>
+
+      <ProgramsCTA compact />
+
+      <section className="py-12 md:py-16 bg-background" aria-labelledby="approach-heading">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 id="approach-heading" className="font-heading text-3xl font-bold mb-4 md:text-4xl text-balance">
+              Nuestro enfoque
+            </h2>
+            <p className="text-lg leading-relaxed max-w-3xl mx-auto text-pretty text-muted-foreground">
+              Así organizamos nuestro trabajo: primero el propósito, luego la forma de acompañamiento y finalmente el
+              resultado que buscamos construir con cada participante.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {approach.map((item) => (
+              <Card key={item.label} className="border-border bg-secondary/10">
+                <CardContent className="p-6 space-y-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">{item.label}</p>
+                  <h3 className="font-heading text-2xl font-bold text-balance">{item.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed text-pretty">{item.description}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -91,10 +194,11 @@ export default function ProgramsPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 id="areas-heading" className="font-heading text-3xl font-bold mb-4 md:text-4xl text-balance">
-              Nuestras Áreas Ocupacionales
+              Áreas de formación práctica
             </h2>
             <p className="text-lg leading-relaxed max-w-3xl mx-auto text-pretty text-muted-foreground">
-              Desarrollamos habilidades prácticas y productivas en diferentes talleres especializados, diseñados para potenciar el talento de cada participante.
+              Estas áreas forman parte del medio de trabajo de AVEPANE: son espacios donde se fortalecen habilidades
+              prácticas y productivas que luego apoyan los procesos de inclusión laboral.
             </p>
           </div>
           
@@ -209,28 +313,7 @@ export default function ProgramsPage() {
         )
       })}
 
-      {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-primary text-primary-foreground">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <h2 className="font-heading text-3xl font-bold md:text-4xl text-balance">
-            ¿Quieres participar en nuestros programas?
-          </h2>
-          <p className="text-lg leading-relaxed text-pretty">
-            Contáctanos para conocer cómo puedes formar parte de AVEPANE como beneficiario, empresa aliada o voluntario
-          </p>
-          <Button
-            asChild
-            size="lg"
-            variant="secondary"
-            className="bg-background text-foreground hover:bg-background/90"
-          >
-            <Link href="/contacto">
-              Contactar ahora
-              <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
-            </Link>
-          </Button>
-        </div>
-      </section>
+      <ProgramsCTA />
     </MainLayout>
   )
 }

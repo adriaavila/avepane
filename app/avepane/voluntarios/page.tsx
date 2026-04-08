@@ -6,30 +6,44 @@ import Image from "next/image"
 import { Heart, ArrowRight, Users, Calendar, HandHeart } from "lucide-react"
 import { PageSummary } from "@/components/page-summary"
 
-const PAGE_SUMMARY = "El Voluntariado de AVEPANE es un grupo comprometido que colabora altruistamente en todas nuestras actividades. Tu tiempo y dedicación en eventos, talleres y acompañamiento pueden transformar vidas. Únete a nosotros para generar cambios positivos y apoyar la inclusión de personas con discapacidad intelectual."
+const PAGE_SUMMARY = "El Programa de Voluntariado de AVEPANE invita a personas comprometidas a aportar tiempo, energía y habilidades en actividades que fortalecen la inclusión de jóvenes y adultos con discapacidad intelectual. Es una forma concreta de acompañar nuestra labor, apoyar a las familias y sumarse a una comunidad solidaria."
 
 export const metadata = {
-  title: "Voluntarios - AVEPANE",
+  title: "Voluntariado - AVEPANE",
   description:
-    "Únete como voluntario a AVEPANE. Tu tiempo y dedicación pueden marcar una diferencia significativa en la vida de las personas con discapacidad intelectual.",
+    "Conoce el Programa de Voluntariado de AVEPANE y descubre cómo puedes aportar tiempo, habilidades y compromiso en actividades que impulsan la inclusión.",
 }
 
 export default function VolunteersPage() {
+  const programGoals = [
+    "Apoyar actividades, jornadas y eventos que fortalecen la atención y la inclusión.",
+    "Acompañar acciones que benefician a jóvenes y adultos con discapacidad intelectual y a sus familias.",
+    "Impulsar una ciudadanía activa y solidaria alrededor de la labor de AVEPANE.",
+    "Respaldar iniciativas de recaudación y visibilización que sostienen nuestros programas.",
+  ]
+
+  const volunteerBenefits = [
+    "Contribuyes de forma concreta a una causa con impacto social.",
+    "Pones tus habilidades al servicio de actividades útiles y cercanas a la comunidad.",
+    "Te integras a una red de personas comprometidas con la inclusión y el respeto.",
+    "Vives una experiencia de aprendizaje, sensibilidad y trabajo en equipo.",
+  ]
+
   const volunteerOpportunities = [
     {
       icon: Users,
       title: "Acompañamiento",
-      description: "Apoya en actividades educativas y programas de desarrollo personal.",
+      description: "Apoya experiencias educativas, recreativas y de desarrollo personal junto a participantes y equipos.",
     },
     {
       icon: Calendar,
-      title: "Eventos Especiales",
-      description: "Participa en la organización y ejecución de eventos y actividades comunitarias.",
+      title: "Eventos y jornadas",
+      description: "Colabora en la organización, logística y atención de actividades institucionales y comunitarias.",
     },
     {
       icon: HandHeart,
-      title: "Talleres",
-      description: "Comparte tus conocimientos y habilidades en talleres formativos.",
+      title: "Talleres y apoyo solidario",
+      description: "Comparte tus habilidades y contribuye en iniciativas formativas, de difusión y recaudación.",
     },
   ]
 
@@ -43,10 +57,10 @@ export default function VolunteersPage() {
               <Heart className="h-6 w-6" aria-hidden="true" />
             </div>
             <h1 className="font-heading text-3xl font-bold leading-tight tracking-tight text-balance md:text-4xl lg:text-5xl">
-              Únete como Voluntario
+              Súmate al Voluntariado de AVEPANE
             </h1>
             <p className="text-base leading-relaxed text-pretty md:text-lg">
-              Tu tiempo y dedicación pueden marcar una diferencia significativa en la vida de las personas con discapacidad intelectual
+              Aporta tu tiempo, tus habilidades y tu compromiso en actividades que impulsan la inclusión.
             </p>
             <PageSummary text={PAGE_SUMMARY} />
           </div>
@@ -59,46 +73,46 @@ export default function VolunteersPage() {
           <div className="grid gap-8 lg:gap-12 lg:grid-cols-2 items-center">
             <div className="space-y-5">
               <h2 id="volunteering-heading" className="font-heading text-2xl font-bold md:text-3xl lg:text-4xl text-balance">
-                Voluntariado AVEPANE
+                Programa de Voluntariado AVEPANE
               </h2>
               <div className="space-y-6 text-base md:text-lg leading-relaxed text-pretty">
                 <p>
-                  El <strong>Voluntariado de AVEPANE</strong> es un grupo de personas que colaboran por decisión propia, de manera altruista y solidaria en las actividades de nuestra Institución.
+                  El <strong>Programa de Voluntariado de AVEPANE</strong> reúne a personas que deciden colaborar de manera solidaria en actividades, eventos y jornadas que apoyan el trabajo de nuestra institución.
+                </p>
+                <p>
+                  Su propósito es sumar manos, ideas y compromiso a una labor que beneficia a jóvenes y adultos con discapacidad intelectual, al tiempo que fortalece el vínculo con sus familias y con la comunidad.
                 </p>
 
-                <div className="bg-secondary/20 p-6 rounded-xl border border-border space-y-4">
-                  <h3 className="font-heading text-xl font-semibold text-primary flex items-center gap-2">
-                    <Heart className="h-5 w-5" />
-                    Nuestra Misión
-                  </h3>
-                  <ul className="space-y-3 text-muted-foreground">
-                    <li className="flex gap-3 items-start">
-                      <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
-                      <span><strong>Generar agentes de cambio</strong> a favor de las personas con discapacidad intelectual (DI).</span>
-                    </li>
-                    <li className="flex gap-3 items-start">
-                      <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
-                      <span><strong>Apoyar e intervenir</strong> en actividades, eventos y jornadas de la Institución.</span>
-                    </li>
-                    <li className="flex gap-3 items-start">
-                      <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
-                      <span><strong>Luchar por la igualdad</strong> de oportunidades, la calidad de vida y la justicia social.</span>
-                    </li>
-                    <li className="flex gap-3 items-start">
-                      <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
-                      <span><strong>Colaborar en la recaudación de fondos</strong> para consolidar y ampliar nuestros programas y servicios.</span>
-                    </li>
-                  </ul>
-                </div>
+                <div className="grid gap-4 md:grid-cols-2">
+                  <div className="bg-secondary/20 p-6 rounded-xl border border-border space-y-4">
+                    <h3 className="font-heading text-xl font-semibold text-primary flex items-center gap-2">
+                      <Heart className="h-5 w-5" />
+                      ¿Qué busca este programa?
+                    </h3>
+                    <ul className="space-y-3 text-muted-foreground">
+                      {programGoals.map((goal) => (
+                        <li key={goal} className="flex gap-3 items-start">
+                          <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
+                          <span>{goal}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-                <div className="bg-primary/5 p-6 rounded-xl border border-primary/10 space-y-3">
-                  <h3 className="font-heading text-xl font-semibold text-primary flex items-center gap-2">
-                    <Users className="h-5 w-5" />
-                    Nuestra Visión
-                  </h3>
-                  <p className="text-muted-foreground italic">
-                    "Ser un grupo de mucha acción, consolidado, con presencia y expresión de ciudadanía activa organizada. Mientras más grande es nuestra riqueza interior, más frutos producirá nuestro trabajo."
-                  </p>
+                  <div className="bg-primary/5 p-6 rounded-xl border border-primary/10 space-y-4">
+                    <h3 className="font-heading text-xl font-semibold text-primary flex items-center gap-2">
+                      <Users className="h-5 w-5" />
+                      ¿Por qué sumarte?
+                    </h3>
+                    <ul className="space-y-3 text-muted-foreground">
+                      {volunteerBenefits.map((benefit) => (
+                        <li key={benefit} className="flex gap-3 items-start">
+                          <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
+                          <span>{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
               <Button
@@ -130,30 +144,40 @@ export default function VolunteersPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 md:mb-12">
             <h2 id="how-to-join-heading" className="font-heading text-2xl font-bold mb-3 md:text-3xl lg:text-4xl text-balance">
-              ¿Cómo puedes formar parte del grupo de voluntariado de AVEPANE?
+              ¿Cómo puedes participar?
             </h2>
             <div className="max-w-3xl mx-auto space-y-6 text-base md:text-lg leading-relaxed text-pretty">
               <p>
-                Para formar parte del grupo de voluntarios de AVEPANE, solo necesitas dedicar parte de tu tiempo libre a las actividades y eventos en nuestra sede. Tu responsabilidad, motivación y solidaridad serán tu mejor aporte.
+                Solo necesitas disposición para colaborar, responsabilidad y ganas de aportar. Al completar el formulario podremos conocer tu interés, tu disponibilidad y la forma en la que te gustaría apoyar.
               </p>
-              
-              <div className="grid sm:grid-cols-2 gap-4 text-left">
+
+              <p>
+                El programa se articula alrededor de actividades concretas de AVEPANE, según las jornadas, eventos y necesidades vigentes. Tu participación puede convertirse en un apoyo valioso para nuestra comunidad.
+              </p>
+
+              <div className="grid sm:grid-cols-3 gap-4 text-left">
                 <div className="bg-background p-5 rounded-lg border border-border shadow-sm">
                   <h4 className="font-bold text-foreground mb-2 flex items-center gap-2">
-                    <Calendar className="h-4 w-4 text-primary" /> Organización
+                    <Users className="h-4 w-4 text-primary" /> Postulación
                   </h4>
-                  <p className="text-sm text-muted-foreground">Apoyo en la logística y realización de eventos institucionales.</p>
+                  <p className="text-sm text-muted-foreground">Completa el formulario y cuéntanos en qué te gustaría apoyar.</p>
                 </div>
                 <div className="bg-background p-5 rounded-lg border border-border shadow-sm">
                   <h4 className="font-bold text-foreground mb-2 flex items-center gap-2">
-                    <HandHeart className="h-4 w-4 text-primary" /> Recaudación
+                    <Calendar className="h-4 w-4 text-primary" /> Actividades
                   </h4>
-                  <p className="text-sm text-muted-foreground">Ayuda en la venta de productos elaborados por nuestros participantes.</p>
+                  <p className="text-sm text-muted-foreground">Podrás colaborar en eventos, jornadas, talleres y acciones institucionales.</p>
+                </div>
+                <div className="bg-background p-5 rounded-lg border border-border shadow-sm">
+                  <h4 className="font-bold text-foreground mb-2 flex items-center gap-2">
+                    <HandHeart className="h-4 w-4 text-primary" /> Compromiso
+                  </h4>
+                  <p className="text-sm text-muted-foreground">La empatía, la puntualidad y el trabajo en equipo hacen la diferencia.</p>
                 </div>
               </div>
 
               <p className="font-medium text-primary mt-6">
-                ¡Te invitamos a colaborar! Con tu granito de arena, nos apoyas a incrementar esta hermosa labor que beneficia a nuestra comunidad.
+                Cada aporte cuenta. Tu participación puede convertirse en una acción concreta a favor de la inclusión.
               </p>
             </div>
           </div>
@@ -165,10 +189,10 @@ export default function VolunteersPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 md:mb-12">
             <h2 id="opportunities-heading" className="font-heading text-2xl font-bold mb-3 md:text-3xl lg:text-4xl text-balance">
-              Oportunidades de Voluntariado
+              ¿En qué puedes apoyar?
             </h2>
             <p className="text-base md:text-lg leading-relaxed max-w-2xl mx-auto text-pretty">
-              Diferentes formas en las que puedes contribuir y hacer la diferencia
+              Estas son algunas de las formas en las que el programa canaliza la participación voluntaria.
             </p>
           </div>
 
@@ -197,10 +221,10 @@ export default function VolunteersPage() {
           <Card className="border-primary/20 bg-primary/5">
             <CardContent className="p-8 md:p-12 text-center space-y-6">
               <h2 className="font-heading text-2xl font-bold md:text-3xl text-balance">
-                ¿Listo para hacer la diferencia?
+                Súmate al programa
               </h2>
               <p className="text-base md:text-lg leading-relaxed text-pretty max-w-2xl mx-auto">
-                Contáctanos y descubre cómo puedes contribuir a nuestra misión de inclusión y desarrollo integral
+                Completa el formulario y cuéntanos cómo te gustaría apoyar. Tu tiempo y tu compromiso pueden convertirse en un aporte real para nuestra comunidad.
               </p>
               <Button
                 asChild
@@ -208,7 +232,7 @@ export default function VolunteersPage() {
                 className="bg-primary hover:bg-primary/90 text-primary-foreground"
               >
                 <Link href="https://forms.gle/VzpCSaugW89CDnqG7" target="_blank" rel="noopener noreferrer">
-                  Contactar ahora
+                  Postularme como voluntario
                   <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
                 </Link>
               </Button>
@@ -219,5 +243,4 @@ export default function VolunteersPage() {
     </MainLayout>
   )
 }
-
 

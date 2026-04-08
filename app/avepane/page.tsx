@@ -11,7 +11,7 @@ const PAGE_SUMMARY = "AVEPANE es una institución fundada en 1963 que trabaja po
 export const metadata = {
   title: "AVEPANE - Asociación Venezolana de Padres y Amigos de Niños Excepcionales",
   description:
-    "Conoce AVEPANE: nuestra historia, voluntariado y vitrina virtual. Más de seis décadas trabajando por la inclusión de personas con discapacidad intelectual.",
+    "Conoce AVEPANE: nuestra historia, voluntariado y vitrina virtual. Institución fundada en 1963 para promover la inclusión de personas con discapacidad intelectual.",
 }
 
 export default function AvepanePage() {

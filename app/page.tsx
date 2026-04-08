@@ -6,7 +6,7 @@ import Image from "next/image"
 import { Heart, Users, Briefcase, ArrowRight, Gift, ShoppingBag } from "lucide-react"
 import { PageSummary } from "@/components/page-summary"
 
-const PAGE_SUMMARY = "Bienvenidos a AVEPANE. Desde hace más de 50 años construimos oportunidades para personas con discapacidad intelectual en Venezuela. Ofrecemos programas de inserción laboral, empleo protegido y educación especial. Conoce nuestra misión, nuestros programas y cómo puedes formar parte de esta labor."
+const PAGE_SUMMARY = "AVEPANE fue fundada en 1963 como una asociación civil sin fines de lucro por padres, familiares y profesionales comprometidos con mejorar la calidad de vida de personas con discapacidad intelectual y sus familias. A través de programas especializados, promovemos inclusión, formación, autonomía y participación en la comunidad."
 
 export default function HomePage() {
   const programs = [
@@ -30,6 +30,33 @@ export default function HomePage() {
     },
   ]
 
+  const activities = [
+    {
+      title: "Taller de pintura",
+      description: "Espacio creativo donde los participantes exploran color, dibujo y expresión personal a través de actividades artísticas adaptadas.",
+      caption: "Actividad orientada a fortalecer la creatividad, la concentración y la motricidad fina.",
+      image: "/art-workshop-creativity-painting-disabilities-incl.jpg",
+    },
+    {
+      title: "Elaboración de manualidades",
+      description: "Jornadas prácticas para crear piezas artesanales y reforzar habilidades manuales, organización y atención al detalle.",
+      caption: "Las manualidades permiten aprender haciendo y valorar el trabajo individual y en equipo.",
+      image: "/inclusive-activities-workshop-training-disabilitie.jpg",
+    },
+    {
+      title: "Charlas y foros informativos",
+      description: "Encuentros guiados para compartir información útil, conversar sobre experiencias y promover la participación de la comunidad.",
+      caption: "Estos espacios favorecen la escucha, el intercambio de ideas y la formación continua.",
+      image: "/avepane-activities-workshop-group-1.jpg",
+    },
+    {
+      title: "Capacitación para el trabajo",
+      description: "Actividades formativas dirigidas a fortalecer hábitos, destrezas y competencias para distintos entornos laborales.",
+      caption: "La formación práctica acompaña el desarrollo de la autonomía y la inclusión laboral.",
+      image: "/job-training-workshop-people-disabilities-learning.jpg",
+    },
+  ]
+
   return (
     <MainLayout>
       {/* Hero Section */}
@@ -38,12 +65,13 @@ export default function HomePage() {
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 items-center">
             <div className="space-y-6">
               <h1 className="font-heading text-4xl font-bold leading-tight tracking-tight text-balance md:text-5xl lg:text-6xl">
-                Construyendo Oportunidades para Todos
+                AVEPANE
               </h1>
               <p className="text-lg leading-relaxed text-pretty md:text-xl">
-                Somos la <strong>Asociación Venezolana de Padres y Amigos de Niños Excepcionales (AVEPANE)</strong>, nuestra
-                misión es potenciar el desarrollo integral de niños, jóvenes y adultos con discapacidad intelectual
-                mediante programas especializados.
+                <strong>AVEPANE</strong> fue fundada en <strong>1963</strong> como una asociación civil sin fines de lucro por
+                padres, familiares y profesionales comprometidos con mejorar la calidad de vida de personas con
+                discapacidad intelectual y sus familias. Hoy desarrollamos programas orientados a la inclusión, la
+                formación y la autonomía.
               </p>
               <PageSummary text={PAGE_SUMMARY} />
               <div className="flex flex-col gap-4 sm:flex-row">
@@ -85,11 +113,12 @@ export default function HomePage() {
       <section className="py-16 md:py-20 bg-background">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="font-heading text-3xl font-bold mb-4 md:text-4xl text-balance">Somos AVEPANE</h2>
+            <h2 className="font-heading text-3xl font-bold mb-4 md:text-4xl text-balance">Nuestra historia</h2>
             <p className="text-lg leading-relaxed text-pretty">
-              Desde hace más de 50 años trabajamos para promover la formación y actualización de recursos humanos en
-              Educación Especial y carreras afines, desarrollando acciones en las áreas de Prevención, Diagnóstico e
-              Investigación.
+              Nacimos como <strong>Asociación de Padres y Amigos de Niños Excepcionales</strong>, impulsados por la
+              necesidad de crear espacios de apoyo, educación y atención especializada para personas con discapacidad
+              intelectual en Venezuela. Con el tiempo, AVEPANE consolidó programas orientados a la formación, la
+              inclusión y el acompañamiento de su comunidad.
             </p>
           </div>
         </div>
@@ -103,7 +132,8 @@ export default function HomePage() {
               Nuestros Programas
             </h2>
             <p className="text-lg leading-relaxed max-w-2xl mx-auto text-pretty">
-              Desarrollamos programas especializados enfocados en la inserción laboral y el desarrollo de habilidades
+              A través de estos programas, AVEPANE acompaña procesos de formación, inclusión y desarrollo de
+              habilidades para personas con discapacidad intelectual.
             </p>
           </div>
 
@@ -141,31 +171,41 @@ export default function HomePage() {
               Nuestras Actividades
             </h2>
             <p className="text-lg leading-relaxed max-w-2xl mx-auto text-pretty">
-              Conoce algunas de las actividades que realizamos con nuestra comunidad
+              Conoce algunas de las actividades y talleres que desarrollamos con nuestra comunidad.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
-              <div key={item} className="relative h-64 rounded-xl overflow-hidden group">
-                <Image
-                  src={`/inclusive-activities-workshop-training-disabilitie.jpg?height=300&width=400&query=inclusive activities workshop training disabilities support group ${item}`}
-                  alt={`Actividad de AVEPANE ${item} - Talleres y actividades de integración`}
-                  fill
-                  className="object-cover transition-transform group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              </div>
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {activities.map((activity) => (
+              <Card key={activity.title} className="overflow-hidden border-border bg-background">
+                <figure className="space-y-0">
+                  <div className="relative h-56 overflow-hidden">
+                    <Image
+                      src={activity.image}
+                      alt={`${activity.title} en AVEPANE`}
+                      fill
+                      className="object-cover transition-transform duration-300 hover:scale-105"
+                    />
+                  </div>
+                  <CardContent className="p-6 space-y-3">
+                    <h3 className="font-heading text-xl font-semibold text-balance">{activity.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed text-pretty">{activity.description}</p>
+                    <figcaption className="text-sm leading-relaxed text-muted-foreground border-t border-border pt-3">
+                      {activity.caption}
+                    </figcaption>
+                  </CardContent>
+                </figure>
+              </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Virtual Bazaar Section */}
+      {/* Virtual Showcase Section */}
       <section
-        id="bazar-virtual"
+        id="vitrina-virtual"
         className="py-16 md:py-20 bg-primary text-primary-foreground"
-        aria-labelledby="bazaar-heading"
+        aria-labelledby="showcase-heading"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 lg:grid-cols-2 items-center">
@@ -173,27 +213,25 @@ export default function HomePage() {
               <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-primary-foreground/20">
                 <ShoppingBag className="h-8 w-8" aria-hidden="true" />
               </div>
-              <h2 id="bazaar-heading" className="font-heading text-3xl font-bold md:text-4xl text-balance">
+              <h2 id="showcase-heading" className="font-heading text-3xl font-bold md:text-4xl text-balance">
                 Vitrina virtual AVEPANE
               </h2>
               <p className="text-lg leading-relaxed text-pretty">
-                Te invitamos a formar parte del <strong>Bazar Virtual Avepane 2020</strong>, dirigido a presentar una vitrina que funcione
-                para dar a conocer a importantes emprendimientos en la búsqueda de personas sensibles a las obras de
-                carácter social y humanitario.
+                La vitrina virtual AVEPANE es un espacio para exhibir y ofrecer productos elaborados por participantes
+                de nuestros programas. Aquí se visibiliza su trabajo, su dedicación y las habilidades que desarrollan
+                a través de sus procesos formativos.
               </p>
               <p className="leading-relaxed text-pretty">
-                Con el <strong>Bazar Virtual Avepane 2020</strong> tendremos la oportunidad de ayudarnos, tu mercado va a crecer y nosotros
-                recibiremos un aporte. El Covid-19 nos ha cambiado todas las formas de recaudar fondos para continuar con
-                los planes que AVEPANE realiza desde hace 57 años, pero no nos podemos detener, nuestros niños, jóvenes y adultos cuentan con nosotros.
+                Cada producto representa una oportunidad para valorar el talento de nuestra comunidad y apoyar la
+                continuidad de los programas que AVEPANE desarrolla desde 1963 en favor de personas con discapacidad
+                intelectual y sus familias.
               </p>
               <p className="leading-relaxed text-pretty">
-                Buscamos captar fondos para contribuir con los programas que lleva a cabo la institución en el presente año a través de actividades virtuales: torneos de golf, conciertos, bazar. En esta oportunidad empezaremos con el Bazar Virtual Avepane 2020, el cual capitalizará la empatía que existe en la comunidad hacia la institución. Tu marca formará parte de los grandes colaboradores para continuar con nuestros programas.
+                Si deseas conocer los productos disponibles, apoyar una compra o descubrir más sobre esta iniciativa,
+                puedes ingresar a la vitrina y contactar a nuestro equipo.
               </p>
               <p className="leading-relaxed text-pretty font-semibold">
                 ¡Contamos con tu apoyo, contamos contigo!
-              </p>
-              <p className="leading-relaxed text-pretty">
-                Escríbenos al email <a href="mailto:avepanebazar@gmail.com" className="underline hover:no-underline font-semibold">avepanebazar@gmail.com</a> para enviarte la información de cómo puedes apoyar y estar en nuestro Bazar Virtual Avepane 2020.
               </p>
               <Button
                 asChild
@@ -203,7 +241,7 @@ export default function HomePage() {
               >
                 <Link href="/avepane/vitrina">
                   <Gift className="mr-2 h-5 w-5" aria-hidden="true" />
-                  Acceder a la vitrina
+                  Explorar la vitrina
                 </Link>
               </Button>
             </div>
@@ -211,7 +249,7 @@ export default function HomePage() {
             <div className="relative h-96">
               <Image
                 src="/virtual-market-handmade-crafts-bazaar-products.jpg"
-                alt="Vitrina virtual - Productos artesanales y emprendimientos"
+                alt="Vitrina virtual de AVEPANE con productos elaborados por participantes"
                 fill
                 className="object-cover rounded-xl shadow-2xl"
               />
