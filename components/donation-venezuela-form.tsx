@@ -31,8 +31,17 @@ const BANKS = [
   "Banco del Tesoro",
   "100% Banco",
   "Bancamiga",
+  "Banplus",
   "Otro",
 ]
+
+interface DonationBankAccount {
+  bank: string
+  accountType?: string
+  accountNumber: string
+  id: string
+  phone?: string
+}
 
 interface DonationVenezuelaFormProps {
   onDonate: (data: VenezuelaDonationFormData) => Promise<void>
@@ -146,13 +155,12 @@ export function DonationVenezuelaForm({ onDonate }: DonationVenezuelaFormProps) 
     await onDonate(data)
   }
 
-  // Placeholder bank account data - should be replaced with real data
-  const bankAccounts = [
+  const bankAccounts: DonationBankAccount[] = [
     {
-      bank: "Banco de Venezuela",
-      accountType: "Corriente",
-      accountNumber: "0102-0000-000000000000",
-      id: "V-00000000-0",
+      bank: "Banplus",
+      accountNumber: "01740121141214119032",
+      id: "J001707867",
+      phone: "04242490449",
     },
   ]
 
@@ -237,13 +245,15 @@ export function DonationVenezuelaForm({ onDonate }: DonationVenezuelaFormProps) 
             <div key={index} className="space-y-2 p-4 rounded-lg bg-background border border-border">
               <div className="flex items-center justify-between">
                 <span className="font-semibold">{account.bank}</span>
-                <span className="text-sm text-muted-foreground">{account.accountType}</span>
+                {account.accountType ? (
+                  <span className="text-sm text-muted-foreground">{account.accountType}</span>
+                ) : null}
               </div>
               <div className="space-y-1">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                   <span className="text-sm text-muted-foreground">Número de cuenta:</span>
-                  <div className="flex items-center gap-2">
-                    <code className="text-sm font-mono bg-muted px-2 py-1 rounded">
+                  <div className="flex items-center gap-2 sm:justify-end">
+                    <code className="text-sm font-mono bg-muted px-2 py-1 rounded break-all text-right">
                       {account.accountNumber}
                     </code>
                     <button
@@ -260,10 +270,32 @@ export function DonationVenezuelaForm({ onDonate }: DonationVenezuelaFormProps) 
                     </button>
                   </div>
                 </div>
-                <div className="flex items-center justify-between">
+                {account.phone ? (
+                  <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                    <span className="text-sm text-muted-foreground">Teléfono (Pago móvil):</span>
+                    <div className="flex items-center gap-2 sm:justify-end">
+                      <code className="text-sm font-mono bg-muted px-2 py-1 rounded break-all text-right">
+                        {account.phone}
+                      </code>
+                      <button
+                        type="button"
+                        onClick={() => copyToClipboard(account.phone!, `phone-${index}`)}
+                        className="p-1 hover:bg-muted rounded transition-colors"
+                        aria-label="Copiar teléfono de pago móvil"
+                      >
+                        {copiedField === `phone-${index}` ? (
+                          <Check className="h-4 w-4 text-primary" aria-hidden="true" />
+                        ) : (
+                          <Copy className="h-4 w-4" aria-hidden="true" />
+                        )}
+                      </button>
+                    </div>
+                  </div>
+                ) : null}
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                   <span className="text-sm text-muted-foreground">Cédula/RIF:</span>
-                  <div className="flex items-center gap-2">
-                    <code className="text-sm font-mono bg-muted px-2 py-1 rounded">
+                  <div className="flex items-center gap-2 sm:justify-end">
+                    <code className="text-sm font-mono bg-muted px-2 py-1 rounded break-all text-right">
                       {account.id}
                     </code>
                     <button
@@ -284,7 +316,7 @@ export function DonationVenezuelaForm({ onDonate }: DonationVenezuelaFormProps) 
             </div>
           ))}
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Realiza tu transferencia o pago móvil a la cuenta indicada. Una vez completado, completa el formulario a continuación para registrar tu donación.
+            Realiza tu transferencia o pago móvil usando los datos indicados. Una vez completado, completa el formulario a continuación para registrar tu donación.
           </p>
         </CardContent>
       </Card>

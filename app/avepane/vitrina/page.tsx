@@ -1,10 +1,11 @@
 import { MainLayout } from "@/components/main-layout"
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
-import { ShoppingBag, Heart, Sparkles, ArrowRight } from "lucide-react"
+import { ShoppingBag, Heart, Sparkles, ArrowRight, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { PageSummary } from "@/components/page-summary"
+import { VIRTUAL_SHOWCASE_URL } from "@/lib/social-links"
 
 const PAGE_SUMMARY = "La Vitrina Virtual AVEPANE reúne productos elaborados por participantes de nuestros programas. Aquí puedes conocer artesanías, pinturas, accesorios y otras creaciones que reflejan su dedicación y aprendizaje. Cada compra contribuye a visibilizar su trabajo y apoyar los procesos de formación e inclusión."
 
@@ -145,12 +146,23 @@ export default function VitrinaPage() {
                 La vitrina virtual AVEPANE funciona como una página para dar a conocer y ofrecer productos elaborados
                 por nuestra comunidad, fortaleciendo la inclusión, la participación y la valoración de sus capacidades.
               </p>
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                <Link href="/contacto">
-                  Consultar productos disponibles
-                  <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
-                </Link>
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                  <Link href={VIRTUAL_SHOWCASE_URL} target="_blank" rel="noopener noreferrer">
+                    Ver vitrina oficial
+                    <ExternalLink className="ml-2 h-5 w-5" aria-hidden="true" />
+                  </Link>
+                </Button>
+                <Button asChild size="lg" variant="outline">
+                  <Link href="/contacto">
+                    Consultar productos disponibles
+                    <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+                  </Link>
+                </Button>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                La vitrina oficial abre en una nueva pestaña para que puedas revisar los productos disponibles.
+              </p>
             </div>
 
             <div className="grid gap-4">
@@ -237,7 +249,18 @@ export default function VitrinaPage() {
                   1
                 </div>
                 <h3 className="font-heading text-lg font-semibold">Explora los productos</h3>
-                <p className="text-sm text-muted-foreground">Revisa la vitrina y selecciona el producto que te interese apoyar o adquirir.</p>
+                <p className="text-sm text-muted-foreground">
+                  Revisa la{" "}
+                  <Link
+                    href={VIRTUAL_SHOWCASE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-primary underline underline-offset-4"
+                  >
+                    vitrina oficial
+                  </Link>{" "}
+                  y selecciona el producto que te interese apoyar o adquirir.
+                </p>
               </CardContent>
             </Card>
 

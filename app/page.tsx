@@ -3,8 +3,9 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
 import Image from "next/image"
-import { Heart, Users, Briefcase, ArrowRight, Gift, ShoppingBag } from "lucide-react"
+import { Heart, Users, Briefcase, ArrowRight, Gift, ShoppingBag, ExternalLink } from "lucide-react"
 import { PageSummary } from "@/components/page-summary"
+import { VIRTUAL_SHOWCASE_URL } from "@/lib/social-links"
 
 const PAGE_SUMMARY = "AVEPANE fue fundada en 1963 como una asociación civil sin fines de lucro por padres, familiares y profesionales comprometidos con mejorar la calidad de vida de personas con discapacidad intelectual y sus familias. A través de programas especializados, promovemos inclusión, formación, autonomía y participación en la comunidad."
 
@@ -233,17 +234,32 @@ export default function HomePage() {
               <p className="leading-relaxed text-pretty font-semibold">
                 ¡Contamos con tu apoyo, contamos contigo!
               </p>
-              <Button
-                asChild
-                size="lg"
-                variant="secondary"
-                className="bg-background text-foreground hover:bg-background/90"
-              >
-                <Link href="/avepane/vitrina">
-                  <Gift className="mr-2 h-5 w-5" aria-hidden="true" />
-                  Explorar la vitrina
-                </Link>
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  asChild
+                  size="lg"
+                  variant="secondary"
+                  className="bg-background text-foreground hover:bg-background/90"
+                >
+                  <Link href={VIRTUAL_SHOWCASE_URL} target="_blank" rel="noopener noreferrer">
+                    <Gift className="mr-2 h-5 w-5" aria-hidden="true" />
+                    Visitar la vitrina
+                    <ExternalLink className="ml-2 h-4 w-4" aria-hidden="true" />
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  size="lg"
+                  className="border border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10"
+                >
+                  <Link href="/avepane/vitrina">
+                    Conocer la iniciativa
+                  </Link>
+                </Button>
+              </div>
+              <p className="text-sm text-primary-foreground/80">
+                El enlace abre la vitrina oficial de AVEPANE en una nueva pestaña.
+              </p>
             </div>
 
             <div className="relative h-96">

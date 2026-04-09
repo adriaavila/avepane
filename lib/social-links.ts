@@ -5,6 +5,7 @@ export const INSTAGRAM_PUBLIC_APP_ID = "936619743392459"
 export const FACEBOOK_PAGE_URL = "https://www.facebook.com/AvepaneRedes/?locale=es_LA"
 export const YOUTUBE_CHANNEL_URL = "https://www.youtube.com/@avepane4695"
 export const OFFICIAL_LINKS_HUB_URL = "https://hopp.bio/avepane"
+export const VIRTUAL_SHOWCASE_URL = "https://redesavepane.wixsite.com/avepane-cfia"
 
 export const CONTACT_EMAIL = "info@avepane.org"
 export const PRIMARY_PHONE_LABEL = "(0212) 945.3280"
