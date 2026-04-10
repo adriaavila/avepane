@@ -63,11 +63,32 @@ export async function MarkdownContentServer({
     htmlContent = result.toString()
   } catch (error) {
     console.error("Error rendering markdown:", error)
-    // Fallback: render as plain text with line breaks
-    htmlContent = content
+    // Fallback: Custom regex based basic markdown parsing in case unified ESM packages fail
+    let parsedContent = content
+      // Links
+      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+      // Bold
+      .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+      // Blockquotes
+      .replace(/^>\s+(.*$)/gm, "<blockquote>$1</blockquote>")
+      // H3
+      .replace(/^###\s+(.*$)/gm, "<h3>$1</h3>")
+      // H2
+      .replace(/^##\s+(.*$)/gm, "<h2>$1</h2>")
+      // H1
+      .replace(/^#\s+(.*$)/gm, "<h1>$1</h1>");
+
+    // Split paragraphs
+    htmlContent = parsedContent
       .split("\n\n")
-      .map((para) => `<p>${para.replace(/\n/g, "<br />")}</p>`)
-      .join("")
+      .map((para) => {
+        // If it's already an HTML block element, don't wrap in <p>
+        if (/^<(h1|h2|h3|h4|blockquote)/.test(para.trim())) {
+          return para.trim();
+        }
+        return `<p>${para.trim().replace(/\n/g, "<br />")}</p>`;
+      })
+      .join("");
   }
 
   return (

@@ -7,6 +7,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Calendar, ChevronDown, ChevronUp, ArrowRight } from "lucide-react"
 import { TextToSpeech } from "@/components/text-to-speech"
+import { MarkdownContent } from "@/components/markdown-content"
 
 interface BlogPost {
   id: number
@@ -143,11 +144,7 @@ export function BlogPostCard({ event }: BlogPostCardProps) {
                 className="mt-4 pt-4 border-t border-border space-y-4 lg:hidden"
                 aria-label={`Contenido completo: ${event.title}`}
               >
-                <div className="prose prose-sm max-w-none">
-                  <p className="text-foreground leading-relaxed text-pretty whitespace-pre-line">
-                    {event.fullContent}
-                  </p>
-                </div>
+                <MarkdownContent content={event.fullContent} className="text-base" />
                 <div className="pt-2">
                   <TextToSpeech
                     text={event.fullContent}
@@ -163,4 +160,3 @@ export function BlogPostCard({ event }: BlogPostCardProps) {
     </Card>
   )
 }
-
