@@ -287,51 +287,7 @@ export default function VitrinaPage() {
         </div>
       </section>
 
-      {/* Works Gallery */}
-      <section className="py-16 md:py-20 bg-secondary/20" aria-labelledby="works-heading">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-primary/10 mx-auto mb-4">
-              <Sparkles className="h-6 w-6 text-primary" aria-hidden="true" />
-            </div>
-            <h2 id="works-heading" className="font-heading text-3xl font-bold mb-4 md:text-4xl text-balance">
-              Productos elaborados por participantes
-            </h2>
-            <p className="text-lg leading-relaxed max-w-2xl mx-auto text-pretty">
-              Conoce algunas de las creaciones desarrolladas en los talleres y procesos formativos de AVEPANE.
-            </p>
-          </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {trabajos.map((trabajo) => (
-              <Card key={trabajo.id} className="border-border hover:shadow-lg transition-shadow bg-background overflow-hidden">
-                <div className="relative h-64">
-                  <Image
-                    src={trabajo.imagen}
-                    alt={trabajo.titulo}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute top-4 right-4">
-                    <span className="bg-primary text-primary-foreground text-xs font-semibold px-3 py-1 rounded-full">
-                      {trabajo.categoria}
-                    </span>
-                  </div>
-                </div>
-                <CardContent className="p-6 space-y-3">
-                  <h3 className="font-heading text-xl font-semibold text-balance">{trabajo.titulo}</h3>
-                  <p className="text-muted-foreground leading-relaxed text-pretty">{trabajo.descripcion}</p>
-                  <div className="pt-2 border-t border-border">
-                    <p className="text-sm text-muted-foreground">
-                      <span className="font-medium">Taller:</span> {trabajo.autor}
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
     </MainLayout>
   )
 }

@@ -27,22 +27,12 @@ export function AccessibleHeader() {
   const navigation = [
     { name: "Inicio", href: "/" },
     {
-      name: "AVEPANE",
+      name: "Nosotros",
       href: "/avepane",
-      subItems: [
-        { name: "Nosotros", href: "/avepane/nosotros" },
-        { name: "Voluntarios", href: "/avepane/voluntarios" },
-        { name: "Vitrina", href: "/avepane/vitrina" },
-      ],
     },
     {
-      name: "Programas",
-      href: "/programas",
-      subItems: [
-        { name: "Inserción Laboral", href: "/programas#insercion-laboral" },
-        { name: "Empleo Protegido", href: "/programas#empleo-protegido" },
-        { name: "Empleo con Apoyo", href: "/programas#empleo-apoyo" },
-      ],
+      name: "CEFIA",
+      href: "/cefia",
     },
     { name: "Actualidad", href: "/actualidad" },
     { name: "Aliados", href: "/aliados" },

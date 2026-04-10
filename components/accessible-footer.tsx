@@ -17,14 +17,14 @@ export function AccessibleFooter() {
   const quickLinks = [
     { name: "Inicio", href: "/" },
     { name: "Nosotros", href: "/avepane/nosotros" },
-    { name: "Programas", href: "/programas" },
+    { name: "CEFIA", href: "/cefia" },
     { name: "Actualidad", href: "/actualidad" },
   ]
 
   const programs = [
-    { name: "Inserción Laboral", href: "/programas#insercion-laboral" },
-    { name: "Empleo Protegido", href: "/programas#empleo-protegido" },
-    { name: "Empleo con Apoyo", href: "/programas#empleo-apoyo" },
+    { name: "Conócenos", href: "/cefia#conocenos" },
+    { name: "Áreas Ocupacionales", href: "/cefia#areas-ocupacionales" },
+    { name: "Inscripción", href: "/cefia#inscripcion" },
   ]
 
   const resources = [
@@ -92,7 +92,7 @@ export function AccessibleFooter() {
 
           {/* Programs */}
           <div>
-            <h3 className="font-heading text-lg font-semibold mb-4">Nuestros programas</h3>
+            <h3 className="font-heading text-lg font-semibold mb-4">CEFIA</h3>
             <ul className="space-y-2" role="list">
               {programs.map((program) => (
                 <li key={program.name}>

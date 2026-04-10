@@ -13,21 +13,21 @@ export default function HomePage() {
   const programs = [
     {
       icon: Briefcase,
-      title: "Inserción laboral",
-      description: "Facilitamos la incorporación de personas con discapacidad intelectual al mercado laboral.",
-      href: "/programas#insercion-laboral",
+      title: "Áreas Ocupacionales",
+      description: "Entorno diseñado para transformar la formación teórica en acción productiva.",
+      href: "/cefia#areas-ocupacionales",
     },
     {
       icon: Users,
-      title: "Empleo protegido",
-      description: "Entorno laboral adaptado que permite el desarrollo de habilidades en un ambiente seguro.",
-      href: "/programas#empleo-protegido",
+      title: "Perfil del Participante",
+      description: "Buscamos motivación por el aprendizaje manual y capacidades de autonomía básica.",
+      href: "/cefia#perfil",
     },
     {
       icon: Heart,
-      title: "Empleo con Apoyo",
-      description: "Acompañamiento continuo para garantizar la integración exitosa en empresas.",
-      href: "/programas#empleo-apoyo",
+      title: "Proceso de Inscripción",
+      description: "Evaluaciones, entrevistas y período de prueba para la admisión.",
+      href: "/cefia#inscripcion",
     },
   ]
 
@@ -130,11 +130,10 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 id="programs-heading" className="font-heading text-3xl font-bold mb-4 md:text-4xl text-balance">
-              Nuestros Programas
+              CEFIA
             </h2>
             <p className="text-lg leading-relaxed max-w-2xl mx-auto text-pretty">
-              A través de estos programas, AVEPANE acompaña procesos de formación, inclusión y desarrollo de
-              habilidades para personas con discapacidad intelectual.
+              Conoce nuestro Centro de Educación y Formación Integral para el Trabajo.
             </p>
           </div>
 

@@ -17,7 +17,7 @@ export const metadata = {
 export default function AvepanePage() {
   const sections = [
     {
-      title: "Nosotros",
+      title: "Historia",
       description: "Conoce nuestra historia, misión, visión, objetivos y valores institucionales.",
       href: "/avepane/nosotros",
       icon: History,
