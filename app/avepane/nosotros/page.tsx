@@ -1,51 +1,52 @@
 import { MainLayout } from "@/components/main-layout"
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
-import { History, Target, Users, Heart, Briefcase, CheckCircle2, Handshake, Lightbulb, ShieldCheck } from "lucide-react"
+import { History, Target, Users, Heart, Briefcase, CheckCircle2, HandHeart, ShieldCheck } from "lucide-react"
 import { PageSummary } from "@/components/page-summary"
 
-const PAGE_SUMMARY = `AVEPANE fue fundada en 1963 como una organización sin fines de lucro por padres, familiares y profesionales comprometidos con la calidad de vida de personas con discapacidad intelectual y sus familias. Su misión está orientada a la educación integral, la formación para el trabajo y el desarrollo de habilidades que promuevan inclusión, empleabilidad e independencia.`
+const PAGE_SUMMARY = `AVEPANE fue fundada en 1963 como una organización sin fines de lucro por padres, familiares y profesionales comprometidos con la calidad de vida de personas con discapacidad intelectual y sus familias. Hoy impulsa formación integral, empleabilidad e inclusión laboral con un enfoque humanístico y estrategias pedagógicas personalizadas.`
 
 export const metadata = {
   title: "Nosotros - AVEPANE",
   description:
-    "Conoce la historia, misión, visión, objetivos y estructura institucional de AVEPANE, institución fundada en 1963 para promover la inclusión de personas con discapacidad intelectual.",
+    "Conoce la historia, misión, visión, objetivos y estructura institucional de AVEPANE, institución fundada en 1963 para promover la inclusión, la formación y la empleabilidad de personas con discapacidad intelectual.",
 }
 
 export default function AboutPage() {
   const values = [
     {
       icon: Users,
-      title: "Inclusión y respeto",
-      description: "Reconocemos el valor inherente de cada persona y nos comprometemos a tratar a todos con dignidad. Promovemos activamente la participación plena en la sociedad de las personas con discapacidad intelectual, eliminando barreras y creando un ambiente donde sus voces son valoradas y escuchadas. Se trata de darles las herramientas para que tomen el control de sus propias vidas y alcancen su máximo potencial.",
-    },
-    {
-      icon: Handshake,
-      title: "Cooperación",
-      description: "Fomentamos la colaboración activa y la sinergia entre familias, profesionales, voluntarios, aliados y donantes. Creemos firmemente que los logros más significativos se alcanzan cuando unimos esfuerzos y recursos para lograr nuestros objetivos comunes.",
+      title: "Inclusión",
+      description: "Creemos en la capacidad de todas las personas para desarrollarse y contribuir a la sociedad, independientemente de sus capacidades.",
     },
     {
       icon: Heart,
-      title: "Solidaridad",
-      description: "Promovemos un espíritu de colaboración y apoyo genuino hacia las personas con discapacidad intelectual y sus familias. Actuamos con empatía para acompañarlas en su camino, sabiendo que el progreso verdadero se logra cuando la comunidad se articula con convicción.",
+      title: "Respeto",
+      description: "Valoramos la dignidad y los derechos de todas las personas, y las tratamos con respeto y consideración.",
     },
     {
-      icon: Lightbulb,
-      title: "Innovación",
-      description: "A través de la investigación constante y la organización de congresos científicos, nos mantenemos a la vanguardia en el campo de la discapacidad intelectual. Este compromiso nos permite desarrollar y aplicar métodos de atención y educación de vanguardia, adaptándonos a las nuevas necesidades y evolucionando para liderar el sector.",
+      icon: CheckCircle2,
+      title: "Calidad",
+      description: "Nos esforzamos por ofrecer servicios y productos de alta calidad, alineados con las necesidades de nuestros usuarios y aliados.",
+    },
+    {
+      icon: HandHeart,
+      title: "Compromiso",
+      description: "Trabajamos con pasión y dedicación para promover la inclusión laboral de personas con discapacidad intelectual y Síndrome de Down.",
     },
     {
       icon: ShieldCheck,
-      title: "Responsabilidad",
-      description: "Nos comprometemos a actuar con integridad y transparencia en cada una de nuestras acciones. Asumimos la responsabilidad de la confianza depositada por las familias, donantes y la comunidad. Esto se traduce en una gestión ética de nuestros recursos y una dedicación constante para cumplir con nuestra misión.",
+      title: "Transparencia",
+      description: "Actuamos con honestidad, claridad y coherencia en cada una de nuestras acciones y decisiones institucionales.",
     },
   ]
 
   const objectives = [
-    "Desarrollar en el joven o adulto con discapacidad la independencia aplicada al empleo.",
-    "Mejorar a través de los métodos técnicos necesarios la calidad de vida del joven o adulto con discapacidad.",
-    "Integrar a través de los métodos científicos necesarios las habilidades sociales que le permitan un buen desenvolvimiento al joven o adulto con discapacidad.",
-    "Garantizar la incorporación del joven o adulto con discapacidad a empleos productivos que garanticen su independencia económica y social.",
+    "Capacitar a personas con discapacidad intelectual y Síndrome de Down en diversas habilidades laborales, técnicas y sociales.",
+    "Desarrollar programas de intermediación laboral que faciliten la inserción de personas con discapacidad intelectual y Síndrome de Down en empresas ordinarias.",
+    "Generar oportunidades de empleo digno y productivo en el taller laboral y en empresas colaboradoras.",
+    "Sensibilizar a la sociedad sobre la importancia de la inclusión laboral de personas con discapacidad intelectual y Síndrome de Down.",
+    "Promover la investigación y la innovación en el ámbito de la inclusión laboral de personas con discapacidad intelectual y Síndrome de Down.",
   ]
 
   return (
@@ -160,7 +161,7 @@ export default function AboutPage() {
                 </div>
                 <h2 className="font-heading text-2xl font-bold text-balance">Misión</h2>
                 <p className="text-lg leading-relaxed text-pretty">
-                  Educación integral, en la formación de un oficio, en áreas de interés dirigida a jóvenes y adultos con necesidades y condiciones especiales que presentan discapacidad intelectual con un enfoque humanística bajo estrategias pedagógicas personalizadas.
+                  Brindar una educación integral y humanística a jóvenes y adultos con discapacidad intelectual y Síndrome de Down, a través de la formación técnica en oficios y estrategias pedagógicas personalizadas, con el fin de desarrollar sus potencialidades y garantizar su plena inclusión laboral e independencia económica.
                 </p>
               </CardContent>
             </Card>
@@ -172,7 +173,7 @@ export default function AboutPage() {
                 </div>
                 <h2 className="font-heading text-2xl font-bold text-balance">Visión</h2>
                 <p className="text-lg leading-relaxed text-pretty">
-                  Garantizar la formación laboral del joven y adulto con discapacidad intelectual, permitiéndoles así avanzar con la educación para el trabajo; promoviendo un perfil de empleabilidad y habilidades operativas.
+                  Ser el modelo de referencia líder en la formación y empleabilidad de personas con discapacidad intelectual y Síndrome de Down, reconocido por la excelencia en nuestras habilidades operativas y la calidad de nuestros servicios, contribuyendo activamente a la construcción de una sociedad más justa, equitativa e inclusiva.
                 </p>
               </CardContent>
             </Card>

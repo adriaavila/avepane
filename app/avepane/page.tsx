@@ -6,7 +6,7 @@ import Image from "next/image"
 import { Heart, ShoppingBag, ArrowRight, History, Target } from "lucide-react"
 import { PageSummary } from "@/components/page-summary"
 
-const PAGE_SUMMARY = "AVEPANE es una institución fundada en 1963 que trabaja por la inclusión y la formación de personas con discapacidad intelectual. Su labor está orientada a la educación integral, la formación laboral y el acompañamiento a jóvenes, adultos y sus familias mediante programas especializados."
+const PAGE_SUMMARY = "AVEPANE es una institución fundada en 1963 que trabaja por la inclusión y la formación de personas con discapacidad intelectual. Su labor promueve educación integral, empleabilidad y acompañamiento a jóvenes, adultos y sus familias mediante programas especializados."
 
 export const metadata = {
   title: "AVEPANE - Asociación Venezolana de Padres y Amigos de Niños Excepcionales",
@@ -116,7 +116,7 @@ export default function AvepanePage() {
                 Nuestra misión
               </h2>
               <p className="text-lg leading-relaxed text-pretty">
-                Educación integral, en la formación de un oficio, en áreas de interés dirigida a jóvenes y adultos con necesidades y condiciones especiales que presentan discapacidad intelectual con un enfoque humanística bajo estrategias pedagógicas personalizadas.
+                Brindar una educación integral y humanística a jóvenes y adultos con discapacidad intelectual y Síndrome de Down, a través de la formación técnica en oficios y estrategias pedagógicas personalizadas, con el fin de desarrollar sus potencialidades y garantizar su plena inclusión laboral e independencia económica.
               </p>
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
                 <Link href="/avepane/nosotros">
