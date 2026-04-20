@@ -31,8 +31,8 @@ export function AccessibleHeader() {
       href: "/avepane",
     },
     {
-      name: "CEFIA",
-      href: "/cefia",
+      name: "CFIA",
+      href: "/cfia",
     },
     { name: "Actualidad", href: "/actualidad" },
     { name: "Aliados", href: "/aliados" },

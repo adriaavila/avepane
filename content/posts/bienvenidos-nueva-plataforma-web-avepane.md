@@ -20,7 +20,7 @@ Este nuevo sitio web representa un avance importante en nuestro objetivo de visi
 ### Nuestra Historia y Valores
 Conoce el recorrido de la institución desde su fundación, los hitos clave de nuestra labor en Venezuela y la filosofía humanística que siempre nos caracteriza.
 
-### El Centro de Educación y Formación Integral para el Trabajo (CEFIA)
+### El Centro de Formación Integral para el Trabajo (CFIA)
 Infórmate sobre nuestras distintas áreas ocupacionales, el personal a cargo y cómo es el proceso de admisión. Aquí detallamos cada oficio que impartimos, enfocados en áreas manuales, técnicas, tecnológicas, de industria y servicios.
 
 ### Vitrina y Novedades

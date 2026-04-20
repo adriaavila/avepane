@@ -145,7 +145,7 @@ export default function AlliesPage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto mb-12 max-w-3xl text-center space-y-4">
             <h2 id="support-heading" className="font-heading text-3xl font-bold text-balance md:text-4xl">
-              Formas de apoyar a AVEPANE
+              Apadrina hoy, impacta siempre
             </h2>
             <p className="text-lg leading-relaxed text-pretty text-muted-foreground">
               El trabajo de AVEPANE también se fortalece gracias a personas y empresas que deciden sumarse con apoyo

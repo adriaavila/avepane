@@ -21,7 +21,7 @@ import {
 } from "lucide-react"
 
 export const metadata = {
-  title: "CEFIA - Taller Laboral - AVEPANE",
+  title: "CFIA - Taller Laboral - AVEPANE",
   description:
     "Centro de Educación y Formación Integral para el Trabajo. Formación técnica, empleabilidad e inclusión para personas con discapacidad intelectual y Síndrome de Down.",
 }
@@ -57,14 +57,6 @@ const VALUES = [
       "Actuamos con honestidad, claridad y coherencia en nuestras decisiones, procesos y relaciones institucionales.",
     icon: ShieldCheck,
   },
-]
-
-const OBJECTIVES = [
-  "Capacitar a personas con discapacidad intelectual y Síndrome de Down en habilidades laborales, técnicas y sociales.",
-  "Desarrollar programas de intermediación laboral que faciliten su inserción en empresas ordinarias.",
-  "Generar oportunidades de empleo digno y productivo dentro del taller y en empresas colaboradoras.",
-  "Sensibilizar a la sociedad sobre la importancia de la inclusión laboral de las personas con discapacidad intelectual y Síndrome de Down.",
-  "Promover la investigación y la innovación en el ámbito de la inclusión laboral.",
 ]
 
 const OCCUPATIONAL_FOCUS = [
@@ -162,45 +154,11 @@ const TEAM_AREAS = [
     ],
   },
   {
-    title: "Área bio-psicosocial",
+    title: "Personal psicosocial y médico",
     icon: Brain,
     items: [
       "Psicólogo o psicóloga para trabajar conducta, manejo de frustración, inteligencia emocional y apoyo a las familias.",
-      "Trabajador o trabajadora social para evaluar el entorno, articular con las familias y facilitar la inserción laboral.",
-      "Terapeuta ocupacional para adaptar herramientas y espacios a las capacidades motoras y sensoriales.",
-      "Terapista de lenguaje como apoyo en comunicación funcional y desenvolvimiento social.",
-    ],
-  },
-  {
-    title: "Área de gestión y salud",
-    icon: ShieldCheck,
-    items: [
-      "Director del taller y coordinación operativa para liderar la visión institucional y la ejecución diaria.",
       "Personal médico o de primeros auxilios, especialmente cuando existan herramientas o maquinarias que requieran supervisión de seguridad.",
-    ],
-  },
-  {
-    title: "Comunicación y redes sociales",
-    icon: Heart,
-    items: [
-      "Responsable de storytelling, registro visual y educación digital para sensibilizar y humanizar la marca institucional.",
-      "Gestión de comunidad para responder dudas de familias, aliados y empresas interesadas.",
-    ],
-  },
-  {
-    title: "Comercialización y ventas",
-    icon: Briefcase,
-    items: [
-      "Búsqueda de canales de venta como ferias, tiendas aliadas, mercados locales o plataformas digitales.",
-      "Gestión de ventas corporativas, control de calidad y fijación de precios con enfoque social y sostenibilidad económica.",
-    ],
-  },
-  {
-    title: "Relaciones institucionales y alianzas",
-    icon: Handshake,
-    items: [
-      "Búsqueda de convenios con empresas privadas y entes públicos para empleo, donaciones y colaboraciones.",
-      "Representación institucional, networking y seguimiento de inserción junto al equipo técnico.",
     ],
   },
 ]
@@ -273,7 +231,7 @@ const LEGAL_FRAMEWORK = [
   "Ordenanzas municipales, circulares, providencias, resoluciones y otros instrumentos normativos aplicables según la ubicación territorial de la institución.",
 ]
 
-export default function CefiaPage() {
+export default function CfiaPage() {
   return (
     <MainLayout>
       <section className="relative bg-gradient-to-b from-secondary/30 to-background py-16 md:py-24" id="conocenos">
@@ -283,7 +241,7 @@ export default function CefiaPage() {
               Taller Laboral
             </div>
             <h1 className="font-heading text-4xl font-bold tracking-tight text-balance md:text-5xl lg:text-6xl">
-              CEFIA
+              CFIA
             </h1>
             <p className="mx-auto max-w-3xl text-xl font-medium text-muted-foreground text-balance md:text-2xl">
               Centro de Educación y Formación Integral para el Trabajo
@@ -296,84 +254,79 @@ export default function CefiaPage() {
         </div>
       </section>
 
-      <section className="bg-background py-12 md:py-16">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-          <Card className="border-primary/20 bg-primary/5 shadow-sm">
-            <CardContent className="flex h-full flex-col items-start gap-4 p-8 text-left">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
-                <Target className="h-7 w-7 text-primary" aria-hidden="true" />
-              </div>
-              <h2 className="font-heading text-3xl font-bold text-balance">Misión</h2>
-              <p className="text-lg leading-relaxed text-muted-foreground text-pretty">
-                Brindar una educación integral y humanística a jóvenes y adultos con discapacidad intelectual y Síndrome
-                de Down, a través de la formación técnica en oficios y estrategias pedagógicas personalizadas, con el fin
-                de desarrollar sus potencialidades y garantizar su plena inclusión laboral e independencia económica.
-              </p>
-            </CardContent>
-          </Card>
+      <section className="bg-accent/5 py-16 md:py-24" id="perfil">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto mb-12 max-w-4xl text-center">
+            <h2 className="font-heading text-3xl font-bold text-balance md:text-4xl">Perfil del participante</h2>
+            <p className="mt-4 text-lg leading-relaxed text-muted-foreground text-pretty">
+              El taller está dirigido a jóvenes y adultos, idealmente entre 15 y 45 años, provenientes del hogar o la
+              comunidad, con diagnóstico de discapacidad intelectual o Síndrome de Down y con habilidades básicas de
+              autocuidado para desenvolverse en el entorno formativo.
+            </p>
+          </div>
 
-          <Card className="border-primary/20 bg-primary/5 shadow-sm">
-            <CardContent className="flex h-full flex-col items-start gap-4 p-8 text-left">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
-                <Lightbulb className="h-7 w-7 text-primary" aria-hidden="true" />
-              </div>
-              <h2 className="font-heading text-3xl font-bold text-balance">Visión</h2>
-              <p className="text-lg leading-relaxed text-muted-foreground text-pretty">
-                Ser el modelo de referencia líder en la formación y empleabilidad de personas con discapacidad intelectual
-                y Síndrome de Down, reconocido por la excelencia en nuestras habilidades operativas y la calidad de
-                nuestros servicios, contribuyendo activamente a la construcción de una sociedad más justa, equitativa e
-                inclusiva.
-              </p>
-            </CardContent>
-          </Card>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {PARTICIPANT_PROFILE.map((group) => {
+              const Icon = group.icon
+              return (
+                <Card key={group.title} className="border-border bg-background">
+                  <CardHeader className="space-y-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+                      <Icon className="h-6 w-6 text-primary" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-2xl text-balance">{group.title}</CardTitle>
+                      <p className="mt-1 text-sm font-medium uppercase tracking-wide text-muted-foreground">
+                        {group.subtitle}
+                      </p>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-3">
+                      {group.items.map((item) => (
+                        <li key={item} className="flex items-start gap-3 text-muted-foreground">
+                          <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                          <span className="leading-relaxed text-pretty">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              )
+            })}
+          </div>
         </div>
       </section>
 
       <section className="bg-secondary/10 py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 xl:grid-cols-[1.05fr_0.95fr]">
-            <div>
-              <div className="mb-10 max-w-3xl">
-                <h2 className="font-heading text-3xl font-bold text-balance md:text-4xl">Valores y objetivos</h2>
-                <p className="mt-4 text-lg leading-relaxed text-muted-foreground text-pretty">
-                  La propuesta formativa de CEFIA combina inclusión, calidad y empleabilidad para que cada participante
-                  desarrolle habilidades reales para la vida y el trabajo.
-                </p>
-              </div>
-
-              <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                {VALUES.map((value) => {
-                  const Icon = value.icon
-                  return (
-                    <Card key={value.title} className="border-border bg-background">
-                      <CardContent className="space-y-4 p-6">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-                          <Icon className="h-6 w-6 text-primary" aria-hidden="true" />
-                        </div>
-                        <div className="space-y-2">
-                          <h3 className="font-heading text-xl font-semibold text-balance">{value.title}</h3>
-                          <p className="text-sm leading-relaxed text-muted-foreground text-pretty">{value.description}</p>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  )
-                })}
-              </div>
+          <div>
+            <div className="mb-10 max-w-3xl">
+              <h2 className="font-heading text-3xl font-bold text-balance md:text-4xl">Nuestros valores</h2>
+              <p className="mt-4 text-lg leading-relaxed text-muted-foreground text-pretty">
+                La propuesta formativa de CFIA combina inclusión, calidad y empleabilidad para que cada participante
+                desarrolle habilidades reales para la vida y el trabajo.
+              </p>
             </div>
 
-            <Card className="border-primary/15 bg-background shadow-sm">
-              <CardHeader className="pb-2">
-                <CardTitle className="font-heading text-2xl">Objetivos del taller</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4 p-6 pt-2">
-                {OBJECTIVES.map((objective) => (
-                  <div key={objective} className="flex items-start gap-3 rounded-xl border border-border/60 bg-secondary/10 p-4">
-                    <CheckCircle className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-                    <p className="leading-relaxed text-pretty text-foreground/90">{objective}</p>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+              {VALUES.map((value) => {
+                const Icon = value.icon
+                return (
+                  <Card key={value.title} className="border-border bg-background">
+                    <CardContent className="space-y-4 p-6">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+                        <Icon className="h-6 w-6 text-primary" aria-hidden="true" />
+                      </div>
+                      <div className="space-y-2">
+                        <h3 className="font-heading text-xl font-semibold text-balance">{value.title}</h3>
+                        <p className="text-sm leading-relaxed text-muted-foreground text-pretty">{value.description}</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                )
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -446,49 +399,6 @@ export default function CefiaPage() {
         </div>
       </section>
 
-      <section className="bg-accent/5 py-16 md:py-24" id="perfil">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto mb-12 max-w-4xl text-center">
-            <h2 className="font-heading text-3xl font-bold text-balance md:text-4xl">Perfil del participante</h2>
-            <p className="mt-4 text-lg leading-relaxed text-muted-foreground text-pretty">
-              El taller está dirigido a jóvenes y adultos, idealmente entre 15 y 45 años, provenientes del hogar o la
-              comunidad, con diagnóstico de discapacidad intelectual o Síndrome de Down y con habilidades básicas de
-              autocuidado para desenvolverse en el entorno formativo.
-            </p>
-          </div>
-
-          <div className="grid gap-6 lg:grid-cols-3">
-            {PARTICIPANT_PROFILE.map((group) => {
-              const Icon = group.icon
-              return (
-                <Card key={group.title} className="border-border bg-background">
-                  <CardHeader className="space-y-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-                      <Icon className="h-6 w-6 text-primary" aria-hidden="true" />
-                    </div>
-                    <div>
-                      <CardTitle className="text-2xl text-balance">{group.title}</CardTitle>
-                      <p className="mt-1 text-sm font-medium uppercase tracking-wide text-muted-foreground">
-                        {group.subtitle}
-                      </p>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3">
-                      {group.items.map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-muted-foreground">
-                          <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-                          <span className="leading-relaxed text-pretty">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              )
-            })}
-          </div>
-        </div>
-      </section>
 
       <section className="bg-background py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

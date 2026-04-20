@@ -27,12 +27,18 @@ export default function NewsPage() {
     .slice(0, 3)
 
   const galleryImages = [
-    "/avepane-activities-workshop-group-1.jpg",
-    "/placeholder.svg?height=300&width=400",
-    "/placeholder.svg?height=300&width=400",
-    "/placeholder.svg?height=300&width=400",
-    "/placeholder.svg?height=300&width=400",
-    "/placeholder.svg?height=300&width=400",
+    "/gallery/photo-01.jpg",
+    "/gallery/photo-02.jpg",
+    "/gallery/photo-03.jpg",
+    "/gallery/photo-04.jpg",
+    "/gallery/photo-05.jpg",
+    "/gallery/photo-06.jpg",
+    "/gallery/photo-07.jpg",
+    "/gallery/photo-08.jpg",
+    "/gallery/photo-09.jpg",
+    "/gallery/photo-10.jpg",
+    "/gallery/photo-11.jpg",
+    "/gallery/photo-12.jpg",
   ]
 
   return (
@@ -50,9 +56,6 @@ export default function NewsPage() {
           </div>
         </div>
       </section>
-
-      {/* Instagram Feed Section */}
-      <InstagramFeedSection />
 
       {/* Events Section */}
       <section className="py-16 md:py-20 bg-background" aria-labelledby="events-heading">
@@ -113,37 +116,46 @@ export default function NewsPage() {
         </div>
       </section>
 
+      {/* Instagram Feed Section */}
+      <InstagramFeedSection />
+
       {/* Photo Gallery */}
-      <section className="py-16 md:py-20 bg-secondary/20" aria-labelledby="gallery-heading">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-background to-secondary/20" aria-labelledby="gallery-heading">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center h-14 w-14 rounded-full bg-primary/10 mb-4">
-              <ImageIcon className="h-7 w-7 text-primary" aria-hidden="true" />
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-primary/10 mb-6 shadow-inner">
+              <ImageIcon className="h-8 w-8 text-primary" aria-hidden="true" />
             </div>
-            <h2 id="gallery-heading" className="font-heading text-3xl font-bold mb-4 md:text-4xl text-balance">
+            <h2 id="gallery-heading" className="font-heading text-4xl font-bold mb-4 md:text-5xl text-balance">
               Galería Fotográfica
             </h2>
-            <p className="text-lg leading-relaxed max-w-2xl mx-auto text-pretty">
-              Momentos especiales capturados en nuestras actividades y eventos
+            <p className="text-lg leading-relaxed max-w-2xl mx-auto text-pretty text-muted-foreground">
+              Momentos especiales capturados en nuestras actividades, eventos y rutinas diarias.
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {galleryImages.map((image, index) => (
-              <button
-                key={index}
-                className="relative h-64 rounded-xl overflow-hidden group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-                aria-label={`Ver imagen ${index + 1} de la galería`}
-              >
-                <Image
-                  src={image || "/placeholder.svg"}
-                  alt={`Galería AVEPANE - Actividad ${index + 1}`}
-                  fill
-                  className="object-cover transition-transform group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              </button>
-            ))}
+          <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
+            {galleryImages.map((image, index) => {
+              // Create dynamic heights for a masonry effect
+              const heights = ["h-64", "h-96", "h-80", "h-[340px]", "h-[280px]", "h-72", "h-80", "h-96", "h-64", "h-72", "h-[340px]", "h-[280px]"];
+              const heightClass = heights[index % heights.length];
+              
+              return (
+                <div
+                  key={index}
+                  className={`relative ${heightClass} rounded-2xl overflow-hidden group break-inside-avoid shadow-sm hover:shadow-xl transition-all duration-300 ring-1 ring-border/50`}
+                >
+                  <Image
+                    src={image}
+                    alt={`Galería AVEPANE - Actividad Fotográfica ${index + 1}`}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

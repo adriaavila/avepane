@@ -33,7 +33,7 @@ export async function InstagramFeedSection() {
         {posts.length > 0 && (
           <>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {posts.map((post) => (
+              {posts.slice(0, 6).map((post) => (
                 <InstagramPostCard key={post.id} post={post} />
               ))}
             </div>

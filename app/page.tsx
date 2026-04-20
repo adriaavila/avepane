@@ -15,46 +15,46 @@ export default function HomePage() {
       icon: Briefcase,
       title: "Áreas Ocupacionales",
       description: "Entorno diseñado para transformar la formación teórica en acción productiva.",
-      href: "/cefia#areas-ocupacionales",
+      href: "/cfia#areas-ocupacionales",
     },
     {
       icon: Users,
       title: "Perfil del Participante",
       description: "Buscamos motivación por el aprendizaje manual y capacidades de autonomía básica.",
-      href: "/cefia#perfil",
+      href: "/cfia#perfil",
     },
     {
       icon: Heart,
       title: "Proceso de Inscripción",
       description: "Evaluaciones, entrevistas y período de prueba para la admisión.",
-      href: "/cefia#inscripcion",
+      href: "/cfia#inscripcion",
     },
   ]
 
   const activities = [
     {
-      title: "Taller de pintura",
-      description: "Espacio creativo donde los participantes exploran color, dibujo y expresión personal a través de actividades artísticas adaptadas.",
-      caption: "Actividad orientada a fortalecer la creatividad, la concentración y la motricidad fina.",
-      image: "/art-workshop-creativity-painting-disabilities-incl.jpg",
-    },
-    {
-      title: "Elaboración de manualidades",
-      description: "Jornadas prácticas para crear piezas artesanales y reforzar habilidades manuales, organización y atención al detalle.",
-      caption: "Las manualidades permiten aprender haciendo y valorar el trabajo individual y en equipo.",
-      image: "/inclusive-activities-workshop-training-disabilitie.jpg",
-    },
-    {
-      title: "Charlas y foros informativos",
-      description: "Encuentros guiados para compartir información útil, conversar sobre experiencias y promover la participación de la comunidad.",
-      caption: "Estos espacios favorecen la escucha, el intercambio de ideas y la formación continua.",
-      image: "/avepane-activities-workshop-group-1.jpg",
-    },
-    {
       title: "Capacitación para el trabajo",
-      description: "Actividades formativas dirigidas a fortalecer hábitos, destrezas y competencias para distintos entornos laborales.",
-      caption: "La formación práctica acompaña el desarrollo de la autonomía y la inclusión laboral.",
-      image: "/job-training-workshop-people-disabilities-learning.jpg",
+      description: "Actividades formativas prácticas dirigidas a fortalecer hábitos, destrezas y competencias preparatorias para distintos entornos laborales.",
+      caption: "La formación laboral acompaña el desarrollo de la autonomía y la inclusión técnica.",
+      image: "/activities/capacitacion.jpg",
+    },
+    {
+      title: "Deporte y Recreación",
+      description: "Promovemos el bienestar físico, la salud y el trabajo en equipo a través de actividades deportivas, celebrando con alegría cada triunfo.",
+      caption: "El deporte fomenta la disciplina, el compañerismo y la superación personal.",
+      image: "/activities/deporte.jpg",
+    },
+    {
+      title: "Arte y Expresión",
+      description: "Espacio creativo donde los participantes exploran su expresión personal y talentos creando obras gráficas y desarrollos adaptados.",
+      caption: "El arte fortalece la creatividad, la concentración y permite comunicar emociones.",
+      image: "/activities/arte-manualidades.jpg",
+    },
+    {
+      title: "Integración Social",
+      description: "Desarrollamos encuentros comunitarios para compartir experiencias, participar activamente en la sociedad y fortalecer lazos afectivos.",
+      caption: "Estos espacios favorecen el intercambio, la confianza y la convivencia armónica.",
+      image: "/activities/integracion.jpg",
     },
   ]
 
@@ -99,8 +99,8 @@ export default function HomePage() {
 
             <div className="relative h-96 lg:h-[500px]">
               <Image
-                src="/people-with-disabilities-working-together-in-suppo.jpg"
-                alt="Personas trabajando en un ambiente inclusivo y de apoyo"
+                src="/activities/hero-community.jpg"
+                alt="Comunidad AVEPANE celebrando juntos en un ambiente inclusivo y de apoyo"
                 fill
                 className="object-cover rounded-xl shadow-2xl"
                 priority
@@ -130,7 +130,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 id="programs-heading" className="font-heading text-3xl font-bold mb-4 md:text-4xl text-balance">
-              CEFIA
+              CFIA
             </h2>
             <p className="text-lg leading-relaxed max-w-2xl mx-auto text-pretty">
               Conoce nuestro Centro de Educación y Formación Integral para el Trabajo.
@@ -263,8 +263,8 @@ export default function HomePage() {
 
             <div className="relative h-96">
               <Image
-                src="/virtual-market-handmade-crafts-bazaar-products.jpg"
-                alt="Vitrina virtual de AVEPANE con productos elaborados por participantes"
+                src="/activities/vitrina.jpg"
+                alt="Participante de AVEPANE mostrando productos elaborados a mano para la vitrina virtual"
                 fill
                 className="object-cover rounded-xl shadow-2xl"
               />
