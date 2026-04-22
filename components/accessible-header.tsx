@@ -125,6 +125,9 @@ export function AccessibleHeader() {
 
           {/* Donate button - visible only on large screens */}
           <div className="hidden lg:flex items-center flex-shrink-0">
+            <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary/10 font-semibold whitespace-nowrap text-sm xl:text-base">
+              <a href="http://iua.edu.ve/" target="_blank" rel="noopener noreferrer">IUA</a>
+            </Button>
             <Button asChild className="ml-2 xl:ml-4 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold whitespace-nowrap text-sm xl:text-base">
               <Link href="/donar">Donar</Link>
             </Button>
@@ -181,7 +184,12 @@ export function AccessibleHeader() {
                   )}
                 </div>
               ))}
-              <Button asChild className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground">
+              <Button asChild variant="outline" className="w-full mt-4 border-primary text-primary hover:bg-primary/10">
+                <a href="http://iua.edu.ve/" target="_blank" rel="noopener noreferrer" onClick={() => setMobileMenuOpen(false)}>
+                  Visitar IU AVEPANE
+                </a>
+              </Button>
+              <Button asChild className="w-full mt-2 bg-primary hover:bg-primary/90 text-primary-foreground">
                 <Link href="/donar" onClick={() => setMobileMenuOpen(false)}>
                   Donar
                 </Link>

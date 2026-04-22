@@ -23,7 +23,7 @@ import {
 export const metadata = {
   title: "CFIA - Taller Laboral - AVEPANE",
   description:
-    "Centro de Educación y Formación Integral para el Trabajo. Formación técnica, empleabilidad e inclusión para personas con discapacidad intelectual y Síndrome de Down.",
+    "Centro de Formación Integral AVEPANE. Formación técnica, empleabilidad e inclusión para personas con discapacidad intelectual y Síndrome de Down.",
 }
 
 const VALUES = [
@@ -109,28 +109,6 @@ const WORKSHOPS = [
 
 const PARTICIPANT_PROFILE = [
   {
-    title: "Aptitudes y actitudes",
-    subtitle: 'El "saber ser"',
-    icon: HandHeart,
-    items: [
-      "Disposición al aprendizaje y apertura a estrategias pedagógicas personalizadas.",
-      "Sentido de responsabilidad con la asistencia, la puntualidad y el cuidado de los materiales.",
-      "Habilidades socioafectivas para relacionarse con respeto con pares, instructores y figuras de autoridad.",
-      "Motivación hacia la autonomía y el desarrollo de la independencia económica.",
-    ],
-  },
-  {
-    title: "Competencias operativas",
-    subtitle: 'El "saber hacer"',
-    icon: Briefcase,
-    items: [
-      "Habilidades motoras funcionales, finas o gruesas, acordes al oficio que se esté trabajando.",
-      "Capacidad para ejecutar tareas secuenciales y rutinas laborales con supervisión o apoyo visual.",
-      "Adaptabilidad para asumir distintas tareas dentro de su área de formación.",
-      "Cumplimiento de normas básicas de seguridad e higiene dentro del taller.",
-    ],
-  },
-  {
     title: "Requisitos de ingreso",
     subtitle: "Criterios técnicos",
     icon: ClipboardList,
@@ -148,9 +126,10 @@ const TEAM_AREAS = [
     title: "Área pedagógica y técnica",
     icon: GraduationCap,
     items: [
+      "Director del taller laboral.",
+      "Coordinador del taller laboral.",
       "Instructores de oficio con dominio técnico y sensibilidad social para simplificar procesos complejos en pasos concretos.",
       "Docente de educación especial que adapta materiales, estrategias y objetivos de aprendizaje.",
-      "Tutores o preparadores laborales (job coaches) para acompañar al participante en el puesto de trabajo hasta lograr autonomía.",
     ],
   },
   {
@@ -158,7 +137,7 @@ const TEAM_AREAS = [
     icon: Brain,
     items: [
       "Psicólogo o psicóloga para trabajar conducta, manejo de frustración, inteligencia emocional y apoyo a las familias.",
-      "Personal médico o de primeros auxilios, especialmente cuando existan herramientas o maquinarias que requieran supervisión de seguridad.",
+      "Personal médico para la elaboración de la historia clínica de los participantes del CFIA, monitorear a los participantes según sus historias clínicas, atender emergencias ambulatorias que no requieran intervención especializada y primeros auxilios.",
     ],
   },
 ]
@@ -244,7 +223,7 @@ export default function CfiaPage() {
               CFIA
             </h1>
             <p className="mx-auto max-w-3xl text-xl font-medium text-muted-foreground text-balance md:text-2xl">
-              Centro de Educación y Formación Integral para el Trabajo
+              Centro de Formación Integral AVEPANE
             </p>
             <p className="mx-auto max-w-4xl text-lg leading-relaxed text-pretty text-foreground/80 md:text-xl">
               Un espacio de formación técnica, acompañamiento humanístico y empleabilidad para jóvenes y adultos con
@@ -265,35 +244,45 @@ export default function CfiaPage() {
             </p>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-3">
-            {PARTICIPANT_PROFILE.map((group) => {
-              const Icon = group.icon
-              return (
-                <Card key={group.title} className="border-border bg-background">
-                  <CardHeader className="space-y-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-                      <Icon className="h-6 w-6 text-primary" aria-hidden="true" />
-                    </div>
-                    <div>
-                      <CardTitle className="text-2xl text-balance">{group.title}</CardTitle>
-                      <p className="mt-1 text-sm font-medium uppercase tracking-wide text-muted-foreground">
-                        {group.subtitle}
-                      </p>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3">
-                      {group.items.map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-muted-foreground">
-                          <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-                          <span className="leading-relaxed text-pretty">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              )
-            })}
+          <div className="grid gap-8 lg:grid-cols-2 items-center">
+            <div className="space-y-6">
+              {PARTICIPANT_PROFILE.map((group) => {
+                const Icon = group.icon
+                return (
+                  <Card key={group.title} className="border-border bg-background">
+                    <CardHeader className="space-y-4">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+                        <Icon className="h-6 w-6 text-primary" aria-hidden="true" />
+                      </div>
+                      <div>
+                        <CardTitle className="text-2xl text-balance">{group.title}</CardTitle>
+                        <p className="mt-1 text-sm font-medium uppercase tracking-wide text-muted-foreground">
+                          {group.subtitle}
+                        </p>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-3">
+                        {group.items.map((item) => (
+                          <li key={item} className="flex items-start gap-3 text-muted-foreground">
+                            <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+                            <span className="leading-relaxed text-pretty">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                )
+              })}
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="relative aspect-square overflow-hidden rounded-2xl">
+                <img src="/activities/capacitacion.jpg" alt="Participantes en capacitación" className="h-full w-full object-cover" />
+              </div>
+              <div className="relative aspect-square overflow-hidden rounded-2xl mt-8">
+                <img src="/activities/arte-manualidades.jpg" alt="Arte y manualidades" className="h-full w-full object-cover" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -410,94 +399,42 @@ export default function CfiaPage() {
             </p>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-2 xl:grid-cols-3">
-            {TEAM_AREAS.map((area) => {
-              const Icon = area.icon
-              return (
-                <Card key={area.title} className="border-border bg-secondary/10">
-                  <CardHeader className="space-y-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-background">
-                      <Icon className="h-6 w-6 text-primary" aria-hidden="true" />
-                    </div>
-                    <CardTitle className="text-2xl text-balance">{area.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3">
-                      {area.items.map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-muted-foreground">
-                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                          <span className="leading-relaxed text-pretty">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              )
-            })}
+          <div className="grid gap-8 lg:grid-cols-3 items-start">
+            <div className="space-y-6 lg:col-span-2">
+              <div className="grid gap-6 sm:grid-cols-2">
+                {TEAM_AREAS.map((area) => {
+                  const Icon = area.icon
+                  return (
+                    <Card key={area.title} className="border-border bg-secondary/10">
+                      <CardHeader className="space-y-4">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-background">
+                          <Icon className="h-6 w-6 text-primary" aria-hidden="true" />
+                        </div>
+                        <CardTitle className="text-2xl text-balance">{area.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <ul className="space-y-3">
+                          {area.items.map((item) => (
+                            <li key={item} className="flex items-start gap-3 text-muted-foreground">
+                              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                              <span className="leading-relaxed text-pretty">{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  )
+                })}
+              </div>
+            </div>
+            <div className="relative aspect-[3/4] lg:aspect-auto lg:h-[600px] overflow-hidden rounded-2xl w-full">
+              <img src="/activities/vitrina.jpg" alt="Equipo multidisciplinario" className="h-full w-full object-cover" />
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-secondary/10 py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto mb-12 max-w-4xl text-center">
-            <h2 className="font-heading text-3xl font-bold text-balance md:text-4xl">Funciones clave</h2>
-            <p className="mt-4 text-lg leading-relaxed text-muted-foreground text-pretty">
-              La gestión del taller se fortalece cuando cada rol entiende su responsabilidad técnica, humana y operativa.
-            </p>
-          </div>
 
-          <div className="grid gap-6 lg:grid-cols-3">
-            {KEY_ROLES.map((role) => {
-              const Icon = role.icon
-              return (
-                <Card key={role.title} className="border-primary/15 bg-background">
-                  <CardHeader className="space-y-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-                      <Icon className="h-6 w-6 text-primary" aria-hidden="true" />
-                    </div>
-                    <div className="space-y-2">
-                      <CardTitle className="text-2xl text-balance">{role.title}</CardTitle>
-                      <p className="leading-relaxed text-muted-foreground text-pretty">{role.summary}</p>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3">
-                      {role.items.map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-muted-foreground">
-                          <CheckCircle className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-                          <span className="leading-relaxed text-pretty">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              )
-            })}
-          </div>
-
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            <Card className="border-border bg-background">
-              <CardContent className="space-y-3 p-6">
-                <h3 className="font-heading text-xl font-semibold">Diferencia de roles</h3>
-                <p className="leading-relaxed text-muted-foreground text-pretty">
-                  El director consigue fondos, firma convenios y define el rumbo del taller: mira hacia afuera y hacia el
-                  futuro.
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="border-border bg-background">
-              <CardContent className="space-y-3 p-6">
-                <h3 className="font-heading text-xl font-semibold">Coordinación operativa</h3>
-                <p className="leading-relaxed text-muted-foreground text-pretty">
-                  El coordinador ejecuta el plan, supervisa al personal y resuelve lo que sucede hoy: mira hacia adentro y
-                  al presente.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
 
       <section className="bg-background py-16 md:py-24" id="inscripcion">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
