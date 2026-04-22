@@ -261,12 +261,13 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="relative h-96">
+            <div className="relative">
               <Image
-                src="/activities/vitrina.jpg"
+                src="/photos-cm/IMG_3066.JPG"
                 alt="Participante de AVEPANE mostrando productos elaborados a mano para la vitrina virtual"
-                fill
-                className="object-cover rounded-xl shadow-2xl"
+                width={1200}
+                height={800}
+                className="w-full h-auto rounded-xl shadow-2xl"
               />
             </div>
           </div>
