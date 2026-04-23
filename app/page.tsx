@@ -133,7 +133,7 @@ export default function HomePage() {
               CFIA
             </h2>
             <p className="text-lg leading-relaxed max-w-2xl mx-auto text-pretty">
-              Conoce nuestro Centro de Educación y Formación Integral para el Trabajo.
+              Conoce nuestro Centro de Formación Integral AVEPANE.
             </p>
           </div>
 
