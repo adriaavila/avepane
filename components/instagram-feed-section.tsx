@@ -33,7 +33,7 @@ export async function InstagramFeedSection() {
         {posts.length > 0 && (
           <>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {posts.slice(0, 6).map((post) => (
+              {posts.slice(0, 3).map((post) => (
                 <InstagramPostCard key={post.id} post={post} />
               ))}
             </div>
@@ -64,7 +64,7 @@ export async function InstagramFeedSection() {
           <>
             {/* Show skeleton grid structure even when empty */}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {Array.from({ length: 6 }).map((_, index) => (
+              {Array.from({ length: 3 }).map((_, index) => (
                 <div
                   key={index}
                   className="aspect-square w-full rounded-xl bg-muted/30 border-2 border-dashed border-muted flex items-center justify-center"

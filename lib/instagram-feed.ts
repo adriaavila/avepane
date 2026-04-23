@@ -163,7 +163,7 @@ async function fetchInstagramProfileWithFetch() {
     headers: {
       "Accept": "application/json",
       "Referer": INSTAGRAM_PROFILE_URL,
-      "User-Agent": "Mozilla/5.0 (compatible; AVEPANEFeed/1.0; +https://www.instagram.com/avepane/)",
+      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
       "x-ig-app-id": INSTAGRAM_PUBLIC_APP_ID,
     },
     next: { revalidate: 3600 },
@@ -191,7 +191,7 @@ async function fetchInstagramProfileWithCurl() {
       "-H",
       `Referer: ${INSTAGRAM_PROFILE_URL}`,
       "-H",
-      "User-Agent: Mozilla/5.0",
+      "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
       "-H",
       `x-ig-app-id: ${INSTAGRAM_PUBLIC_APP_ID}`,
       "-w",
