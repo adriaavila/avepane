@@ -15,28 +15,127 @@ export const metadata = {
     "Conoce a los aliados reales que acompañan a AVEPANE y descubre cómo apoyar la continuidad de sus programas a través de donaciones y padrinazgo.",
 }
 
-const allies = [
+const allies: {
+  id: string
+  name: string
+  logo: string
+  logoContainerClassName?: string
+  link?: string | null
+}[] = [
+  {
+    id: "aquantys",
+    name: "Aquantys",
+    logo: "/aliados/Aquantys.jpg",
+    logoContainerClassName: "bg-white",
+  },
+  {
+    id: "asogin",
+    name: "Asogin",
+    logo: "/aliados/Asogin.jpg",
+    logoContainerClassName: "bg-white",
+  },
+  {
+    id: "atelier-de-pintores",
+    name: "Atelier de Pintores",
+    logo: "/aliados/Atelier de Pintores.jpg",
+    logoContainerClassName: "bg-white",
+  },
+  {
+    id: "ayl-impresion-digital",
+    name: "AyL Impresión digital",
+    logo: "/aliados/AyL Impresión digital.jpg",
+    logoContainerClassName: "bg-white",
+  },
+  {
+    id: "casa-avepane",
+    name: "Casa Avepane",
+    logo: "/aliados/Casa Avepane.jpg",
+    logoContainerClassName: "bg-white",
+  },
+  {
+    id: "ceta",
+    name: "Ceta",
+    logo: "/aliados/Ceta.jpg",
+    logoContainerClassName: "bg-white",
+  },
+  {
+    id: "colegio-marbe",
+    name: "Colegio Marbe",
+    logo: "/aliados/Colegio Marbe.jpg",
+    logoContainerClassName: "bg-white",
+  },
+  {
+    id: "consejo-municipal-de-baruta",
+    name: "Consejo Municipal de Baruta",
+    logo: "/aliados/Consejo Municipal de Baruta.jpg",
+    logoContainerClassName: "bg-white",
+  },
+  {
+    id: "cygne-porcelanas",
+    name: "Cygne Porcelanas",
+    logo: "/aliados/Cygne Porcelanas.jpg",
+    logoContainerClassName: "bg-white",
+  },
+  {
+    id: "digitel",
+    name: "Digitel",
+    logo: "/aliados/Digitel.jpg",
+    logoContainerClassName: "bg-white",
+  },
+  {
+    id: "movistar-venezuela",
+    name: "Movistar Venezuela",
+    logo: "/aliados/Movistar Venezuela.jpg",
+    logoContainerClassName: "bg-white",
+  },
+  {
+    id: "paramas",
+    name: "Paramas",
+    logo: "/aliados/Paramas.jpg",
+    logoContainerClassName: "bg-white",
+  },
+  {
+    id: "prenta-ccs",
+    name: "Prenta CCS",
+    logo: "/aliados/Prenta CCS.jpg",
+    logoContainerClassName: "bg-white",
+  },
+  {
+    id: "que-marquesas",
+    name: "Que Marquesas",
+    logo: "/aliados/Que Marquesas.jpg",
+    logoContainerClassName: "bg-white",
+  },
+  {
+    id: "vivero-la-montanita",
+    name: "Vivero La Montañita",
+    logo: "/aliados/Vivero La Montañita.jpg",
+    logoContainerClassName: "bg-white",
+  },
+  {
+    id: "wild-padel",
+    name: "Wild Padel",
+    logo: "/aliados/Wild Padel.jpg",
+    logoContainerClassName: "bg-white",
+  },
+  {
+    id: "zoom",
+    name: "Zoom",
+    logo: "/aliados/Zoom.jpg",
+    logoContainerClassName: "bg-white",
+  },
   {
     id: "selva",
     name: "Proyecto Niños de la Selva",
     logo: "/aliados/logo-proyecto-ninos-de-la-selva.png",
     logoContainerClassName: "bg-white",
-    description:
-      "Fundación con 28 años de labor filantrópica que ha concentrado esfuerzos en llevar medicinas, ropa, comida, juguetes y atención médico-odontológica a más de 1.300 niños de comunidades indígenas del sur de Venezuela. También impulsa útiles escolares, construcción de escuelas y expediciones solidarias junto a un equipo multidisciplinario liderado por Tony Velásquez.",
-    highlights: ["28 años", "+1.300 niños", "4 expediciones al año"],
     link: "https://www.anuv.co/programa-ni%C3%B1os-de-la-selva.php",
-    linkLabel: "Conocer el proyecto",
   },
   {
     id: "jabali",
     name: "Jabalí Coffee Club",
     logo: "/aliados/logo-jabali-coffee-club.jpg",
     logoContainerClassName: "bg-black",
-    description:
-      "Proyecto dedicado a proyectar la excelencia del café venezolano a través de toda su cadena de valor, honrando al productor local y diseñando experiencias de sabor personalizadas para sus clientes. Su visión apuesta por conectar de forma transparente la finca con la taza y elevar el estándar de calidad y pasión alrededor del café venezolano.",
-    highlights: ["Café venezolano", "Finca a taza", "Productor local"],
-    link: null,
-    linkLabel: "",
   },
 ]
 
@@ -87,54 +186,32 @@ export default function AlliesPage() {
             Organizaciones aliadas de AVEPANE
           </h2>
 
-          <div className="grid gap-8 lg:grid-cols-2">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {allies.map((ally) => (
-              <Card key={ally.id} className="border-border bg-background shadow-sm transition-shadow hover:shadow-lg">
-                <CardContent className="p-8">
-                  <div className="space-y-6">
-                    <div
-                      className={`relative flex min-h-[220px] items-center justify-center overflow-hidden rounded-2xl border border-border/60 p-6 ${ally.logoContainerClassName}`}
-                    >
+              <Card key={ally.id} className="border-border bg-background shadow-sm transition-shadow hover:shadow-lg overflow-hidden">
+                <div
+                  className={`relative flex h-[220px] w-full items-center justify-center p-6 ${ally.logoContainerClassName}`}
+                >
+                  {ally.link ? (
+                    <a href={ally.link} target="_blank" rel="noopener noreferrer" className="relative flex h-full w-full items-center justify-center">
                       <Image
                         src={ally.logo}
                         alt={`Logo de ${ally.name}`}
-                        width={360}
-                        height={260}
-                        className="h-auto max-h-[220px] w-auto max-w-full object-contain"
+                        fill
+                        className="object-contain p-4"
+                      />
+                    </a>
+                  ) : (
+                    <div className="relative flex h-full w-full items-center justify-center">
+                      <Image
+                        src={ally.logo}
+                        alt={`Logo de ${ally.name}`}
+                        fill
+                        className="object-contain p-4"
                       />
                     </div>
-
-                    <div className="space-y-3">
-                      <h3 className="font-heading text-2xl font-semibold text-balance">{ally.name}</h3>
-                      <p className="text-base leading-relaxed text-muted-foreground text-pretty">{ally.description}</p>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2">
-                      {ally.highlights.map((highlight) => (
-                        <span
-                          key={highlight}
-                          className="rounded-full bg-secondary/40 px-3 py-1 text-sm font-medium text-foreground"
-                        >
-                          {highlight}
-                        </span>
-                      ))}
-                    </div>
-
-                    {ally.link ? (
-                      <Button asChild variant="outline" className="w-full sm:w-auto">
-                        <a
-                          href={ally.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2"
-                        >
-                          {ally.linkLabel}
-                          <ExternalLink className="h-4 w-4" aria-hidden="true" />
-                        </a>
-                      </Button>
-                    ) : null}
-                  </div>
-                </CardContent>
+                  )}
+                </div>
               </Card>
             ))}
           </div>

@@ -6,7 +6,9 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { DonationVenezuelaForm } from "@/components/donation-venezuela-form"
 import { Heart, Brain, GraduationCap, Users, CheckCircle } from "lucide-react"
+import { Quote } from "lucide-react"
 import { PageSummary } from "@/components/page-summary"
+import Image from "next/image"
 
 const PAGE_SUMMARY = "Tu donación transforma vidas. En AVEPANE trabajamos para que personas con autismo y discapacidad intelectual tengan acceso a educación y oportunidades. Actualmente recibimos donaciones en Venezuela. Tu aporte financia terapias, formación y apoyo a familias."
 
@@ -104,14 +106,13 @@ export default function DonatePage() {
                 Tu donación transforma vidas.
               </h1>
               <p className="text-lg leading-relaxed text-pretty md:text-xl">
-                Ayuda a niños, adolescentes y familias con autismo en Venezuela a acceder a apoyo, inclusión y oportunidades reales.
+                Ayudar a personas con discapacidad intelectual, síndrome de Down y a sus familias en Venezuela a acceder a apoyo, inclusión y oportunidades reales.
               </p>
               <p className="text-base leading-relaxed text-pretty text-muted-foreground">
                 Donar es acompañar. Donar es incluir. Donar es transformar.
               </p>
               <p className="text-base leading-relaxed text-pretty">
-                En AVEPANE trabajamos cada día para que las personas con autismo y sus familias tengan acceso a atención, educación y oportunidades reales.
-                Tu aporte —grande o pequeño— tiene un impacto directo y medible.
+                En AVEPANE se trabaja cada día para que las personas con discapacidad intelectual, Síndrome de Down y sus familias tengan acceso a atención, educación y oportunidades reales. Tu aporte tiene un impacto directo y medible.
               </p>
               <PageSummary text={PAGE_SUMMARY} />
               <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground pt-2">
@@ -124,11 +125,13 @@ export default function DonatePage() {
             </div>
 
             <div className="relative h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-2xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                <Heart className="h-32 w-32 text-primary/30" aria-hidden="true" />
-              </div>
-              {/* Placeholder for real image */}
-              <div className="absolute inset-0 bg-primary/5" />
+              <Image
+                src="/activities/integracion.jpg"
+                alt="Comunidad AVEPANE en actividades de integración"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
           </div>
         </div>
@@ -204,6 +207,34 @@ export default function DonatePage() {
               <p className="text-muted-foreground">Familias atendidas</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Testimonial Section */}
+      <section className="py-16 md:py-20 bg-background" aria-labelledby="testimonial-heading">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <Card className="border-border bg-secondary/10 relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-8 opacity-5">
+              <Quote className="h-32 w-32" />
+            </div>
+            <CardContent className="p-8 md:p-12 relative">
+              <h2 id="testimonial-heading" className="sr-only">Testimonio de donación</h2>
+              <blockquote className="space-y-6">
+                <p className="text-lg md:text-xl leading-relaxed text-pretty italic text-foreground/90">
+                  "Decidí donar la elaboración y el desarrollo de esta página web porque creo firmemente en el poder de la educación y la inclusión. Quería aportar desde lo que sé hacer mejor: la tecnología. Apoyar a AVEPANE y a su increíble comunidad ha sido una experiencia profundamente gratificante. Cada línea de código es un grano de arena para que su mensaje llegue más lejos. Las donaciones no siempre tienen que ser de dinero; tu tiempo, talento o recursos también transforman vidas."
+                </p>
+                <footer className="flex items-center gap-4">
+                  <div className="h-12 w-12 rounded-full bg-primary/20 flex items-center justify-center font-bold text-primary text-xl">
+                    AA
+                  </div>
+                  <div>
+                    <div className="font-heading font-semibold text-lg">Adrian Avila</div>
+                    <div className="text-sm text-muted-foreground">Desarrollador y donante voluntario</div>
+                  </div>
+                </footer>
+              </blockquote>
+            </CardContent>
+          </Card>
         </div>
       </section>
 

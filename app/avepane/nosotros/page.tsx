@@ -70,7 +70,7 @@ export default function AboutPage() {
           <div className="grid gap-12 lg:grid-cols-2 items-start">
             <div className="relative h-96 lg:h-[560px]">
               <Image
-                src="/historical-photo-inclusive-education-venezuela-fou.jpg"
+                src="/Casa Avepane.jpg"
                 alt="Historia de AVEPANE - Edificio histórico y fundadores"
                 fill
                 className="object-cover rounded-xl shadow-xl"

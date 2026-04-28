@@ -21,7 +21,7 @@ export default function AvepanePage() {
       description: "Conoce nuestra historia, misión, visión, objetivos y valores institucionales.",
       href: "/avepane/nosotros",
       icon: History,
-      image: "/historical-photo-inclusive-education-venezuela-fou.jpg",
+      image: "/Casa Avepane.jpg",
       color: "from-secondary/30 to-background",
     },
     {
@@ -126,7 +126,7 @@ export default function AvepanePage() {
               </Button>
             </div>
             <div className="relative h-96 lg:h-[500px]">
-              <Image src="/historical-photo-inclusive-education-venezuela-fou.jpg" alt="Historia de AVEPANE" fill className="object-cover rounded-xl shadow-xl" />
+              <Image src="/Casa Avepane.jpg" alt="Historia de AVEPANE" fill className="object-cover rounded-xl shadow-xl" />
             </div>
           </div>
         </div>

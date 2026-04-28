@@ -3,7 +3,7 @@ title: "Bienvenidos a la nueva plataforma web de AVEPANE"
 date: "10 de Abril, 2026"
 category: "Noticia"
 description: "Nos enorgullece presentar nuestro renovado espacio digital, diseñado para acercar nuestra labor y hacer nuestra historia más accesible para todos."
-image: "/historical-photo-inclusive-education-venezuela-fou.jpg"
+image: "/Casa Avepane.jpg"
 slug: "bienvenidos-nueva-plataforma-web-avepane"
 ---
 

@@ -69,7 +69,7 @@ export default function VolunteersPage() {
 
       {/* Main Content Section */}
       <section className="py-12 md:py-16 bg-background" aria-labelledby="volunteering-heading">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="grid gap-8 lg:gap-12 lg:grid-cols-2 items-center">
             <div className="space-y-5">
               <h2 id="volunteering-heading" className="font-heading text-2xl font-bold md:text-3xl lg:text-4xl text-balance">
@@ -82,38 +82,6 @@ export default function VolunteersPage() {
                 <p>
                   Su propósito es sumar manos, ideas y compromiso a una labor que beneficia a jóvenes y adultos con discapacidad intelectual, al tiempo que fortalece el vínculo con sus familias y con la comunidad.
                 </p>
-
-                <div className="grid gap-4 md:grid-cols-2">
-                  <div className="bg-secondary/20 p-6 rounded-xl border border-border space-y-4">
-                    <h3 className="font-heading text-xl font-semibold text-primary flex items-center gap-2">
-                      <Heart className="h-5 w-5" />
-                      ¿Qué busca este programa?
-                    </h3>
-                    <ul className="space-y-3 text-muted-foreground">
-                      {programGoals.map((goal) => (
-                        <li key={goal} className="flex gap-3 items-start">
-                          <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
-                          <span>{goal}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="bg-primary/5 p-6 rounded-xl border border-primary/10 space-y-4">
-                    <h3 className="font-heading text-xl font-semibold text-primary flex items-center gap-2">
-                      <Users className="h-5 w-5" />
-                      ¿Por qué sumarte?
-                    </h3>
-                    <ul className="space-y-3 text-muted-foreground">
-                      {volunteerBenefits.map((benefit) => (
-                        <li key={benefit} className="flex gap-3 items-start">
-                          <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
-                          <span>{benefit}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
               </div>
               <Button
                 asChild
@@ -134,6 +102,48 @@ export default function VolunteersPage() {
                 fill
                 className="object-cover rounded-xl shadow-2xl"
               />
+            </div>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            <div className="bg-secondary/20 p-6 rounded-xl border border-border space-y-4">
+              <h3 className="font-heading text-xl font-semibold text-primary flex items-center gap-2">
+                <Heart className="h-5 w-5" />
+                ¿Qué busca este programa?
+              </h3>
+              <ul className="space-y-3 text-muted-foreground">
+                {programGoals.map((goal) => (
+                  <li key={goal} className="flex gap-3 items-start">
+                    <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
+                    <span>{goal}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-primary/5 p-6 rounded-xl border border-primary/10 space-y-4">
+              <h3 className="font-heading text-xl font-semibold text-primary flex items-center gap-2">
+                <Users className="h-5 w-5" />
+                ¿Por qué sumarte?
+              </h3>
+              <ul className="space-y-3 text-muted-foreground">
+                {volunteerBenefits.map((benefit) => (
+                  <li key={benefit} className="flex gap-3 items-start">
+                    <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
+                    <span>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="bg-accent/10 p-6 rounded-xl border border-accent/20 space-y-4">
+              <h3 className="font-heading text-xl font-semibold text-primary flex items-center gap-2">
+                <Users className="h-5 w-5" />
+                ¿Quiénes pueden sumarse?
+              </h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Empresas, Universidades, instituciones de educación media, fundaciones y particulares.
+              </p>
             </div>
           </div>
         </div>

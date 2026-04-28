@@ -114,9 +114,8 @@ const PARTICIPANT_PROFILE = [
     icon: ClipboardList,
     items: [
       "Diagnóstico de discapacidad intelectual o Síndrome de Down.",
-      "Joven o adulto en edad de formación para el trabajo.",
-      "Habilidades básicas de autocuidado, higiene y alimentación para desenvolverse en el entorno del taller.",
-      "Comunicación funcional, puntualidad y capacidad de trabajar con apoyo para favorecer la integración laboral.",
+      "Personas comprendidas entre los 15 y 45 años de edad.",
+      "Cédula, Rif y documentación básica.",
     ],
   },
 ]

@@ -6,6 +6,7 @@ import Image from "next/image"
 import { Heart, Users, Briefcase, ArrowRight, Gift, ShoppingBag, ExternalLink } from "lucide-react"
 import { PageSummary } from "@/components/page-summary"
 import { VIRTUAL_SHOWCASE_URL } from "@/lib/social-links"
+import { HeroCarousel } from "@/components/hero-carousel"
 
 const PAGE_SUMMARY = "AVEPANE fue fundada en 1963 como una asociación civil sin fines de lucro por padres, familiares y profesionales comprometidos con mejorar la calidad de vida de personas con discapacidad intelectual y sus familias. A través de programas especializados, promovemos inclusión, formación, autonomía y participación en la comunidad."
 
@@ -71,7 +72,7 @@ export default function HomePage() {
               <p className="text-lg leading-relaxed text-pretty md:text-xl">
                 <strong>AVEPANE</strong> fue fundada en <strong>1963</strong> como una asociación civil sin fines de lucro por
                 padres, familiares y profesionales comprometidos con mejorar la calidad de vida de personas con
-                discapacidad intelectual y sus familias. Hoy desarrollamos programas orientados a la inclusión, la
+                discapacidad intelectual y sus familias. Desarrollamos programas orientados a la inclusión, la
                 formación y la autonomía.
               </p>
               <PageSummary text={PAGE_SUMMARY} />
@@ -97,15 +98,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="relative h-96 lg:h-[500px]">
-              <Image
-                src="/activities/hero-community.jpg"
-                alt="Comunidad AVEPANE celebrando juntos en un ambiente inclusivo y de apoyo"
-                fill
-                className="object-cover rounded-xl shadow-2xl"
-                priority
-              />
-            </div>
+            <HeroCarousel />
           </div>
         </div>
       </section>
@@ -263,7 +256,7 @@ export default function HomePage() {
 
             <div className="relative">
               <Image
-                src="/photos-cm/IMG_3066.JPG"
+                src="/photos-cm/vitrina.jpg"
                 alt="Participante de AVEPANE mostrando productos elaborados a mano para la vitrina virtual"
                 width={1200}
                 height={800}
