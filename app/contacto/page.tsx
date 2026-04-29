@@ -113,7 +113,7 @@ export default function ContactPage() {
                         <div>
                           <h3 className="font-heading text-lg font-semibold">Dirección</h3>
                           <p className="text-muted-foreground leading-relaxed">
-                            Avenida La Guairita, Benzecri de Benmergui, Calle Reyna, Caracas 1050, Miranda, Venezuela
+                            Avenida La Guairita, Calle Reyna Benzecri de Benmergui, Sector La Tahona, Urbanización La Trinidad, Municipio Baruta, Caracas 1080, Miranda, Venezuela
                           </p>
                         </div>
                         <Button
