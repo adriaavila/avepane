@@ -23,33 +23,15 @@ const allies: {
   link?: string | null
 }[] = [
   {
-    id: "aquantys",
-    name: "Aquantys",
-    logo: "/aliados/Aquantys.jpg",
-    logoContainerClassName: "bg-white",
-  },
-  {
     id: "asogin",
     name: "Asogin",
     logo: "/aliados/Asogin.jpg",
     logoContainerClassName: "bg-white",
   },
   {
-    id: "atelier-de-pintores",
-    name: "Atelier de Pintores",
-    logo: "/aliados/Atelier de Pintores.jpg",
-    logoContainerClassName: "bg-white",
-  },
-  {
     id: "ayl-impresion-digital",
     name: "AyL Impresión digital",
-    logo: "/aliados/AyL Impresión digital.jpg",
-    logoContainerClassName: "bg-white",
-  },
-  {
-    id: "casa-avepane",
-    name: "Casa Avepane",
-    logo: "/aliados/Casa Avepane.jpg",
+    logo: "/aliados/ayl-impresion-digital.jpg",
     logoContainerClassName: "bg-white",
   },
   {
@@ -64,18 +46,21 @@ const allies: {
     logo: "/aliados/Colegio Marbe.jpg",
     logoContainerClassName: "bg-white",
   },
+  /*
   {
     id: "consejo-municipal-de-baruta",
     name: "Consejo Municipal de Baruta",
     logo: "/aliados/Consejo Municipal de Baruta.jpg",
     logoContainerClassName: "bg-white",
   },
+  */
   {
     id: "cygne-porcelanas",
     name: "Cygne Porcelanas",
     logo: "/aliados/Cygne Porcelanas.jpg",
     logoContainerClassName: "bg-white",
   },
+  /*
   {
     id: "digitel",
     name: "Digitel",
@@ -88,6 +73,7 @@ const allies: {
     logo: "/aliados/Movistar Venezuela.jpg",
     logoContainerClassName: "bg-white",
   },
+  */
   {
     id: "paramas",
     name: "Paramas",
@@ -100,16 +86,18 @@ const allies: {
     logo: "/aliados/Prenta CCS.jpg",
     logoContainerClassName: "bg-white",
   },
+  /*
   {
     id: "que-marquesas",
     name: "Que Marquesas",
     logo: "/aliados/Que Marquesas.jpg",
     logoContainerClassName: "bg-white",
   },
+  */
   {
     id: "vivero-la-montanita",
     name: "Vivero La Montañita",
-    logo: "/aliados/Vivero La Montañita.jpg",
+    logo: "/aliados/vivero-la-montanita.jpg",
     logoContainerClassName: "bg-white",
   },
   {
@@ -136,6 +124,24 @@ const allies: {
     name: "Jabalí Coffee Club",
     logo: "/aliados/logo-jabali-coffee-club.jpg",
     logoContainerClassName: "bg-black",
+  },
+  {
+    id: "morsas-superstore",
+    name: "Morsas Superstore",
+    logo: "/aliados/Morsas Superstore.jpeg",
+    logoContainerClassName: "bg-white",
+  },
+  {
+    id: "artesanos",
+    name: "Artesanos",
+    logo: "/aliados/Artesanos.jpeg",
+    logoContainerClassName: "bg-white",
+  },
+  {
+    id: "serigrafia-total",
+    name: "Serigrafía Total",
+    logo: "/aliados/serigrafia total.jpeg",
+    logoContainerClassName: "bg-white",
   },
 ]
 
@@ -190,7 +196,7 @@ export default function AlliesPage() {
             {allies.map((ally) => (
               <Card key={ally.id} className="border-border bg-background shadow-sm transition-shadow hover:shadow-lg overflow-hidden">
                 <div
-                  className={`relative flex h-[220px] w-full items-center justify-center p-6 ${ally.logoContainerClassName}`}
+                  className={`relative flex h-[220px] w-full items-center justify-center p-2 ${ally.logoContainerClassName}`}
                 >
                   {ally.link ? (
                     <a href={ally.link} target="_blank" rel="noopener noreferrer" className="relative flex h-full w-full items-center justify-center">
@@ -198,7 +204,7 @@ export default function AlliesPage() {
                         src={ally.logo}
                         alt={`Logo de ${ally.name}`}
                         fill
-                        className="object-contain p-4"
+                        className="object-contain p-2"
                       />
                     </a>
                   ) : (
@@ -207,7 +213,7 @@ export default function AlliesPage() {
                         src={ally.logo}
                         alt={`Logo de ${ally.name}`}
                         fill
-                        className="object-contain p-4"
+                        className="object-contain p-2"
                       />
                     </div>
                   )}
