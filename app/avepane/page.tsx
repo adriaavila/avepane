@@ -29,7 +29,7 @@ export default function AvepanePage() {
       description: "Únete como voluntario a AVEPANE y acompaña una labor orientada a la inclusión, la formación y el bienestar de nuestra comunidad.",
       href: "/avepane/voluntarios",
       icon: Heart,
-      image: "/volunteers-helping-people-disabilities-community-s.jpg",
+      image: "/voluntariado.png",
       color: "from-primary to-primary/90",
     },
     {
@@ -37,7 +37,7 @@ export default function AvepanePage() {
       description: "Descubre productos y creaciones elaboradas por participantes de AVEPANE en sus procesos de formación y desarrollo.",
       href: "/avepane/vitrina",
       icon: ShoppingBag,
-      image: "/virtual-market-handmade-crafts-bazaar-products.jpg",
+      image: "/photos-cm/vitrina.jpg",
       color: "from-primary/10 to-background",
     },
   ]

@@ -20,17 +20,17 @@ export default function VitrinaPage() {
     {
       title: "Piezas de la vitrina",
       description: "Selección de productos elaborados por participantes en distintos talleres de AVEPANE.",
-      image: "/virtual-market-handmade-crafts-bazaar-products.jpg",
+      image: "/photos-cm/IMG_3066.JPG",
     },
     {
       title: "Proceso creativo",
       description: "Actividades donde se fortalecen creatividad, expresión y dedicación en cada pieza.",
-      image: "/art-workshop-creativity-painting-disabilities-incl.jpg",
+      image: "/photos-cm/IMG_3079 2.JPG",
     },
     {
       title: "Trabajo en taller",
       description: "Espacios formativos donde el aprendizaje se convierte en productos con valor para la comunidad.",
-      image: "/inclusive-activities-workshop-training-disabilitie.jpg",
+      image: "/photos-cm/IMG_3014 2.JPG",
     },
   ]
 

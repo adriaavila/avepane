@@ -97,7 +97,7 @@ export default function VolunteersPage() {
 
             <div className="relative h-80 md:h-96 lg:h-[500px]">
               <Image
-                src="/volunteers-helping-people-disabilities-community-s.jpg"
+                src="/voluntariado.png"
                 alt="Voluntarios de AVEPANE trabajando con la comunidad"
                 fill
                 className="object-cover rounded-xl shadow-2xl"
@@ -141,9 +141,14 @@ export default function VolunteersPage() {
                 <Users className="h-5 w-5" />
                 ¿Quiénes pueden sumarse?
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Empresas, Universidades, instituciones de educación media, fundaciones y particulares.
-              </p>
+              <ul className="space-y-3 text-muted-foreground">
+                {["Empresas", "Universidades", "Instituciones de educación media", "Fundaciones", "Particulares"].map((item) => (
+                  <li key={item} className="flex gap-3 items-start">
+                    <div className="h-2 w-2 rounded-full bg-primary mt-2 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

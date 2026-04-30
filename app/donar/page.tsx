@@ -126,7 +126,7 @@ export default function DonatePage() {
 
             <div className="relative h-96 lg:h-[500px] rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="/activities/integracion.jpg"
+                src="/donar.JPG"
                 alt="Comunidad AVEPANE en actividades de integración"
                 fill
                 className="object-cover"
