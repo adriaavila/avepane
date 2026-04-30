@@ -143,6 +143,18 @@ const allies: {
     logo: "/aliados/serigrafia total.jpeg",
     logoContainerClassName: "bg-white",
   },
+  {
+    id: "acolor",
+    name: "Acolor",
+    logo: "/aliados/1.-Acolor-(Imagotipo).png",
+    logoContainerClassName: "bg-white",
+  },
+  {
+    id: "cf",
+    name: "CF",
+    logo: "/aliados/CF.png",
+    logoContainerClassName: "bg-white",
+  },
 ]
 
 const supportOptions = [
