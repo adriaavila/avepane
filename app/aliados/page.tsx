@@ -155,6 +155,12 @@ const allies: {
     logo: "/aliados/CF.png",
     logoContainerClassName: "bg-white",
   },
+  {
+    id: "panaderia",
+    name: "Panadería",
+    logo: "/aliados/panaderia.jpeg",
+    logoContainerClassName: "bg-white",
+  },
 ]
 
 const supportOptions = [
