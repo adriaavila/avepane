@@ -220,9 +220,7 @@ export default function ContactPage() {
                       <div className="space-y-1">
                         <h3 className="font-heading text-lg font-semibold">Horario de atención</h3>
                         <p className="text-muted-foreground leading-relaxed">
-                          Lunes a Viernes: 8:00 AM - 5:00 PM
-                          <br />
-                          Sábados: 9:00 AM - 1:00 PM
+                          Lunes a Viernes: 8:00 AM - 4:00 PM
                         </p>
                       </div>
                     </div>
