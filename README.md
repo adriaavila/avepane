@@ -2,6 +2,8 @@
 
 Sitio web institucional para **AVEPANE**, una organización con más de 50 años de trabajo en inclusión, formación y oportunidades para personas con discapacidad intelectual en Venezuela.
 
+**En vivo:** https://avepane.org · **Categoría:** Web · **Estado:** en producción
+
 ## Qué es este proyecto
 
 Este proyecto traduce una misión social compleja en una experiencia web clara, humana y navegable. La plataforma presenta la organización, sus programas, su impacto y los distintos caminos para conectar con la causa.
@@ -53,3 +55,7 @@ npm run dev
 ## Enlace del proyecto
 
 - Repositorio: https://github.com/adriaavila/avepane
+---
+
+**Construido por [creativ3](https://allok.fun)** — software y automatización para negocios.
+[Ver el portafolio](https://allok.fun/projects) · [Pedir cotización](https://allok.fun/cotizar)
